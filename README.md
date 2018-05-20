@@ -1,11 +1,10 @@
 ## KotlinLib
 
-
-
 use Gradle:
 
 ```
 repositories {
+  maven { url "https://jitpack.io" }
   mavenCentral()
   google()
 }
