@@ -46,6 +46,10 @@ dependencies {
     api 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     api 'com.youth.banner:banner:1.4.9'
     api 'com.rengwuxian.materialedittext:library:2.1.4'
+    api 'org.raphets:roundimageview:1.2.0'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+    api 'com.mylhyl:acp:1.2.0'
 
 }
 repositories {
