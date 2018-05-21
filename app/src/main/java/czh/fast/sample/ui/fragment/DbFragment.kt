@@ -4,17 +4,18 @@ import android.graphics.Canvas
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
+import android.view.View
 import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback
 import com.chad.library.adapter.base.listener.OnItemDragListener
 import com.chad.library.adapter.base.listener.OnItemSwipeListener
 import com.raizlabs.android.dbflow.sql.language.Select
-import czh.fast.lib.utils.textString
+import czh.fast.lib.base.LazyFragment
 import czh.fast.lib.utils.checkALL
 import czh.fast.lib.utils.getInflaterView
+import czh.fast.lib.utils.textString
 import czh.fast.lib.utils.toast
 import czh.fast.lib.widget.SimpleDividerDecoration
 import czh.fast.sample.R
-import czh.fast.lib.base.LazyFragment
 import czh.fast.sample.db.User
 import czh.fast.sample.db.User_Table
 import czh.fast.sample.ui.adapter.DemoAdapter
@@ -22,20 +23,46 @@ import kotlinx.android.synthetic.main.fragment_db.*
 
 
 class DbFragment : LazyFragment() {
-    var mAdapter: DemoAdapter? = null
+
+    val mAdapter by lazy {
+        DemoAdapter(R.layout.item, mList)
+    }
+
+    private var mList = arrayListOf<User>()
+
     override val layoutResource: Int
         get() = R.layout.fragment_db
 
+    override val views: List<View>?
+        get() = null
+
+    override fun onClick(v: View?) {
+
+    }
+
     override fun afterInitView() {
-        queryList()
+        mAdapter.run {
+            addHeaderView(mContext.getInflaterView(R.layout.item))
+            val itemDragAndSwipeCallback = ItemDragAndSwipeCallback(this)
+            val itemTouchHelper = ItemTouchHelper(itemDragAndSwipeCallback)
+            itemTouchHelper.attachToRecyclerView(rcv)
+            // 开启拖拽
+            enableDragItem(itemTouchHelper, R.id.tvName, true)
+            setOnItemDragListener(onItemDragListener())
+
+            // 开启滑动删除
+            enableSwipeItem()
+            setOnItemSwipeListener(onItemSwipeListener())
+        }
         rcv.run {
             addItemDecoration(SimpleDividerDecoration(0xffe5e5e5.toInt(), 1))
             layoutManager = LinearLayoutManager(activity)
             rcv.adapter = mAdapter
         }
+        queryList()
         tvAdd.setOnClickListener {
             if (!checkALL(arrayOf(et_ext1, et_ext2))) {
-                activity?.toast("输入不能为空")
+                mContext.toast("输入不能为空")
                 return@setOnClickListener
             }
 
@@ -48,7 +75,7 @@ class DbFragment : LazyFragment() {
                 db.save()
                 queryList()
             } else {
-                activity?.toast("重复名字")
+                mContext.toast("重复名字")
             }
         }
 
@@ -56,28 +83,7 @@ class DbFragment : LazyFragment() {
 
     private fun queryList() {
         val mList = Select().from(User::class.java).queryList()
-        mAdapter?.let {
-            it.setNewData(mList)
-        } ?: kotlin.run {
-            mAdapter = DemoAdapter(R.layout.item, mList)
-
-
-            mAdapter?.run {
-                addHeaderView(activity?.getInflaterView(R.layout.item))
-                val itemDragAndSwipeCallback = ItemDragAndSwipeCallback(this)
-                val itemTouchHelper = ItemTouchHelper(itemDragAndSwipeCallback)
-                itemTouchHelper.attachToRecyclerView(rcv)
-                // 开启拖拽
-                enableDragItem(itemTouchHelper, R.id.tvName, true);
-                setOnItemDragListener(onItemDragListener())
-
-                // 开启滑动删除
-                enableSwipeItem()
-                setOnItemSwipeListener(onItemSwipeListener())
-            }
-
-
-        }
+        mAdapter.setNewData(mList)
     }
 
     private fun onItemSwipeListener(): OnItemSwipeListener {

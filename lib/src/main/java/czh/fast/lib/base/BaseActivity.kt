@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.util.Log
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import com.czh.library.LoadingDialog
@@ -18,7 +19,7 @@ import czh.fast.lib.utils.RomUtils
 import czh.fast.lib.utils.StatusBarUtil
 
 //Activity基类
-abstract class BaseActivity : AutoLayoutActivity() {
+abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener {
     lateinit var mContext: Context
 
     override fun onStart() {
@@ -33,6 +34,7 @@ abstract class BaseActivity : AutoLayoutActivity() {
         //设置状态栏颜色
         StatusBarUtil.setColor(this, ContextCompat.getColor(applicationContext, R.color.colorPrimary), 0)
         mContext = this
+        views?.forEach { it.setOnClickListener(this) }
         afterInitView()
     }
 
@@ -57,6 +59,10 @@ abstract class BaseActivity : AutoLayoutActivity() {
     //初始化view
     abstract fun afterInitView()
 
+
+    //点击事件view列表
+    protected abstract val views: List<View>?
+
     //浅色状态栏
     fun setLightStatusBar() {
         StatusBarUtil.setColor(this, 0xffffffff.toInt(), 0)
@@ -78,7 +84,6 @@ abstract class BaseActivity : AutoLayoutActivity() {
     fun stopLoading() {
         mLoading?.dismiss()
     }
-
 
 
     override fun onDestroy() {
