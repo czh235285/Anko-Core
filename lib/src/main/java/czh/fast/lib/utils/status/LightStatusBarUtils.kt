@@ -1,4 +1,4 @@
-package czh.fast.lib.utils
+package czh.fast.lib.utils.status
 
 /**
  * Created by Dell on 2017/9/15.
@@ -8,12 +8,12 @@ package czh.fast.lib.utils
 object LightStatusBarUtils {
 
     fun setLightStatusBar(activity: android.app.Activity, dark: Boolean) {
-        when (RomUtils.Companion.lightStatausBarAvailableRomType) {
-            RomUtils.AvailableRomType.MIUI -> LightStatusBarUtils.setMIUILightStatusBar(activity, dark)
+        when (RomUtils.lightStatausBarAvailableRomType) {
+            RomUtils.AvailableRomType.MIUI -> setMIUILightStatusBar(activity, dark)
 
-            RomUtils.AvailableRomType.FLYME -> LightStatusBarUtils.setFlymeLightStatusBar(activity, dark)
+            RomUtils.AvailableRomType.FLYME -> setFlymeLightStatusBar(activity, dark)
 
-            RomUtils.AvailableRomType.ANDROID_NATIVE -> LightStatusBarUtils.setAndroidNativeLightStatusBar(activity, dark)
+            RomUtils.AvailableRomType.ANDROID_NATIVE -> setAndroidNativeLightStatusBar(activity, dark)
 
             RomUtils.AvailableRomType.NA -> {
             }

@@ -1,4 +1,4 @@
-package czh.fast.lib.utils
+package czh.fast.lib.utils.status
 
 import android.view.View
 import android.view.ViewGroup

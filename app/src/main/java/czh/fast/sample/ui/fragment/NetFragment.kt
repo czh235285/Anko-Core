@@ -7,7 +7,7 @@ import com.vise.xsnow.http.mode.CacheMode
 import czh.fast.lib.base.LazyFragment
 import czh.fast.lib.utils.GlideImageLoader
 import czh.fast.sample.R
-import czh.fast.sample.commons.apiservice
+import czh.fast.sample.api.apiservice
 import czh.fast.sample.ui.model.Advert
 import kotlinx.android.synthetic.main.fragment_net.*
 

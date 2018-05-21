@@ -14,9 +14,9 @@ import com.vise.xsnow.http.ViseHttp
 import com.zhy.autolayout.AutoLayoutActivity
 import czh.fast.lib.R
 import czh.fast.lib.utils.AppManager
-import czh.fast.lib.utils.LightStatusBarUtils
-import czh.fast.lib.utils.RomUtils
-import czh.fast.lib.utils.StatusBarUtil
+import czh.fast.lib.utils.status.LightStatusBarUtils
+import czh.fast.lib.utils.status.RomUtils
+import czh.fast.lib.utils.status.StatusBarUtil
 
 //Activity基类
 abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener {

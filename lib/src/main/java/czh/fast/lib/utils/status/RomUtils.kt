@@ -1,4 +1,4 @@
-package czh.fast.lib.utils
+package czh.fast.lib.utils.status
 
 import android.os.Build
 import android.text.TextUtils
