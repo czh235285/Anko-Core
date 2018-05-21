@@ -13,7 +13,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.github.czh235285:KotlinLib:V1.0.1'
+  implementation 'com.github.czh235285:KotlinLib:latest.release'
 }
 ```
 ## 介绍
