@@ -1,4 +1,4 @@
-## KotlinLib
+## FastKotlin
 
 用于自己快速开发的框架，加入了许多项目通用的东西，免去重复造轮子,待完善。。。
 
@@ -13,7 +13,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.github.czh235285:KotlinLib:latest.release'
+  implementation 'com.github.czh235285:FastKotlin:latest.release'
 }
 ```
 ## 介绍
