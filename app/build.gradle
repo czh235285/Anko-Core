@@ -18,6 +18,38 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.name.endsWith("Debug")) {
+                //debug包
+                outputFileName = "$applicationId _v${defaultConfig.versionName}_${debugTime()}_code${defaultConfig.versionCode}_debug.apk"
+            } else {
+                //release包
+                outputFileName = "$applicationId _v${defaultConfig.versionName}_code${defaultConfig.versionCode}_${releaseTime()}_release.apk"
+            }
+        }
+    }
+
+
+
+}
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd-HH-mm", TimeZone.getDefault())//包含时分秒
+}
+
+static def debugTime() {
+    return new Date().format("yyyy", TimeZone.getDefault())
+}
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.1'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -27,15 +59,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':lib')
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(':lib')
 
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     // gradle 3.0.0 可以使用 implementation，否则用 compile
     api "com.github.Raizlabs.DBFlow:dbflow-core:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
-
 }
 repositories {
     mavenCentral()

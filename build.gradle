@@ -1,8 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.41'
-    ext.dbflow_version = "4.1.2"
+    ext {
+        kotlin_version = '1.2.41'
+        dbflow_version = "4.1.2"
+        anko_version='0.10.5'
+    }
     repositories {
         google()
         jcenter()

@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 
 fun View.gone() {
@@ -22,7 +23,7 @@ fun View.visible() {
     this.visibility = View.VISIBLE
 }
 
-fun EditText.TextContent(): String = this.text.toString().trim()
+fun EditText.textString(): String = this.text.toString().trim()
 fun EditText.isEmpty(): Boolean = this.text.toString().trim().isEmpty()
 fun EditText.isNotEmpty(): Boolean = this.text.toString().trim().isNotEmpty()
 
@@ -38,15 +39,4 @@ fun checkALL(all: Array<EditText>): Boolean {
         }
     }
     return true
-}
-
-fun ImageView.load(url: Any, resourceId: Int? = null) {
-    Glide.with(context).load(url).apply(RequestOptions().apply {
-        centerCrop()
-        resourceId?.let {
-            placeholder(it)
-            error(it)
-        }
-    }).into(this)
-
 }

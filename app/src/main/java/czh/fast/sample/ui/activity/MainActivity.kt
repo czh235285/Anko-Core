@@ -8,7 +8,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener
 import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.toast
 import czh.fast.sample.R
-import czh.fast.sample.base.BaseActivity
+import czh.fast.lib.base.BaseActivity
 import czh.fast.sample.ui.fragment.DbFragment
 import czh.fast.sample.ui.fragment.NetFragment
 import czh.fast.sample.ui.model.TabEntity

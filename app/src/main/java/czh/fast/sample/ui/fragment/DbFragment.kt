@@ -8,13 +8,13 @@ import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback
 import com.chad.library.adapter.base.listener.OnItemDragListener
 import com.chad.library.adapter.base.listener.OnItemSwipeListener
 import com.raizlabs.android.dbflow.sql.language.Select
-import czh.fast.lib.utils.TextContent
+import czh.fast.lib.utils.textString
 import czh.fast.lib.utils.checkALL
 import czh.fast.lib.utils.getInflaterView
 import czh.fast.lib.utils.toast
 import czh.fast.lib.widget.SimpleDividerDecoration
 import czh.fast.sample.R
-import czh.fast.sample.base.LazyFragment
+import czh.fast.lib.base.LazyFragment
 import czh.fast.sample.db.User
 import czh.fast.sample.db.User_Table
 import czh.fast.sample.ui.adapter.DemoAdapter
@@ -40,11 +40,11 @@ class DbFragment : LazyFragment() {
             }
 
 
-            val mList = Select().from(User::class.java).where(User_Table.urerName.`is`(et_ext1.TextContent())).queryList()
+            val mList = Select().from(User::class.java).where(User_Table.urerName.`is`(et_ext1.textString())).queryList()
             if (mList.size == 0) {
                 val db = User()
-                db.urerName = et_ext1.TextContent()
-                db.urerAge = et_ext2.TextContent().toInt()
+                db.urerName = et_ext1.textString()
+                db.urerAge = et_ext2.textString().toInt()
                 db.save()
                 queryList()
             } else {

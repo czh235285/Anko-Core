@@ -1,8 +1,7 @@
-package czh.fast.sample.base
+package czh.fast.lib.base
 
 
 import android.content.Context
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -12,18 +11,15 @@ import android.view.WindowManager
 import com.czh.library.LoadingDialog
 import com.vise.xsnow.http.ViseHttp
 import com.zhy.autolayout.AutoLayoutActivity
+import czh.fast.lib.R
 import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.LightStatusBarUtils
 import czh.fast.lib.utils.RomUtils
 import czh.fast.lib.utils.StatusBarUtil
-import czh.fast.sample.R
-import czh.fast.sample.api.ApiService
-
 
 //Activity基类
 abstract class BaseActivity : AutoLayoutActivity() {
-    var apiservice = ViseHttp.RETROFIT<Any>().create<ApiService>(ApiService::class.java)
-    var mContext: Context? = null
+    lateinit var mContext: Context
 
     override fun onStart() {
         super.onStart()
@@ -34,6 +30,7 @@ abstract class BaseActivity : AutoLayoutActivity() {
         super.onCreate(savedInstanceState)
         doBeforeSetcontentView()
         setContentView(layoutId)
+        //设置状态栏颜色
         StatusBarUtil.setColor(this, ContextCompat.getColor(applicationContext, R.color.colorPrimary), 0)
         mContext = this
         afterInitView()
@@ -59,7 +56,6 @@ abstract class BaseActivity : AutoLayoutActivity() {
 
     //初始化view
     abstract fun afterInitView()
-
 
     //浅色状态栏
     fun setLightStatusBar() {

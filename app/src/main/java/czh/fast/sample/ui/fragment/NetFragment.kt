@@ -7,11 +7,20 @@ import com.vise.xsnow.http.core.ApiTransformer
 import com.vise.xsnow.http.mode.CacheMode
 import czh.fast.lib.utils.GlideImageLoader
 import czh.fast.sample.R
-import czh.fast.sample.base.LazyFragment
+import czh.fast.lib.base.LazyFragment
+import czh.fast.sample.commons.apiservice
 import czh.fast.sample.ui.model.Advert
 import kotlinx.android.synthetic.main.fragment_net.*
 
 class NetFragment : LazyFragment(), View.OnClickListener {
+    override val layoutResource: Int
+        get() = R.layout.fragment_net
+
+    override fun afterInitView() {
+        tvNormal.setOnClickListener(this)
+        tvCache.setOnClickListener(this)
+    }
+
     override fun onClick(v: View?) {
         when (v) {
             tvNormal -> {
@@ -53,14 +62,6 @@ class NetFragment : LazyFragment(), View.OnClickListener {
             }
         }
         banner.setImages(images).setImageLoader(GlideImageLoader()).start()
-    }
-
-    override val layoutResource: Int
-        get() = R.layout.fragment_net
-
-    override fun afterInitView() {
-        tvNormal.setOnClickListener(this)
-        tvCache.setOnClickListener(this)
     }
 
     companion object {

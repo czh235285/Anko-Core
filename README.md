@@ -2,6 +2,8 @@
 
 用于自己快速开发的框架，加入了许多项目通用的东西，免去重复造轮子,待完善。。。
 
+kotlin常用插件 JsonToKotlinClass同java的GsonFormat
+
 use Gradle:
 
 ```
@@ -20,3 +22,42 @@ dependencies {
 * 网络请求用的 [xsnow](https://github.com/xiaoyaoyou1212/XSnow)（基于Retrofit2二次封装的框架，缓存方面封装比较好，直接拿来用了）
 * 数据库 [dbflow](https://github.com/Raizlabs/DBFlow)(目前最好用的安卓数据库)
 * 通用adapter [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
+
+
+
+加载图片:
+
+```
+
+一行代码简单调用
+
+imageView.load(url)  
+
+```
+
+跳转Activity:
+
+```
+
+不带参数
+warpActivity<OtherActivity>()  或者 warpActivityForResult<OtherActivity>(500)
+
+传值
+warpActivity<OtherActivity>("id" to 1,"name" to "姓名")  或者 warpActivityForResult<OtherActivity>(500,"id" to 1,"name" to "姓名")
+
+OtherActivity获取参数
+
+val id=intent.extras.getInt("id")
+val name=intent.extras.getString("name")
+
+```
+
+Dialog:
+
+```
+
+一行代码简单调用
+
+ showDialog("提示语")  或者  showDialog("提示语",{ //确定按钮操作})
+
+```
