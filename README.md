@@ -19,6 +19,7 @@ dependencies {
 ## 介绍
 
 * 一个简单的Demo，初学kotlin的可以看看
+* 沉浸式状态栏，浅色状态栏。具体看BaseActivity
 * 网络请求用的 [xsnow](https://github.com/xiaoyaoyou1212/XSnow)（基于Retrofit2二次封装的框架，缓存方面封装比较好，直接拿来用了）
 * 数据库 [dbflow](https://github.com/Raizlabs/DBFlow)(目前最好用的安卓数据库)
 * 通用adapter [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
@@ -40,10 +41,12 @@ imageView.load(url)
 ```
 
 不带参数
-warpActivity<OtherActivity>()  或者 warpActivityForResult<OtherActivity>(500)
+warpActivity<OtherActivity>()  或者
+warpActivityForResult<OtherActivity>(500)
 
 传值
-warpActivity<OtherActivity>("id" to 1,"name" to "姓名")  或者 warpActivityForResult<OtherActivity>(500,"id" to 1,"name" to "姓名")
+warpActivity<OtherActivity>("id" to 1,"name" to "姓名")  或者
+warpActivityForResult<OtherActivity>(500,"id" to 1,"name" to "姓名")
 
 OtherActivity获取参数
 
@@ -58,6 +61,17 @@ Dialog:
 
 一行代码简单调用
 
- showDialog("提示语")  或者  showDialog("提示语",{ //确定按钮操作})
+ showDialog("提示语")  或者
+ showDialog("提示语",{ //确定按钮操作})
+
+```
+
+网络请求加载动画:
+
+```
+
+仿百度加载动画
+ showLoading()
+ stopLoading()
 
 ```
