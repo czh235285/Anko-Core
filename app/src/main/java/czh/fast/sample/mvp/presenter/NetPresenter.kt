@@ -1,8 +1,8 @@
 package czh.fast.sample.mvp.presenter
 
 import com.vise.xsnow.http.ViseHttp
-import com.vise.xsnow.http.core.ApiTransformer
 import com.vise.xsnow.http.mode.CacheMode
+import czh.fast.lib.utils.norTransformer
 import czh.fast.sample.api.apiservice
 import czh.fast.sample.mvp.contract.NetContract
 import czh.fast.sample.mvp.model.Advert
@@ -15,7 +15,7 @@ class NetPresenter(private val netView: NetContract.View) : NetContract.Presente
 
     override fun normalTask() {
         netView.showLoading()
-        apiservice.getAdvert().compose(ApiTransformer.norTransformer())
+        apiservice.getAdvert().compose(norTransformer())
                 .subscribe {
                     netView.showResult(it)
                     netView.hideLoading()
@@ -24,7 +24,7 @@ class NetPresenter(private val netView: NetContract.View) : NetContract.Presente
     }
 
     override fun cacheTask() {
-        apiservice.getAdvert().compose(ApiTransformer.norTransformer())
+        apiservice.getAdvert().compose(norTransformer())
                 .compose(ViseHttp.getApiCache().transformer(CacheMode.CACHE_AND_REMOTE, Advert::class.java))
                 .subscribe {
                     netView.showResult(it.cacheData)
