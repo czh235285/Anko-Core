@@ -12,7 +12,7 @@ import com.vise.xsnow.http.ViseHttp
 
 
 //fragment基类
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment(),loadingView {
     lateinit var mContext: Context
     protected var rootView: View? = null
 
@@ -45,14 +45,14 @@ abstract class BaseFragment : Fragment() {
     }
 
     private var mLoading: LoadingDialog? = null
-    fun showLoading() {
+    override fun showLoading() {
         if (mLoading == null) {
             mLoading = LoadingDialog(activity!!)
         }
         mLoading?.show()
     }
 
-    fun stopLoading() {
+    override fun hideLoading() {
         mLoading?.dismiss()
     }
 

@@ -1,8 +1,7 @@
 package czh.fast.sample.api
 
-import czh.fast.sample.ui.model.Advert
+import czh.fast.sample.mvp.model.Advert
 import io.reactivex.Observable
-import okhttp3.ResponseBody
 import retrofit2.http.GET
 
 

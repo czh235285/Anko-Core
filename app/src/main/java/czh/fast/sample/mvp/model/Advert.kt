@@ -1,4 +1,4 @@
-package czh.fast.sample.ui.model
+package czh.fast.sample.mvp.model
 
 import java.io.Serializable
 

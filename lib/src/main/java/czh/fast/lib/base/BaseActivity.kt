@@ -18,7 +18,7 @@ import czh.fast.lib.utils.RomUtils
 import czh.fast.lib.utils.StatusBarUtil
 
 //Activity基类
-abstract class BaseActivity : AutoLayoutActivity() {
+abstract class BaseActivity : AutoLayoutActivity(), loadingView {
     lateinit var mContext: Context
 
     override fun onStart() {
@@ -68,17 +68,16 @@ abstract class BaseActivity : AutoLayoutActivity() {
     }
 
     private var mLoading: LoadingDialog? = null
-    fun showLoading() {
+    override fun showLoading() {
         if (mLoading == null) {
             mLoading = LoadingDialog(this)
         }
         mLoading?.show()
     }
 
-    fun stopLoading() {
+    override fun hideLoading() {
         mLoading?.dismiss()
     }
-
 
 
     override fun onDestroy() {

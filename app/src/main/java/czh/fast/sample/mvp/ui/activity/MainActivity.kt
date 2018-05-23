@@ -1,4 +1,4 @@
-package czh.fast.sample.ui.activity
+package czh.fast.sample.mvp.ui.activity
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
@@ -9,9 +9,9 @@ import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.toast
 import czh.fast.sample.R
 import czh.fast.lib.base.BaseActivity
-import czh.fast.sample.ui.fragment.DbFragment
-import czh.fast.sample.ui.fragment.NetFragment
-import czh.fast.sample.ui.model.TabEntity
+import czh.fast.sample.mvp.ui.fragment.DbFragment
+import czh.fast.sample.mvp.ui.fragment.NetFragment
+import czh.fast.sample.mvp.model.TabEntity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {

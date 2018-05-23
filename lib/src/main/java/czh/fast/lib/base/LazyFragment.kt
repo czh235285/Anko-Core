@@ -15,7 +15,7 @@ import com.czh.library.LoadingDialog
 import com.vise.xsnow.http.ViseHttp
 
 //fragment基类
-abstract class LazyFragment : Fragment() {
+abstract class LazyFragment : Fragment() ,loadingView{
     protected var rootView: View? = null
     var isViewCreated = false
     var isLoadData = false
@@ -77,14 +77,14 @@ abstract class LazyFragment : Fragment() {
     }
 
     private var mLoading: LoadingDialog? = null
-    fun showLoading() {
+    override fun showLoading() {
         if (mLoading == null) {
             mLoading = LoadingDialog(activity!!)
         }
         mLoading?.show()
     }
 
-    fun stopLoading() {
+    override fun hideLoading() {
         mLoading?.dismiss()
     }
 

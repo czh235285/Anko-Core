@@ -1,4 +1,4 @@
-package czh.fast.sample.ui.adapter
+package czh.fast.sample.adapter
 
 import com.chad.library.adapter.base.BaseItemDraggableAdapter
 import com.chad.library.adapter.base.BaseViewHolder

@@ -1,4 +1,4 @@
-package czh.fast.sample.ui.fragment
+package czh.fast.sample.mvp.ui.fragment
 
 import android.graphics.Canvas
 import android.support.v7.widget.LinearLayoutManager
@@ -17,7 +17,7 @@ import czh.fast.sample.R
 import czh.fast.lib.base.LazyFragment
 import czh.fast.sample.db.User
 import czh.fast.sample.db.User_Table
-import czh.fast.sample.ui.adapter.DemoAdapter
+import czh.fast.sample.adapter.DemoAdapter
 import kotlinx.android.synthetic.main.fragment_db.*
 
 
