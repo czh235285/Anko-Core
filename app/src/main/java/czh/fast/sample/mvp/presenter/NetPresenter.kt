@@ -3,7 +3,7 @@ package czh.fast.sample.mvp.presenter
 import com.vise.xsnow.http.ViseHttp
 import com.vise.xsnow.http.core.ApiTransformer
 import com.vise.xsnow.http.mode.CacheMode
-import czh.fast.sample.commons.apiservice
+import czh.fast.sample.api.apiservice
 import czh.fast.sample.mvp.contract.NetContract
 import czh.fast.sample.mvp.model.Advert
 

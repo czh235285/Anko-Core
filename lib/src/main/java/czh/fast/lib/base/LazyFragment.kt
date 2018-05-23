@@ -15,7 +15,7 @@ import com.czh.library.LoadingDialog
 import com.vise.xsnow.http.ViseHttp
 
 //fragment基类
-abstract class LazyFragment : Fragment() ,loadingView{
+abstract class LazyFragment : Fragment() , View.OnClickListener,loadingView{
     protected var rootView: View? = null
     var isViewCreated = false
     var isLoadData = false
@@ -32,6 +32,7 @@ abstract class LazyFragment : Fragment() ,loadingView{
         activity?.let {
             mContext = it
         }
+        views?.forEach { it.setOnClickListener(this) }
         isViewCreated = true
         lazyLoad()
 
@@ -65,6 +66,11 @@ abstract class LazyFragment : Fragment() ,loadingView{
 
     //初始化view
     protected abstract fun afterInitView()
+
+
+    //点击事件view列表
+    protected abstract val views: List<View>?
+
 
     //重新回到当前fragment刷新Data
     open fun refreshUi() {}

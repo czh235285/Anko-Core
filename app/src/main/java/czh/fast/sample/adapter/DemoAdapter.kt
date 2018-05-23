@@ -12,7 +12,6 @@ class DemoAdapter(layoutResId: Int, data: List<User>?) : BaseItemDraggableAdapte
         helper.itemView.run {
             tvName.text = item.urerName
             tvAge.text = item.urerAge.toString()
-
         }
     }
 }

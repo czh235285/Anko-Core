@@ -12,7 +12,7 @@ import com.vise.xsnow.http.ViseHttp
 
 
 //fragment基类
-abstract class BaseFragment : Fragment(),loadingView {
+abstract class BaseFragment : Fragment(), View.OnClickListener,loadingView {
     lateinit var mContext: Context
     protected var rootView: View? = null
 
@@ -28,6 +28,7 @@ abstract class BaseFragment : Fragment(),loadingView {
         activity?.let {
             mContext = it
         }
+        views?.forEach { it.setOnClickListener(this) }
         afterInitView()
     }
 
@@ -37,6 +38,8 @@ abstract class BaseFragment : Fragment(),loadingView {
     //初始化view
     protected abstract fun afterInitView()
 
+    //点击事件view列表
+    protected abstract val views: List<View>?
 
     override fun onDestroyView() {
         super.onDestroyView()

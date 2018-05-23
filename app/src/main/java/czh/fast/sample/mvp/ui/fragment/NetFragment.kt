@@ -10,14 +10,15 @@ import czh.fast.sample.mvp.presenter.NetPresenter
 import kotlinx.android.synthetic.main.fragment_net.*
 
 class NetFragment : LazyFragment(), View.OnClickListener, NetContract.View {
+    override val views: List<View>?
+        get() = arrayListOf(tvNormal,tvCache)
     override var presenter: NetContract.Presenter = NetPresenter(this)
 
     override val layoutResource: Int
         get() = R.layout.fragment_net
 
     override fun afterInitView() {
-        tvNormal.setOnClickListener(this)
-        tvCache.setOnClickListener(this)
+
     }
 
     override fun onClick(v: View?) {
@@ -30,6 +31,7 @@ class NetFragment : LazyFragment(), View.OnClickListener, NetContract.View {
             }
         }
     }
+
     override fun showResult(advert: Advert) {
         val images = arrayListOf<String>()
         advert.data.forEach {
@@ -39,6 +41,7 @@ class NetFragment : LazyFragment(), View.OnClickListener, NetContract.View {
         }
         banner.setImages(images).setImageLoader(GlideImageLoader()).start()
     }
+
     companion object {
         fun get(): NetFragment {
             return Inner.anotherSingle

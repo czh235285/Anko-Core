@@ -3,24 +3,34 @@ package czh.fast.sample.mvp.ui.activity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.KeyEvent
+import android.view.View
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
+import czh.fast.lib.base.BaseActivity
 import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.toast
 import czh.fast.sample.R
-import czh.fast.lib.base.BaseActivity
 import czh.fast.sample.mvp.ui.fragment.DbFragment
-import czh.fast.sample.mvp.ui.fragment.NetFragment
 import czh.fast.sample.mvp.model.TabEntity
+import czh.fast.sample.mvp.ui.fragment.NetFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
+
+    override val layoutId: Int
+        get() = R.layout.activity_main
+
+    override val views: List<View>?
+        get() = null
+
     private val mTitles = arrayOf("网络", "数据库")
     private val mIconUnselectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal)
     private val mIconSelectIds = intArrayOf(R.mipmap.tab_massage_selected, R.mipmap.tab_optimization_selected)
     private val mTabEntities: ArrayList<CustomTabEntity> = ArrayList()
-    override val layoutId: Int
-        get() = R.layout.activity_main
+
+    override fun onClick(v: View?) {
+
+    }
 
     override fun afterInitView() {
         (0 until mTitles.size)
