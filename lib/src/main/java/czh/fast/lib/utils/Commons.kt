@@ -123,7 +123,7 @@ fun TextView.drawableTop(context: Context, @DrawableRes id: Int) {
     this.setCompoundDrawables(d, null, null, null)
 }
 
-fun checkALL(all: Array<EditText>): Boolean {
+fun checkALL(vararg all: EditText): Boolean {
     all.forEach {
         if (it.isEmpty()) {
             return false
