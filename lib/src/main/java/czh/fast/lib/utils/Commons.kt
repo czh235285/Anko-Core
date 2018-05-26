@@ -160,7 +160,3 @@ fun checkEmail(email: String): Boolean {
     }
     return false
 }
-
-fun dateToString(long: Long, format: String = "yyyy-MM-dd HH:mm:ss"): String {
-    return SimpleDateFormat(format).format(long)
-}

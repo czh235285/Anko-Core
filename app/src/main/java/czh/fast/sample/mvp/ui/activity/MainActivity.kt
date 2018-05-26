@@ -17,14 +17,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
-    override val layoutId: Int
-        get() = R.layout.activity_main
+    override val layoutId: Int= R.layout.activity_main
 
-    override val views: List<View>?
-        get() = null
+    override val views: List<View>? get() = null
 
     private val mTitles = arrayOf("网络", "数据库")
-    private val mIconUnselectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal)
+    private val mIconUnSelectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal)
     private val mIconSelectIds = intArrayOf(R.mipmap.tab_massage_selected, R.mipmap.tab_optimization_selected)
     private val mTabEntities: ArrayList<CustomTabEntity> = ArrayList()
 
@@ -34,7 +32,7 @@ class MainActivity : BaseActivity() {
 
     override fun afterInitView() {
         (0 until mTitles.size)
-                .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnselectIds[it]) }
+                .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()
         viewPager.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int) = mFragments[position]

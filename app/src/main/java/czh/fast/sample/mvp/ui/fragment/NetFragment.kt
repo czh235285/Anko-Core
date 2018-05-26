@@ -1,21 +1,20 @@
 package czh.fast.sample.mvp.ui.fragment
 
 import android.view.View
+import czh.fast.lib.base.LazyFragment
 import czh.fast.lib.utils.GlideImageLoader
 import czh.fast.sample.R
-import czh.fast.lib.base.LazyFragment
 import czh.fast.sample.mvp.contract.NetContract
 import czh.fast.sample.mvp.model.Advert
 import czh.fast.sample.mvp.presenter.NetPresenter
 import kotlinx.android.synthetic.main.fragment_net.*
 
-class NetFragment : LazyFragment(), View.OnClickListener, NetContract.View {
-    override val views: List<View>?
-        get() = arrayListOf(tvNormal,tvCache)
+class NetFragment : LazyFragment(), NetContract.View {
+    override val views: List<View>? get() = arrayListOf(tvNormal, tvCache)
+
     override var presenter: NetContract.Presenter = NetPresenter(this)
 
-    override val layoutResource: Int
-        get() = R.layout.fragment_net
+    override val layoutResource: Int = R.layout.fragment_net
 
     override fun afterInitView() {
 

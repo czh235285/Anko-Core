@@ -13,7 +13,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.github.czh235285:FastKotlin:1.3.1'
+  implementation 'com.github.czh235285:FastKotlin:1.3.2'
 }
 ```
 ## 介绍

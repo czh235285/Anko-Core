@@ -15,8 +15,7 @@ import czh.fast.lib.widget.SimpleDividerDecoration
 import czh.fast.sample.R
 import czh.fast.sample.db.User
 import czh.fast.sample.db.User_Table
-import czh.fast.sample.adapter.DemoAdapter
-import kotlinx.android.synthetic.main.baidu_progress_bar.*
+import czh.fast.sample.mvp.ui.adapter.DemoAdapter
 import kotlinx.android.synthetic.main.fragment_db.*
 
 
@@ -28,11 +27,9 @@ class DbFragment : LazyFragment() {
 
     private var mList = arrayListOf<User>()
 
-    override val layoutResource: Int
-        get() = R.layout.fragment_db
+    override val layoutResource: Int= R.layout.fragment_db
 
-    override val views: List<View>?
-        get() = null
+    override val views: List<View>? get() = null
 
     override fun onClick(v: View?) {
 
@@ -59,7 +56,7 @@ class DbFragment : LazyFragment() {
         }
         queryList()
         tvAdd.setOnClickListener {
-            if (!checkALL(arrayOf(et_ext1, et_ext2))) {
+            if (!checkALL(et_ext1, et_ext2)) {
                 mContext.toast("输入不能为空")
                 return@setOnClickListener
             }
@@ -96,7 +93,7 @@ class DbFragment : LazyFragment() {
 
             override fun onItemSwiped(viewHolder: RecyclerView.ViewHolder?, pos: Int) {
                 val db = User()
-                db.id = mAdapter!!.data[pos].id
+                db.id = mAdapter.data[pos].id
                 db.delete()
             }
 

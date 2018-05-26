@@ -10,7 +10,6 @@ class MyAPP : BaseApp() {
         super.onCreate()
         FlowManager.init(this)
         instance = this
-
     }
 
     override val BaseUrl: String
