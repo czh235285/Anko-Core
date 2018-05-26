@@ -10,15 +10,13 @@ import com.chad.library.adapter.base.listener.OnItemDragListener
 import com.chad.library.adapter.base.listener.OnItemSwipeListener
 import com.raizlabs.android.dbflow.sql.language.Select
 import czh.fast.lib.base.LazyFragment
-import czh.fast.lib.utils.checkALL
-import czh.fast.lib.utils.getInflaterView
-import czh.fast.lib.utils.textString
-import czh.fast.lib.utils.toast
+import czh.fast.lib.utils.*
 import czh.fast.lib.widget.SimpleDividerDecoration
 import czh.fast.sample.R
 import czh.fast.sample.db.User
 import czh.fast.sample.db.User_Table
 import czh.fast.sample.adapter.DemoAdapter
+import kotlinx.android.synthetic.main.baidu_progress_bar.*
 import kotlinx.android.synthetic.main.fragment_db.*
 
 
@@ -42,7 +40,7 @@ class DbFragment : LazyFragment() {
 
     override fun afterInitView() {
         mAdapter.run {
-            addHeaderView(mContext.getInflaterView(R.layout.item))
+            addHeaderView(mContext.inflater(R.layout.item))
             val itemDragAndSwipeCallback = ItemDragAndSwipeCallback(this)
             val itemTouchHelper = ItemTouchHelper(itemDragAndSwipeCallback)
             itemTouchHelper.attachToRecyclerView(rcv)
