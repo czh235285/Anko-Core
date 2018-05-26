@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 import czh.fast.lib.widget.SimpleDividerDecoration
 import java.text.SimpleDateFormat
+import java.util.regex.Pattern
 
 fun View.gone() {
     this.visibility = View.GONE
@@ -129,6 +130,35 @@ fun checkALL(all: Array<EditText>): Boolean {
         }
     }
     return true
+}
+
+/**
+ * 验证是否手机
+ */
+fun checkMobile(mobile: String): Boolean {
+    val regex = "(\\+\\d+)?1[34578]\\d{9}$"
+    return Pattern.matches(regex, mobile)
+}
+
+/**
+ * 验证是否电话
+ */
+fun checkPhone(phone: String): Boolean {
+    val regex = "(\\+\\d+)?(\\d{3,4}\\-?)?\\d{7,8}$"
+    return Pattern.matches(regex, phone)
+
+}
+
+/**
+ * 验证是否邮箱
+ */
+fun checkEmail(email: String): Boolean {
+    val emailPattern = Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")
+    val matcher = emailPattern.matcher(email)
+    if (matcher.find()) {
+        return true
+    }
+    return false
 }
 
 fun dateToString(long: Long, format: String = "yyyy-MM-dd HH:mm:ss"): String {

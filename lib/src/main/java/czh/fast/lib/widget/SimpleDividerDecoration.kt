@@ -8,7 +8,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 
 /**
- * Created by Dell on 2017/10/27.
+ * Created  on 2018/5/20.
+ * @author czh
  */
 
 class SimpleDividerDecoration(color: Int, private val dividerHeight: Int) : RecyclerView.ItemDecoration() {

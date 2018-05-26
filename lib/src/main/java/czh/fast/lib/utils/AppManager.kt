@@ -15,7 +15,7 @@ class AppManager private constructor() {
      */
     fun addActivity(activity: Activity) {
         if (activityStack == null) {
-            activityStack = Stack<Activity>()
+            activityStack = Stack()
         }
         activityStack!!.add(activity)
     }
