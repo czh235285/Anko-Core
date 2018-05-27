@@ -55,6 +55,10 @@ fun EditText.isEmpty(): Boolean = this.text.toString().trim().isEmpty()
 
 fun EditText.isNotEmpty(): Boolean = this.text.toString().trim().isNotEmpty()
 
+
+/**
+ * EditText设置只能输入数字和小数点，小数点只能1个且小数点后最多只能2位
+ */
 fun EditText.setOnlyDecimal() {
     this.inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL
     this.addTextChangedListener(object : TextWatcher {
@@ -99,6 +103,7 @@ fun EditText.setOnlyDecimal() {
 
 }
 
+
 fun TextView.drawableLeft(context: Context, @DrawableRes id: Int) {
     val d = context.getDrawableRes(id)
     d.setBounds(0, 0, d.minimumWidth, d.minimumHeight)
@@ -123,6 +128,10 @@ fun TextView.drawableTop(context: Context, @DrawableRes id: Int) {
     this.setCompoundDrawables(d, null, null, null)
 }
 
+/**
+ * 验证所有EditText是否为空
+ * @return 只要有空，返回false
+ */
 fun checkALL(vararg all: EditText): Boolean {
     all.forEach {
         if (it.isEmpty()) {
@@ -135,26 +144,26 @@ fun checkALL(vararg all: EditText): Boolean {
 /**
  * 验证是否手机
  */
-fun checkMobile(mobile: String): Boolean {
+fun String.isMobile(): Boolean {
     val regex = "(\\+\\d+)?1[34578]\\d{9}$"
-    return Pattern.matches(regex, mobile)
+    return Pattern.matches(regex, this)
 }
 
 /**
  * 验证是否电话
  */
-fun checkPhone(phone: String): Boolean {
+fun String.isPhone(): Boolean {
     val regex = "(\\+\\d+)?(\\d{3,4}\\-?)?\\d{7,8}$"
-    return Pattern.matches(regex, phone)
+    return Pattern.matches(regex, this)
 
 }
 
 /**
  * 验证是否邮箱
  */
-fun checkEmail(email: String): Boolean {
+fun String.isEmail(): Boolean {
     val emailPattern = Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")
-    val matcher = emailPattern.matcher(email)
+    val matcher = emailPattern.matcher(this)
     if (matcher.find()) {
         return true
     }

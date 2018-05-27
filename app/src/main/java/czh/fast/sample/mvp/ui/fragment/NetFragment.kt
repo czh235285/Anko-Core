@@ -24,6 +24,7 @@ class NetFragment : LazyFragment(), NetContract.View {
         when (v) {
             tvNormal -> {
                 presenter.normalTask()
+
             }
             tvCache -> {
                 presenter.cacheTask()

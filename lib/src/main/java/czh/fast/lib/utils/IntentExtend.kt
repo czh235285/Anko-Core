@@ -1,10 +1,13 @@
 package czh.fast.lib.utils
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.View
 import java.io.Serializable
 
 /**
@@ -52,6 +55,34 @@ inline fun <reified T : kotlin.Any> android.app.Fragment.warpActivity(vararg par
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivity(intent)
 }
+
+
+/**
+ * 共享元素转场、分解、滑动进入、淡入淡出
+ * @param view     共享元素
+ * @param string   共享元素添加相同的android:transitionName=""
+ * @author czh
+ */
+inline fun <reified T : kotlin.Any> Context.warpActivityByTransition(view: View? = null, string: String = "", vararg params: Pair<String,
+        Any?>) {
+    if (Build.VERSION.SDK_INT >= 21) {
+        val intent = Intent(this, T::class.java)
+        val bundle = if (view == null) {
+            ActivityOptions.makeSceneTransitionAnimation(this as Activity).toBundle()
+        } else {
+            ActivityOptions
+                    .makeSceneTransitionAnimation(this as Activity, android.util.Pair.create(view, string))
+                    .toBundle()
+        }
+        if (params.isNotEmpty()) fillIntentArguments(intent, params)
+        startActivity(intent, bundle)
+    } else {
+        val intent = Intent(this, T::class.java)
+        if (params.isNotEmpty()) fillIntentArguments(intent, params)
+        startActivity(intent)
+    }
+}
+
 
 fun fillIntentArguments(intent: Intent, params: Array<out Pair<String, Any?>>) {
     params.forEach {
