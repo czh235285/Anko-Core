@@ -1,8 +1,11 @@
 package czh.fast.lib.utils.status
 
+import android.app.Activity
+import android.support.annotation.ColorRes
 import android.view.View
 import android.view.ViewGroup
 import czh.fast.lib.R
+import czh.fast.lib.utils.getColorRes
 
 /**
  * Created by Jaeger on 16/2/14.
@@ -28,7 +31,8 @@ object StatusBarUtil {
      * @param statusBarAlpha 状态栏透明度
      */
 
-    @JvmOverloads fun setColor(activity: android.app.Activity, @android.support.annotation.ColorInt color: Int, @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
+    @JvmOverloads
+    fun setColor(activity: android.app.Activity, @android.support.annotation.ColorInt color: Int, @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             activity.window.addFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             activity.window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -58,8 +62,9 @@ object StatusBarUtil {
      * *
      * @param statusBarAlpha 状态栏透明度
      */
-    @JvmOverloads fun setColorForSwipeBack(activity: android.app.Activity, @android.support.annotation.ColorInt color: Int,
-                                           @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
+    @JvmOverloads
+    fun setColorForSwipeBack(activity: android.app.Activity, @android.support.annotation.ColorInt color: Int,
+                             @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
 
             val contentView = activity.findViewById<View>(android.R.id.content) as android.view.ViewGroup
@@ -134,7 +139,8 @@ object StatusBarUtil {
      * *
      * @param statusBarAlpha 状态栏透明度
      */
-    @JvmOverloads fun setTranslucent(activity: android.app.Activity, @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
+    @JvmOverloads
+    fun setTranslucent(activity: android.app.Activity, @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.KITKAT) {
             return
         }
@@ -214,8 +220,9 @@ object StatusBarUtil {
      * *
      * @param statusBarAlpha 状态栏透明度
      */
-    @JvmOverloads fun setColorForDrawerLayout(activity: android.app.Activity, drawerLayout: android.support.v4.widget.DrawerLayout, @android.support.annotation.ColorInt color: Int,
-                                              @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
+    @JvmOverloads
+    fun setColorForDrawerLayout(activity: android.app.Activity, drawerLayout: android.support.v4.widget.DrawerLayout, @android.support.annotation.ColorInt color: Int,
+                                @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.KITKAT) {
             return
         }
@@ -305,8 +312,9 @@ object StatusBarUtil {
      * *
      * @param drawerLayout DrawerLayout
      */
-    @JvmOverloads fun setTranslucentForDrawerLayout(activity: android.app.Activity, drawerLayout: android.support.v4.widget.DrawerLayout,
-                                                    @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
+    @JvmOverloads
+    fun setTranslucentForDrawerLayout(activity: android.app.Activity, drawerLayout: android.support.v4.widget.DrawerLayout,
+                                      @android.support.annotation.IntRange(from = 0, to = 255) statusBarAlpha: Int = DEFAULT_STATUS_BAR_ALPHA) {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.KITKAT) {
             return
         }
@@ -625,4 +633,13 @@ object StatusBarUtil {
         blue = (blue * a + 0.5).toInt()
         return 0xff shl 24 or (red shl 16) or (green shl 8) or blue
     }
+}
+
+fun Activity.setStatusBarByColorRes(@ColorRes color: Int) {
+    StatusBarUtil.setColor(this, getColorRes(color), 0)
+
+}
+
+fun Activity.setStatusBarByColorInt(@android.support.annotation.ColorInt color: Int) {
+    StatusBarUtil.setColor(this, color, 0)
 }

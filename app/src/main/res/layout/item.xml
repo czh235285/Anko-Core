@@ -14,10 +14,6 @@
         android:padding="20px"
         android:text="姓名" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"/>
     <TextView
         android:layout_width="1px"
         android:layout_height="match_parent"

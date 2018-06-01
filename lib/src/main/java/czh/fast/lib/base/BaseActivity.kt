@@ -4,7 +4,6 @@ package czh.fast.lib.base
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -17,10 +16,11 @@ import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.status.LightStatusBarUtils
 import czh.fast.lib.utils.status.RomUtils
 import czh.fast.lib.utils.status.StatusBarUtil
+import czh.fast.lib.utils.status.setStatusBarByColorRes
 
 //Activity基类
-abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener, loadingView {
-    lateinit var mContext: Context
+abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener, LoadingView {
+    private lateinit  var mContext: Context
 
     override fun onStart() {
         super.onStart()
@@ -29,10 +29,10 @@ abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener, loadin
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        doBeforeSetcontentView()
+        doBeforeSetContentView()
         setContentView(layoutId)
         //设置状态栏颜色
-        StatusBarUtil.setColor(this, ContextCompat.getColor(applicationContext, R.color.colorPrimary), 0)
+        setStatusBarByColorRes(R.color.colorPrimary)
         mContext = this
         views?.forEach { it.setOnClickListener(this) }
         afterInitView()
@@ -41,7 +41,7 @@ abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener, loadin
     /**
      * 设置layout前配置
      */
-    private fun doBeforeSetcontentView() {
+    private fun doBeforeSetContentView() {
         // 把actvity放到application栈中管理
         AppManager.appManager.addActivity(this)
         // 无标题
@@ -54,13 +54,15 @@ abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener, loadin
 
 
     //获取布局文件
-    abstract val layoutId: Int
+    protected abstract val layoutId: Int
 
     //初始化view
-    abstract fun afterInitView()
+    protected abstract fun afterInitView()
 
 
-    //点击事件view列表
+    /**
+     * 设置OnClickListener的所有view
+     */
     protected abstract val views: List<View>?
 
     //浅色状态栏

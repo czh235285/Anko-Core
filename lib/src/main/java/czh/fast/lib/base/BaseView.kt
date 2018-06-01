@@ -1,11 +1,11 @@
 package czh.fast.lib.base
 
 
-interface BaseView<T> : loadingView {
+interface BaseView<T> : LoadingView {
     var presenter: T
 }
 
-interface loadingView {
+interface LoadingView {
     fun showLoading()
     fun hideLoading()
 }

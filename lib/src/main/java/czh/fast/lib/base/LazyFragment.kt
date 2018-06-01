@@ -15,12 +15,12 @@ import com.czh.library.LoadingDialog
 import com.vise.xsnow.http.ViseHttp
 
 //fragment基类
-abstract class LazyFragment : Fragment() , View.OnClickListener,loadingView{
-    protected var rootView: View? = null
+abstract class LazyFragment : Fragment() , View.OnClickListener,LoadingView{
+    lateinit var mContext: Context
+    private var rootView: View? = null
     var isViewCreated = false
     var isLoadData = false
     var isUIVisible = false
-    lateinit var mContext: Context
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (rootView == null)
             rootView = inflater.inflate(layoutResource, container, false)

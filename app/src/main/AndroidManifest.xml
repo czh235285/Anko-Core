@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mvp.ui.activity.TestActivity" />
+
         <meta-data android:name="design_width" android:value="750" />
         <meta-data android:name="design_height" android:value="1334" />
 

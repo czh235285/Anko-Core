@@ -12,9 +12,9 @@ import com.vise.xsnow.http.ViseHttp
 
 
 //fragment基类
-abstract class BaseFragment : Fragment(), View.OnClickListener,loadingView {
+abstract class BaseFragment : Fragment(), View.OnClickListener,LoadingView {
     lateinit var mContext: Context
-    protected var rootView: View? = null
+    private  var rootView: View? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (rootView == null)
