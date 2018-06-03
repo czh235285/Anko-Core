@@ -10,18 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="czh.fast.sample.mvp.ui.activity.MainActivity">
+        <activity android:name=".mvp.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="design_width"
+            android:value="750" />
+        <meta-data
+            android:name="design_height"
+            android:value="1334" />
+
         <activity android:name=".mvp.ui.activity.TestActivity" />
-
-        <meta-data android:name="design_width" android:value="750" />
-        <meta-data android:name="design_height" android:value="1334" />
-
     </application>
 
 </manifest>
