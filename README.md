@@ -28,8 +28,9 @@ dependencies {
 * 下拉刷新/上拉加载库 [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
 * 6.0动态权限申请 [acp](https://github.com/mylhyl/AndroidAcp)
 
-## 一键生成MVP代码:
-下载项目中的FastMVP.zip解压到指定目录。例如（C:\Program Files\Android\Android Studio1\plugins\android\lib\templates\activities）
+## 一键生成MVP代码
+下载项目中的FastMVP.zip解压到指定目录。
+例如  C:\Program Files\Android\Android Studio1\plugins\android\lib\templates\activities
 C:\Program Files\Android\Android Studio1是你的AS安装路径
 
 ![](mvp.gif)
