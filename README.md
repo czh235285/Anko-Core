@@ -28,7 +28,8 @@ dependencies {
 * 下拉刷新/上拉加载库 [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
 * 6.0动态权限申请 [acp](https://github.com/mylhyl/AndroidAcp)
 
-一键生成MVP代码（需添加本项目作为依赖包）:
+## 一键生成MVP代码（需添加本项目作为依赖包）:
+
 ![](mvp.gif)
 
 
