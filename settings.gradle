@@ -1,1 +1,1 @@
-include ':app', ':lib', ':xnows'
+include ':app', ':lib'

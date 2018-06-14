@@ -1,5 +1,6 @@
 package czh.fast.lib.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.support.annotation.DrawableRes
 import android.support.v7.widget.LinearLayoutManager
@@ -13,6 +14,10 @@ import android.widget.TextView
 import czh.fast.lib.widget.SimpleDividerDecoration
 import java.text.SimpleDateFormat
 import java.util.regex.Pattern
+import android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
+import android.text.InputType.TYPE_CLASS_NUMBER
+import android.view.inputmethod.EditorInfo
+
 
 fun View.gone() {
     this.visibility = View.GONE
@@ -60,11 +65,30 @@ fun EditText.isNotEmpty(): Boolean = this.text.toString().trim().isNotEmpty()
  * EditText设置只能输入数字和小数点，小数点只能1个且小数点后最多只能2位
  */
 fun EditText.setOnlyDecimal() {
-    this.inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL
+    this.inputType = EditorInfo.TYPE_CLASS_NUMBER or EditorInfo.TYPE_NUMBER_FLAG_DECIMAL
     this.addTextChangedListener(object : TextWatcher {
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            //这部分是处理如果输入框内小数点后有俩位，那么舍弃最后一位赋值，光标移动到最后
+            if (s.toString().contains(".")) {
+                if (s.length - 1 - s.toString().indexOf(".") > 2) {
+                    setText(s.toString().subSequence(0, s.toString().indexOf(".") + 3))
+                    setSelection(s.toString().subSequence(0, s.toString().indexOf(".") + 3).length)
+                }
+            }
 
+            if (s.toString().trim().substring(0) == ".") {
+                setText("0$s")
+                setSelection(2)
+            }
+
+            if (s.toString().startsWith("0") && s.toString().trim().length > 1) {
+                if (s.toString().substring(1, 2) != ".") {
+                    setText(s.subSequence(0, 1))
+                    setSelection(1)
+                    return
+                }
+            }
         }
 
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int,
@@ -72,31 +96,7 @@ fun EditText.setOnlyDecimal() {
         }
 
         override fun afterTextChanged(s: Editable) {
-            //这部分是处理如果输入框内小数点后有俩位，那么舍弃最后一位赋值，光标移动到最后
-            if (s.toString().contains(".")) {
-                if (s.length - 1 - s.toString().indexOf(".") > 1) {
 
-                    this@setOnlyDecimal.setText(s.toString().subSequence(0,
-                            s.toString().indexOf(".") + 2))
-
-                    this@setOnlyDecimal.setSelection(s.toString().trim { it <= ' ' }.length - 1
-                    )
-                }
-            }
-            //这部分是处理如果用户输入以.开头，在前面加上0
-            if (s.toString().trim { it <= ' ' }.substring(0) == ".") {
-
-                this@setOnlyDecimal.setText("0$s")
-                this@setOnlyDecimal.setSelection(2)
-            }
-            //这里处理用户 多次输入.的处理 比如输入 1..6的形式，是不可以的
-            if (s.toString().startsWith("0") && s.toString().trim { it <= ' ' }.length > 1) {
-                if (s.toString().substring(1, 2) != ".") {
-                    this@setOnlyDecimal.setText(s.subSequence(0, 1))
-                    this@setOnlyDecimal.setSelection(1)
-                    return
-                }
-            }
         }
 
     })

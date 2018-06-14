@@ -37,6 +37,12 @@ inline fun <reified T : kotlin.Any> Context.warpActivity(vararg params: Pair<Str
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivity(intent)
 }
+inline fun <reified T : kotlin.Any> Context.warpActivityAndClearTask(vararg params: Pair<String, Any?>) {
+    val intent = Intent(this, T::class.java)
+    if (params.isNotEmpty()) fillIntentArguments(intent, params)
+    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+    startActivity(intent)
+}
 
 inline fun <reified T : kotlin.Any> Activity.warpActivity(vararg params: Pair<String, Any?>) {
     val intent = Intent(this, T::class.java)
