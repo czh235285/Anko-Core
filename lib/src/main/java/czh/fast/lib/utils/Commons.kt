@@ -1,21 +1,16 @@
 package czh.fast.lib.utils
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.support.annotation.DrawableRes
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
-import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import czh.fast.lib.widget.SimpleDividerDecoration
-import java.text.SimpleDateFormat
 import java.util.regex.Pattern
-import android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
-import android.text.InputType.TYPE_CLASS_NUMBER
 import android.view.inputmethod.EditorInfo
 
 

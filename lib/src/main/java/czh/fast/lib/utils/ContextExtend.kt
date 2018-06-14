@@ -72,7 +72,7 @@ fun Context.showDialog(str: String) {
             .content(str)
             .contentColorRes(R.color.white)
             .positiveText("确定")
-            .positiveColorRes(R.color.colorPrimary)
+            .positiveColorRes(R.color.dialogPrimary)
             .show()
 }
 
@@ -82,8 +82,8 @@ fun Context.showDialog(str: String, r: () -> Unit) {
             .contentColorRes(R.color.dialog)
             .positiveText("确定")
             .onPositive { _, _ -> kotlin.run(r) }
-            .positiveColorRes(R.color.colorPrimaryDark)
+            .positiveColorRes(R.color.dialogPrimary)
             .negativeText("取消")
-            .negativeColorRes(R.color.colorPrimaryDark)
+            .negativeColorRes(R.color.dialogPrimary)
             .show()
 }
