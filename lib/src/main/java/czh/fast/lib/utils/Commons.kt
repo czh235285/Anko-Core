@@ -108,19 +108,19 @@ fun TextView.drawableLeft(context: Context, @DrawableRes id: Int) {
 fun TextView.drawableBottom(context: Context, @DrawableRes id: Int) {
     val d = context.getDrawableRes(id)
     d.setBounds(0, 0, d.minimumWidth, d.minimumHeight)
-    this.setCompoundDrawables(null, null, d, null)
+    this.setCompoundDrawables(null, null,  null,d)
 }
 
 fun TextView.drawableRight(context: Context, @DrawableRes id: Int) {
     val d = context.getDrawableRes(id)
     d.setBounds(0, 0, d.minimumWidth, d.minimumHeight)
-    this.setCompoundDrawables(null, d, null, null)
+    this.setCompoundDrawables(null,  null,d, null)
 }
 
 fun TextView.drawableTop(context: Context, @DrawableRes id: Int) {
     val d = context.getDrawableRes(id)
     d.setBounds(0, 0, d.minimumWidth, d.minimumHeight)
-    this.setCompoundDrawables(d, null, null, null)
+    this.setCompoundDrawables(null,d,  null, null)
 }
 
 /**
