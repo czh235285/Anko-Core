@@ -4,6 +4,7 @@ buildscript {
     ext {
         kotlin_version = '1.2.41'
         dbflow_version = "4.1.2"
+        anko_version='0.10.5'
     }
     repositories {
         google()

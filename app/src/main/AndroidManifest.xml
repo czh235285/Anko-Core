@@ -26,6 +26,7 @@
             android:value="1334" />
 
         <activity android:name=".mvp.ui.activity.TestActivity" />
+        <activity android:name=".mvp.ui.activity.TestTActivity" />
     </application>
 
 </manifest>

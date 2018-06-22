@@ -3,6 +3,9 @@ package czh.fast.sample.application
 import android.content.Context
 import com.raizlabs.android.dbflow.config.FlowManager
 import czh.fast.lib.application.BaseApp
+import android.support.multidex.MultiDex
+
+
 
 
 class MyAPP : BaseApp() {
@@ -16,6 +19,10 @@ class MyAPP : BaseApp() {
         get() = "http://101.132.131.51/share/"
 
 
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        MultiDex.install(base)
+    }
     companion object {
         /**
          * 全局的上下文

@@ -32,6 +32,7 @@ dependencies {
     api 'com.android.support:appcompat-v7:27.1.1'
     api 'com.android.support:design:27.1.1'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "org.jetbrains.anko:anko:$anko_version"
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.18'
     api 'com.pawegio.kandroid:kandroid:0.8.7@aar'
     api ('com.github.bumptech.glide:glide:4.7.1'){
