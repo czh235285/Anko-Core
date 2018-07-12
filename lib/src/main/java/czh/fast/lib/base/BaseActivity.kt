@@ -20,7 +20,7 @@ import czh.fast.lib.utils.status.setStatusBarByColorRes
 
 //Activity基类
 abstract class BaseActivity : AutoLayoutActivity(), View.OnClickListener, LoadingView {
-    private lateinit  var mContext: Context
+    private lateinit var mContext: Context
 
     override fun onStart() {
         super.onStart()

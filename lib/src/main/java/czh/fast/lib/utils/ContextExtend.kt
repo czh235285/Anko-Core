@@ -1,6 +1,7 @@
 package czh.fast.lib.utils
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
@@ -67,12 +68,12 @@ fun Context.checkDeviceHasNavigationBar(): Boolean {
 
 }
 
-fun Context.showDialog(str: String) {
+fun Context.showDialog(content: String, contentColor: Int = Color.parseColor("#333333"), positiveColor: Int = Color.parseColor("#3F51B5")) {
     MaterialDialog.Builder(this)
-            .content(str)
-            .contentColorRes(R.color.white)
+            .content(content)
+            .contentColor(contentColor)
             .positiveText("确定")
-            .positiveColorRes(R.color.dialogPrimary)
+            .positiveColor(positiveColor)
             .show()
 }
 
