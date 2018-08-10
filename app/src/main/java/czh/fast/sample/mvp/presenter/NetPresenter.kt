@@ -15,7 +15,7 @@ class NetPresenter(private val netView: NetContract.View) : NetContract.Presente
 
     override fun normalTask() {
         netView.showLoading()
-        apiservice.getAdvert().compose(norTransformer())
+        apiservice.getBanner().compose(norTransformer())
                 .subscribe(
                         {
                             netView.showResult(it)
@@ -31,7 +31,7 @@ class NetPresenter(private val netView: NetContract.View) : NetContract.Presente
     }
 
     override fun cacheTask() {
-        apiservice.getAdvert().compose(norTransformer())
+        apiservice.getBanner().compose(norTransformer())
                 .compose(transformer(CacheMode.CACHE_AND_REMOTE))
                 .subscribe(
                         {

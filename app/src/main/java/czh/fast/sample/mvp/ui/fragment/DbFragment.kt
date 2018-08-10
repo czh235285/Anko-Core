@@ -9,10 +9,10 @@ import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback
 import com.chad.library.adapter.base.listener.OnItemDragListener
 import com.chad.library.adapter.base.listener.OnItemSwipeListener
 import com.raizlabs.android.dbflow.sql.language.Select
-import czh.fast.lib.base.LazyFragment
 import czh.fast.lib.utils.*
 import czh.fast.lib.widget.SimpleDividerDecoration
 import czh.fast.sample.R
+import czh.fast.sample.base.LazyFragment
 import czh.fast.sample.db.User
 import czh.fast.sample.db.User_Table
 import czh.fast.sample.mvp.ui.adapter.DemoAdapter

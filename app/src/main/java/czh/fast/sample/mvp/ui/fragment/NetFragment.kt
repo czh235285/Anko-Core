@@ -1,10 +1,11 @@
 package czh.fast.sample.mvp.ui.fragment
 
 import android.view.View
-import czh.fast.lib.base.AnkoLazyFragment
 import czh.fast.lib.utils.GlideImageLoader
+import czh.fast.sample.base.AnkoLazyFragment
 import czh.fast.sample.mvp.contract.NetContract
 import czh.fast.sample.mvp.model.Advert
+import czh.fast.sample.mvp.model.Banner
 import czh.fast.sample.mvp.presenter.NetPresenter
 import czh.fast.sample.mvp.ui.layout.NetFragmentUI
 import org.jetbrains.anko.AnkoContext
@@ -24,13 +25,11 @@ class NetFragment : AnkoLazyFragment(), NetContract.View {
 
     }
 
-    override fun showResult(advert: Advert) {
+    override fun showResult(banner: Banner) {
 
         val images = arrayListOf<String>()
-        advert.data.forEach {
-            if (it.adname == "限时热卖") {
-                images.add("https://pearshare.oss-cn-shanghai.aliyuncs.com/" + it.face)
-            }
+        banner.data.forEach {
+            images.add(it.image)
         }
         ui.banner.setImages(images).setImageLoader(GlideImageLoader()).start()
     }

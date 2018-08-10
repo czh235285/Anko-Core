@@ -1,4 +1,4 @@
-package czh.fast.lib.base
+package czh.fast.sample.base
 
 /**
  * Created by Dell on 2017/11/22.
@@ -13,9 +13,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.czh.library.LoadingDialog
 import com.vise.xsnow.http.ViseHttp
+import czh.fast.lib.base.LoadingView
 
 //fragment基类
-abstract class LazyFragment : Fragment() , View.OnClickListener,LoadingView{
+abstract class LazyFragment : Fragment() , View.OnClickListener, LoadingView {
     lateinit var mContext: Context
     private var rootView: View? = null
     var isViewCreated = false

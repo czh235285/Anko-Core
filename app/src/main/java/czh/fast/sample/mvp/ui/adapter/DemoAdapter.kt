@@ -8,10 +8,8 @@ import kotlinx.android.synthetic.main.item.view.*
 
 class DemoAdapter(layoutResId: Int, data: List<User>?) : BaseItemDraggableAdapter<User, BaseViewHolder>(layoutResId, data) {
 
-    override fun convert(helper: BaseViewHolder, item: User) {
-        helper.itemView.run {
-            tvName.text = item.urerName
-            tvAge.text = item.urerAge.toString()
-        }
+    override fun convert(helper: BaseViewHolder, item: User) = with(helper.itemView) {
+        tvName.text = item.urerName
+        tvAge.text = item.urerAge.toString()
     }
 }

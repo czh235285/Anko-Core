@@ -33,14 +33,13 @@ dependencies {
     api 'com.android.support:design:27.1.1'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "org.jetbrains.anko:anko:$anko_version"
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.18'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.20'
     api 'com.pawegio.kandroid:kandroid:0.8.7@aar'
     api ('com.github.bumptech.glide:glide:4.7.1'){
         exclude group:"com.android.support"
     }
     kapt 'com.github.bumptech.glide:compiler:4.7.1'
-    api 'com.vise.xiaoyaoyou:xsnow:2.1.5'
-    api 'com.zhy:autolayout:1.4.5'
+    api 'com.vise.xiaoyaoyou:xsnow:2.1.9'
     api 'com.afollestad.material-dialogs:core:0.9.6.0'
     api 'com.github.czh235285:YGLoadingDialog:V1.0'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
@@ -48,7 +47,6 @@ dependencies {
     api 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     api 'com.youth.banner:banner:1.4.9'
     api 'com.rengwuxian.materialedittext:library:2.1.4'
-    api 'org.raphets:roundimageview:1.2.0'
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
     api 'com.mylhyl:acp:1.2.0'
