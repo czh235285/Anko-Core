@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mvp.ui.old.MainActivity" />
     </application>
 
 </manifest>
