@@ -1,6 +1,7 @@
 package czh.fast.sample.mvp.ui.layout.item
 
 import android.content.Context
+import android.graphics.Color
 import android.widget.LinearLayout
 import android.widget.TextView
 import org.jetbrains.anko.*
@@ -26,6 +27,8 @@ class DbItemUI : AnkoComponent<Context> {
                 when (it) {
                     is TextView -> {
                         it.apply {
+                            textSize = 14f
+                            textColor = Color.parseColor("#333333")
                             setPadding(20, 20, 20, 20)
                         }
                     }
