@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.4.4"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -31,10 +31,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api 'com.android.support:appcompat-v7:27.1.1'
-    api 'com.android.support:design:27.1.1'
+
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api "org.jetbrains.anko:anko:$anko_version"
+
+    ['appcompat-v7', 'design', 'recyclerview-v7','cardview-v7'].each {
+        api "com.android.support:$it:27.1.1"
+    }
+
+    ['commons', 'sdk25', 'appcompat-v7', 'sdk25-coroutines', 'appcompat-v7-coroutines'
+     , 'cardview-v7', 'design', 'design-coroutines', 'gridlayout-v7', 'percent'
+     , 'recyclerview-v7', 'recyclerview-v7-coroutines', 'support-v4-commons', 'support-v4', 'constraint-layout'].each {
+        api "org.jetbrains.anko:anko-$it:0.10.5"
+    }
+    api 'com.github.czh235285:TabLayout:1.0.0'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.20'
     api 'com.pawegio.kandroid:kandroid:0.8.7@aar'
     api ('com.github.bumptech.glide:glide:4.7.1'){
@@ -45,7 +54,7 @@ dependencies {
     api 'com.afollestad.material-dialogs:core:0.9.6.0'
     api 'com.github.czh235285:YGLoadingDialog:V1.0'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+//    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     api 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     api 'com.youth.banner:banner:1.4.9'
     api 'com.rengwuxian.materialedittext:library:2.1.4'

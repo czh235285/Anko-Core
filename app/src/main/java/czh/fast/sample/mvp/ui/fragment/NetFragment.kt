@@ -4,10 +4,9 @@ import android.view.View
 import czh.fast.lib.utils.GlideImageLoader
 import czh.fast.sample.base.AnkoLazyFragment
 import czh.fast.sample.mvp.contract.NetContract
-import czh.fast.sample.mvp.model.Advert
 import czh.fast.sample.mvp.model.Banner
 import czh.fast.sample.mvp.presenter.NetPresenter
-import czh.fast.sample.mvp.ui.layout.NetFragmentUI
+import czh.fast.sample.mvp.ui.layout.fragment.NetFragmentUI
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.support.v4.ctx
 

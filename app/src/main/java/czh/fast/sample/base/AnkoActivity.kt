@@ -30,7 +30,7 @@ abstract class AnkoActivity : AppCompatActivity(), LoadingView {
         super.onCreate(savedInstanceState)
         DensityUtils.setCustomDensity(this, application)
         doBeforeSetContentView()
-        UI()
+        ankoLayout()
         //设置状态栏颜色
         setStatusBarByColorRes(R.color.colorPrimary)
         afterInitView()
@@ -55,7 +55,7 @@ abstract class AnkoActivity : AppCompatActivity(), LoadingView {
     //初始化view
     protected abstract fun afterInitView()
 
-    protected abstract fun UI()
+    protected abstract fun ankoLayout()
     //浅色状态栏
     fun setLightStatusBar() {
         StatusBarUtil.setColor(this, 0xffffffff.toInt(), 0)

@@ -23,6 +23,7 @@ class MyAPP : BaseApp() {
     }
 
     companion object {
+
         /**
          * 全局的上下文
          */

@@ -1,4 +1,4 @@
-package czh.fast.sample.mvp.ui.layout
+package czh.fast.sample.mvp.ui.layout.fragment
 
 import android.view.Gravity
 import android.view.View
@@ -14,7 +14,7 @@ class NetFragmentUI : AnkoComponent<NetFragment> {
     lateinit var banner: Banner
     override fun createView(ui: AnkoContext<NetFragment>): View = with(ui) {
         return verticalLayout {
-            banner = banners().lparams(width = matchParent, height = 300)
+            banner = banners().lparams(width = matchParent, height = dip(175))
 
             textView("普通请求"){
                 onClick {

@@ -62,7 +62,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.android.support:multidex:1.0.1'
-    api "org.jetbrains.anko:anko:$anko_version"
     implementation project(':lib')
 
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
@@ -70,6 +69,7 @@ dependencies {
     api "com.github.Raizlabs.DBFlow:dbflow-core:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
+    implementation 'com.github.czh235285:JsonAdapter:1.0.4'
 }
 repositories {
     mavenCentral()

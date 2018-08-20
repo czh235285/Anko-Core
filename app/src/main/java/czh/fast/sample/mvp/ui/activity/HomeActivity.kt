@@ -3,47 +3,49 @@ package czh.fast.sample.mvp.ui.activity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.KeyEvent
-import android.view.View
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
 import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.toast
 import czh.fast.sample.R
-import czh.fast.sample.base.BaseActivity
-import czh.fast.sample.mvp.ui.fragment.DbFragment
+
+import czh.fast.sample.mvp.ui.layout.activity.HomeUI
+import org.jetbrains.anko.setContentView
+
+
+import czh.fast.sample.base.AnkoActivity
 import czh.fast.sample.mvp.model.TabEntity
+import czh.fast.sample.mvp.ui.fragment.DbFragment
 import czh.fast.sample.mvp.ui.fragment.NetFragment
-import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class HomeActivity : AnkoActivity() {
 
-    override val layoutId: Int= R.layout.activity_main
-
-    override val views: List<View>? get() = null
 
     private val mTitles = arrayOf("网络", "数据库")
     private val mIconUnSelectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal)
     private val mIconSelectIds = intArrayOf(R.mipmap.tab_massage_selected, R.mipmap.tab_optimization_selected)
     private val mTabEntities: ArrayList<CustomTabEntity> = ArrayList()
 
-    override fun onClick(v: View?) {
-
+    val ui = HomeUI()
+    override fun ankoLayout() {
+        ui.setContentView(this)
     }
 
-    override fun afterInitView() {
+    override fun afterInitView() = with(ui) {
+
         (0 until mTitles.size)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()
-        viewPager.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
+        vp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int) = mFragments[position]
             override fun getCount() = mFragments.size
         }
-        viewPager.offscreenPageLimit = 2
+        vp.offscreenPageLimit = 2
         with(tab) {
             setTabData(mTabEntities)
             setOnTabSelectListener(object : OnTabSelectListener {
                 override fun onTabSelect(position: Int) {
-                    viewPager.setCurrentItem(position, false)
+                    vp.setCurrentItem(position, false)
                 }
 
                 override fun onTabReselect(position: Int) {

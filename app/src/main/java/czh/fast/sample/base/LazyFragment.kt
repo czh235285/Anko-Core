@@ -23,6 +23,8 @@ abstract class LazyFragment : Fragment() , View.OnClickListener, LoadingView {
     var isLoadData = false
     var isUIVisible = false
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+//        val parent = container?.parent as ViewGroup
+//        parent.removeAllViews()
         if (rootView == null)
             rootView = inflater.inflate(layoutResource, container, false)
         return rootView
