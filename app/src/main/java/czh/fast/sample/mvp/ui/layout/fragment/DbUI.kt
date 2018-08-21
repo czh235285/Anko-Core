@@ -11,6 +11,7 @@ import com.raizlabs.android.dbflow.sql.language.Select
 import com.rengwuxian.materialedittext.MaterialEditText
 import czh.fast.lib.utils.anko.materialEditText
 import czh.fast.lib.utils.checkALL
+import czh.fast.lib.utils.textCursorDrawable
 import czh.fast.lib.utils.textString
 import czh.fast.lib.utils.toast
 import czh.fast.lib.widget.SimpleDividerDecoration
@@ -35,12 +36,14 @@ class DbUI : AnkoComponent<DbFragment> {
         return verticalLayout {
             etName = materialEditText {
                 hint = "姓名"
+                textCursorDrawable(R.drawable.bg_shape_cursor)
             }.lparams(matchParent) {
                 setMargins(20, 20, 20, 20)
             }
             etAge = materialEditText {
                 hint = "年龄"
-                inputType= InputType.TYPE_CLASS_NUMBER
+                inputType = InputType.TYPE_CLASS_NUMBER
+                textCursorDrawable(R.drawable.bg_shape_cursor)
             }.lparams(matchParent) {
                 setMargins(20, 20, 20, 20)
             }

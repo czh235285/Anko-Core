@@ -55,6 +55,16 @@ fun EditText.isEmpty(): Boolean = this.text.toString().trim().isEmpty()
 
 fun EditText.isNotEmpty(): Boolean = this.text.toString().trim().isNotEmpty()
 
+fun EditText.textCursorDrawable(@DrawableRes id: Int) {
+    try {//修改光标的颜色（反射）
+        val f = TextView::class.java.getDeclaredField("mCursorDrawableRes")
+        f.isAccessible = true
+        f.set(this, id)
+    } catch (ignored: Exception) {
+
+    }
+}
+
 
 /**
  * EditText设置只能输入数字和小数点，小数点只能1个且小数点后最多只能2位
@@ -108,19 +118,19 @@ fun TextView.drawableLeft(context: Context, @DrawableRes id: Int) {
 fun TextView.drawableBottom(context: Context, @DrawableRes id: Int) {
     val d = context.getDrawableRes(id)
     d.setBounds(0, 0, d.minimumWidth, d.minimumHeight)
-    this.setCompoundDrawables(null, null,  null,d)
+    this.setCompoundDrawables(null, null, null, d)
 }
 
 fun TextView.drawableRight(context: Context, @DrawableRes id: Int) {
     val d = context.getDrawableRes(id)
     d.setBounds(0, 0, d.minimumWidth, d.minimumHeight)
-    this.setCompoundDrawables(null,  null,d, null)
+    this.setCompoundDrawables(null, null, d, null)
 }
 
 fun TextView.drawableTop(context: Context, @DrawableRes id: Int) {
     val d = context.getDrawableRes(id)
     d.setBounds(0, 0, d.minimumWidth, d.minimumHeight)
-    this.setCompoundDrawables(null,d,  null, null)
+    this.setCompoundDrawables(null, d, null, null)
 }
 
 /**

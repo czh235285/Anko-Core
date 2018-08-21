@@ -1,10 +1,21 @@
 package czh.fast.lib.utils.anko
 
+import android.content.Context
+import android.support.v4.app.Fragment
+import android.view.View
 import android.view.ViewManager
 import com.flyco.tablayout.CommonTabLayout
 import com.rengwuxian.materialedittext.MaterialEditText
 import czh.fast.lib.widget.NoScrollViewPager
+import org.jetbrains.anko.AnkoComponent
+import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.custom.ankoView
+import org.jetbrains.anko.support.v4.ctx
+
+fun <T : Fragment> AnkoComponent<T>.setContentView(activity: T): View = createView(AnkoContext.create(activity.ctx, activity))
+
+fun AnkoComponent<Context>.setContentView(context: Context): View = createView(AnkoContext.create(context))
+
 
 inline fun ViewManager.commonTabLayout(theme: Int = 0) = commonTabLayout(theme) {}
 

@@ -69,7 +69,7 @@ dependencies {
     api "com.github.Raizlabs.DBFlow:dbflow-core:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
-    implementation 'com.github.czh235285:JsonAdapter:1.0.5'
+    implementation 'com.github.czh235285:JsonAdapter:1.1.0'
 }
 repositories {
     mavenCentral()
