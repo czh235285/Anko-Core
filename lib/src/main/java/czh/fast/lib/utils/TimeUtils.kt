@@ -134,9 +134,14 @@ fun getWholeDetail(time: Long): IntArray {
     )
 }
 
-
-fun getSmartDate(date: Date?): String {
-    return if (date == null) "" else getSmartDate(date.time)
+/**
+ * 智能时间显示，12:30,昨天，前天...
+ *
+ * @param date
+ * @return
+ */
+fun Date?.getSmartDate(): String {
+    return this?.time?.getSmartDate() ?: ""
 }
 
 /**
@@ -146,16 +151,16 @@ fun getSmartDate(date: Date?): String {
  * @return
  */
 @SuppressLint("SimpleDateFormat")
-fun getSmartDate(date: Long): String {
+fun Long.getSmartDate(): String {
 
     val nowDetails = getWholeDetail(System.currentTimeMillis())
-    val smartDetail = getWholeDetail(date)
+    val smartDetail = getWholeDetail(this)
 
     var smartDate = ""
 
     if (nowDetails[0] == smartDetail[0]) {
         if (nowDetails[1] == smartDetail[1]) {
-            val time = " " + SimpleDateFormat("HH:mm").format(date)
+            val time = " " + SimpleDateFormat("HH:mm").format(this)
             val day = (nowDetails[2] - smartDetail[2]).toLong()
             if (day >= 3) {
                 smartDate = smartDetail[2].toString() + "日" + time
@@ -280,9 +285,29 @@ fun getAge(birthdayDetail: IntArray?): Int {
 
 
 /**根据日期获取指定格式时间
- * @param long
- * @return
+ * @return format yyyy-MM-dd HH:mm:ss
  */
-fun dateToString(long: Long, format: String = "yyyy-MM-dd HH:mm:ss"): String {
-    return SimpleDateFormat(format).format(long)
+
+@SuppressLint("SimpleDateFormat")
+fun Long.dateToString(format: String = "yyyy-MM-dd HH:mm:ss"): String? {
+    try {
+        return SimpleDateFormat(format).format(this)
+    } catch (e: Exception) {
+        return null
+    }
+
+}
+
+/**根据日期获取指定格式时间
+ * @return format yyyy-MM-dd HH:mm:ss
+ */
+
+@SuppressLint("SimpleDateFormat")
+fun Date.dateToString(format: String = "yyyy-MM-dd HH:mm:ss"): String? {
+    try {
+        return SimpleDateFormat(format).format(this.time)
+    } catch (e: Exception) {
+        return null
+    }
+
 }

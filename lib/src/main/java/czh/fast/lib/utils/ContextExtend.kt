@@ -39,6 +39,68 @@ fun Context.inflater(resource: Int, root: ViewGroup, attachToRoot: Boolean): Vie
 }
 
 /**
+ * 获取屏幕宽度
+ *
+ * @return 屏幕宽度
+ */
+fun Context.screenWidth(): Int {
+    return resources.displayMetrics.widthPixels
+}
+
+/**
+ * 获取屏幕高度
+ *
+ * @return 屏幕高度
+ */
+fun Context.screenHeight(): Int {
+    return resources.displayMetrics.heightPixels
+}
+
+/**
+ * 获取状态栏高度
+ *
+ * @return 状态栏高度（px）
+ */
+fun Context.statusBarHeight(): Int {
+    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+
+    var statusBarHeight = 0
+    if (resourceId > 0) {
+        statusBarHeight = resources.getDimensionPixelSize(resourceId)
+    }
+
+    return statusBarHeight
+}
+
+/**
+ * 获取Version code
+ *
+ * @return version code
+ */
+fun Context.versionCode(): Int {
+    return packageManager.getPackageInfo(packageName, 0).versionCode
+}
+
+/**
+ * 获取Version name
+ *
+ * @return version name
+ */
+fun Context.versionName(): String {
+    return packageManager.getPackageInfo(packageName, 0).versionName
+}
+
+/**
+ * 获取像素密集度参数density
+ *
+ * @return density
+ */
+fun Context.density(): Float {
+    return resources.displayMetrics.density
+}
+
+
+/**
  * 检查设备是否有虚拟键盘
  */
 fun Context.checkDeviceHasNavigationBar(): Boolean {

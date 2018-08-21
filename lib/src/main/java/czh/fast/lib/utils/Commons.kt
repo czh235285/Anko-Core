@@ -55,8 +55,16 @@ fun EditText.isEmpty(): Boolean = this.text.toString().trim().isEmpty()
 
 fun EditText.isNotEmpty(): Boolean = this.text.toString().trim().isNotEmpty()
 
+/**
+ * 清除输入框数据
+ */
+fun EditText.clear() {
+    setText("")
+}
+
+//修改光标的颜色（反射）
 fun EditText.textCursorDrawable(@DrawableRes id: Int) {
-    try {//修改光标的颜色（反射）
+    try {
         val f = TextView::class.java.getDeclaredField("mCursorDrawableRes")
         f.isAccessible = true
         f.set(this, id)
@@ -173,4 +181,48 @@ fun String.isEmail(): Boolean {
         return true
     }
     return false
+}
+
+/**
+ * 字符串安全转换到整型，转换失败返回0
+ */
+fun String.safeConvertToInt(): Int {
+    try {
+        return toInt()
+    } catch (e: Exception) {
+        return 0
+    }
+}
+
+/**
+ * 字符串安全转换到长整型，转换失败返回0
+ */
+fun String.safeConvertToLong(): Long {
+    try {
+        return toLong()
+    } catch (e: Exception) {
+        return 0L
+    }
+}
+
+/**
+ * 字符串安全转换到双精度类型，转换失败返回0
+ */
+fun String.safeConvertToDouble(): Double {
+    try {
+        return toDouble()
+    } catch (e: Exception) {
+        return 0.0
+    }
+}
+
+/**
+ * 字符串安全转换到短整型类型，转换失败返回0
+ */
+fun String.safeConvertToShort(): Short {
+    try {
+        return toShort()
+    } catch (e: Exception) {
+        return 0
+    }
 }

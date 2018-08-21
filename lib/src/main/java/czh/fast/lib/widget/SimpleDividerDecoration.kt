@@ -13,10 +13,9 @@ import android.view.View
  */
 
 class SimpleDividerDecoration(color: Int, private val dividerHeight: Int) : RecyclerView.ItemDecoration() {
-   var dividerPaint : Paint
+    private var dividerPaint: Paint = Paint()
 
     init {
-        dividerPaint = Paint()
         dividerPaint.color = color
     }
 
@@ -31,8 +30,8 @@ class SimpleDividerDecoration(color: Int, private val dividerHeight: Int) : Recy
         val left = parent.paddingLeft
         val right = parent.width - parent.paddingRight
 
-        for (i in 0..childCount - 1 - 1) {
-            val view = parent.getChildAt(i)
+        (0 until childCount - 1).forEach {
+            val view = parent.getChildAt(it)
             val top = view.bottom.toFloat()
             val bottom = (view.bottom + dividerHeight).toFloat()
             c.drawRect(left.toFloat(), top, right.toFloat(), bottom, dividerPaint)

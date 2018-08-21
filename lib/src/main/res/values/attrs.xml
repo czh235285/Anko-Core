@@ -9,4 +9,25 @@
     <declare-styleable name="NineGridLayout">
         <attr name="sapcing" format="dimension" />
     </declare-styleable>
+
+
+    <declare-styleable name="ItemLayout">
+        <attr name="itemHeight" format="dimension" />
+        <attr name="itemBgColor" format="color" />
+
+        <attr name="leftTextSize" format="dimension" />
+        <attr name="leftTextColor" format="color" />
+        <attr name="leftPadding" format="dimension" />
+        <attr name="leftDrawablePadding" format="dimension" />
+
+        <attr name="rightTextSize" format="dimension" />
+        <attr name="rightTextColor" format="color" />
+        <attr name="rightPadding" format="dimension" />
+        <attr name="rightDrawablePadding" format="dimension" />
+
+        <attr name="lineColor" format="color" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="lineMarginLeft" format="dimension" />
+        <attr name="lineMarginRight" format="dimension" />
+    </declare-styleable>
 </resources>

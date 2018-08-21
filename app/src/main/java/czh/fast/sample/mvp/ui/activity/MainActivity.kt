@@ -9,7 +9,7 @@ import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.toast
 import czh.fast.sample.R
 
-import czh.fast.sample.mvp.ui.layout.activity.HomeUI
+import czh.fast.sample.mvp.ui.layout.activity.MainUI
 import org.jetbrains.anko.setContentView
 
 
@@ -17,16 +17,17 @@ import czh.fast.sample.base.AnkoActivity
 import czh.fast.sample.mvp.model.TabEntity
 import czh.fast.sample.mvp.ui.fragment.DbFragment
 import czh.fast.sample.mvp.ui.fragment.NetFragment
+import czh.fast.sample.mvp.ui.fragment.OtherFragment
 
-class HomeActivity : AnkoActivity() {
+class MainActivity : AnkoActivity() {
 
 
-    private val mTitles = arrayOf("网络", "数据库")
-    private val mIconUnSelectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal)
-    private val mIconSelectIds = intArrayOf(R.mipmap.tab_massage_selected, R.mipmap.tab_optimization_selected)
+    private val mTitles = arrayOf("网络", "数据库","其他")
+    private val mIconUnSelectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal,R.mipmap.tab_other_normal)
+    private val mIconSelectIds = intArrayOf(R.mipmap.tab_massage_selected, R.mipmap.tab_optimization_selected, R.mipmap.tab_other_selected)
     private val mTabEntities: ArrayList<CustomTabEntity> = ArrayList()
 
-    val ui = HomeUI()
+    val ui = MainUI()
     override fun ankoLayout() {
         ui.setContentView(this)
     }
@@ -60,6 +61,7 @@ class HomeActivity : AnkoActivity() {
         mFragments = ArrayList()
         mFragments.add(NetFragment.get())
         mFragments.add(DbFragment.get())
+        mFragments.add(OtherFragment.get())
     }
 
     private var mExitTime: Long = 0

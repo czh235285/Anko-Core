@@ -8,20 +8,20 @@ import czh.fast.lib.utils.anko.commonTabLayout
 import czh.fast.lib.utils.anko.noScrollViewPager
 import czh.fast.lib.widget.NoScrollViewPager
 
-import czh.fast.sample.mvp.ui.activity.HomeActivity
+import czh.fast.sample.mvp.ui.activity.MainActivity
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView
 
 
-class HomeUI : AnkoComponent<HomeActivity> {
+class MainUI : AnkoComponent<MainActivity> {
     lateinit var vp: NoScrollViewPager
 
     lateinit var tab: CommonTabLayout
 
     @SuppressLint("ResourceType")
-    override fun createView(ui: AnkoContext<HomeActivity>): View = with(ui) {
+    override fun createView(ui: AnkoContext<MainActivity>): View = with(ui) {
         return verticalLayout {
             backgroundColor = Color.parseColor("#f2f2f2")
             vp = noScrollViewPager {

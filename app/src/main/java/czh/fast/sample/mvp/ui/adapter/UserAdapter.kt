@@ -1,9 +1,9 @@
 package czh.fast.sample.mvp.ui.adapter
 
+import czh.adapter.AnkoAdapter
+import czh.adapter.BaseViewHolder
 import czh.fast.sample.db.User
 import czh.fast.sample.mvp.ui.layout.item.DbItemUI
-import czh.library.AnkoAdapter
-import czh.library.BaseViewHolder
 
 class UserAdapter(ui: DbItemUI, data: List<User>?) : AnkoAdapter<DbItemUI, User>(ui, data) {
 
