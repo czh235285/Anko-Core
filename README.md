@@ -20,12 +20,13 @@ dependencies {
 ```
 ## 介绍
 
-* 一个简单的Demo，初学kotlin的可以看看,kotlin+rxjava2+retrofit2+mvp
+* 一个简单的Demo，初学kotlin的可以看看,kotlin+rxjava2+retrofit2+mvp+anko
+* 内容不多，但是网络请求，图片，数据库，RecyclerView的adapter写法都有涉及到，差不多常见项目也就这些了吧！
 * 沉浸式状态栏，浅色状态栏。
 * 大量常用工具类，扩展函数
 * 网络请求用的 [xsnow](https://github.com/xiaoyaoyou1212/XSnow)（基于Retrofit2二次封装的框架，缓存方面封装比较好，直接拿来用了）
 * 数据库 [dbflow](https://github.com/Raizlabs/DBFlow)(目前最好用的安卓数据库，lib中未添加，具体用法可以看demo)
-* 通用adapter [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
+* 通用adapter [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)。换anko后已经弃用这个，目前用的基类是自己写的。
 * 下拉刷新/上拉加载库 [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
 * 6.0动态权限申请 [acp](https://github.com/mylhyl/AndroidAcp)
 
