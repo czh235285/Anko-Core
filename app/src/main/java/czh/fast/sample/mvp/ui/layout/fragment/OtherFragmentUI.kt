@@ -4,26 +4,29 @@ import android.graphics.Color
 import android.view.Gravity
 import android.view.View
 import czh.fast.lib.utils.anko.itemLayout
+import czh.fast.lib.utils.warpActivity
 import czh.fast.lib.widget.ItemBean
 import czh.fast.lib.widget.ItemLayout
 import czh.fast.sample.R
+import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.mvp.ui.fragment.OtherFragment
+import czh.fast.sample.utils.ankoToolBar
 import org.jetbrains.anko.*
 
 class OtherFragmentUI : AnkoComponent<OtherFragment> {
-    lateinit var itemlayou: ItemLayout
 
     override fun createView(ui: AnkoContext<OtherFragment>): View = with(ui) {
         return verticalLayout {
-            textView("通用item布局") {
-                gravity = Gravity.CENTER
-                setPadding(20, 20, 20, 20)
-            }.lparams(matchParent) {
-                topMargin = dip(20)
+
+            ankoToolBar {
+                title = "通用item布局"
+                titleColor = Color.parseColor("#ffffff")
+                backgroundColorResource = R.color.colorPrimaryDark
+                hideNavigation()
             }
-            itemlayou = itemLayout {
+            itemLayout {
                 val items = arrayListOf<ItemBean>()
-                items.add(ItemBean(R.mipmap.ic_launcher, "测试", hasTopLine = true))
+                items.add(ItemBean(R.mipmap.ic_launcher, "图片", hasTopLine = true))
                 items.add(ItemBean(R.mipmap.ic_launcher, "测试"))
                 items.add(ItemBean(R.mipmap.ic_launcher, "测试"))
                 items.add(ItemBean(R.mipmap.ic_launcher, "测试", height = 2))
@@ -50,11 +53,15 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
                 lineMarginLeft = 30
 //            lineMarginRight=0
                 setOnItemClickListener { view, position ->
+                    if (position == 0) {
+                        owner.warpActivity<ImageActivity>()
+                        return@setOnItemClickListener
+                    }
                     ctx.toast(position.toString())
                 }.create()
 
             }.lparams(matchParent) {
-                topMargin = dip(20)
+                topMargin = dip(50)
             }
         }
     }

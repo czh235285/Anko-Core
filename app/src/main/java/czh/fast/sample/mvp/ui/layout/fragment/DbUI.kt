@@ -1,5 +1,6 @@
 package czh.fast.sample.mvp.ui.layout.fragment
 
+import android.graphics.Color
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.InputType
@@ -20,6 +21,7 @@ import czh.fast.sample.db.User
 import czh.fast.sample.db.User_Table
 
 import czh.fast.sample.mvp.ui.fragment.DbFragment
+import czh.fast.sample.utils.ankoToolBar
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.*
@@ -34,13 +36,25 @@ class DbUI : AnkoComponent<DbFragment> {
 
     override fun createView(ui: AnkoContext<DbFragment>): View = with(ui) {
         return verticalLayout {
+            ankoToolBar {
+                title = "数据库"
+                titleColor = Color.parseColor("#ffffff")
+                backgroundColorResource = R.color.colorPrimaryDark
+                hideNavigation()
+            }
             etName = materialEditText {
+                setFloatingLabel(1)
+                maxLines = 1
+                textSize = 10f
                 hint = "姓名"
                 textCursorDrawable(R.drawable.bg_shape_cursor)
             }.lparams(matchParent) {
                 setMargins(20, 20, 20, 20)
             }
             etAge = materialEditText {
+                setFloatingLabel(1)
+                maxLines = 1
+                textSize = 10f
                 hint = "年龄"
                 inputType = InputType.TYPE_CLASS_NUMBER
                 textCursorDrawable(R.drawable.bg_shape_cursor)
@@ -48,6 +62,10 @@ class DbUI : AnkoComponent<DbFragment> {
                 setMargins(20, 20, 20, 20)
             }
             textView("添加") {
+                padding = 30
+                gravity = Gravity.CENTER
+                textColorResource = R.color.white
+                backgroundColorResource = R.color.colorPrimary
                 setOnClickListener {
                     if (!checkALL(etAge, etName)) {
                         ctx.toast("输入不能为空")
@@ -68,6 +86,10 @@ class DbUI : AnkoComponent<DbFragment> {
                 setMargins(30, 30, 30, 30)
             }
             textView("清空") {
+                padding = 30
+                gravity = Gravity.CENTER
+                textColorResource = R.color.white
+                backgroundColorResource = R.color.colorPrimary
                 setOnClickListener {
                     Delete.table(User::class.java)
                     owner.queryList()
@@ -83,27 +105,6 @@ class DbUI : AnkoComponent<DbFragment> {
             }
 
 
-        }.apply {
-            applyRecursively {
-                when (it) {
-                    is MaterialEditText -> {
-                        it.apply {
-                            setFloatingLabel(1)
-                            maxLines = 1
-                            textSize = 10f
-                        }
-                    }
-
-                    is TextView -> {
-                        it.apply {
-                            padding = 30
-                            gravity = Gravity.CENTER
-                            textColorResource = R.color.white
-                            backgroundColorResource = R.color.colorPrimary
-                        }
-                    }
-                }
-            }
         }
     }
 }

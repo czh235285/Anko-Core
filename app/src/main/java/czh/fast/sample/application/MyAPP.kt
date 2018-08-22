@@ -2,19 +2,20 @@ package czh.fast.sample.application
 
 import android.content.Context
 import com.raizlabs.android.dbflow.config.FlowManager
-import czh.fast.lib.application.BaseApp
 import android.support.multidex.MultiDex
+import czh.fast.lib.application.BaseAPP
 
 
-class MyAPP : BaseApp() {
+class MyAPP : BaseAPP() {
     override fun onCreate() {
         super.onCreate()
         FlowManager.init(this)
         instance = this
     }
 
-    override val BaseUrl: String
-        get() = "http://api-test.lifenxiang.cn/app/"
+    override fun setBaseUrl(): String {
+        return "http://api-test.lifenxiang.cn/app/"
+    }
 
 
     override fun attachBaseContext(base: Context) {

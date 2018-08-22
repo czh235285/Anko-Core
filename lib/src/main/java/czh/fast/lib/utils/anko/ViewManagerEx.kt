@@ -4,15 +4,17 @@ import android.content.Context
 import android.support.v4.app.Fragment
 import android.view.View
 import android.view.ViewManager
+import com.facebook.drawee.view.SimpleDraweeView
 import com.flyco.tablayout.CommonTabLayout
 import com.rengwuxian.materialedittext.MaterialEditText
 import czh.fast.lib.widget.ItemLayout
 import czh.fast.lib.widget.NoScrollViewPager
 import czh.widget.ObservableRecylerView
-import org.jetbrains.anko.AnkoComponent
-import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.support.v4.ctx
+import com.facebook.drawee.generic.RoundingParams
+import org.jetbrains.anko.*
+
 
 fun <T : Fragment> AnkoComponent<T>.setContentView(activity: T): View = createView(AnkoContext.create(activity.ctx, activity))
 
@@ -77,4 +79,55 @@ inline fun ViewManager.itemLayout(theme: Int = 0) = itemLayout(theme) {}
  */
 inline fun ViewManager.itemLayout(theme: Int = 0, init: ItemLayout.() -> Unit): ItemLayout {
     return ankoView({ ItemLayout(it) }, theme, init)
+}
+
+/**
+ * simpleDraweeView
+ */
+inline fun ViewManager.simpleDraweeView(theme: Int = 0) = simpleDraweeView(theme) {}
+
+/**
+ * simpleDraweeView
+ */
+inline fun ViewManager.simpleDraweeView(theme: Int = 0, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
+    return ankoView({ SimpleDraweeView(it) }, theme, init)
+}
+
+/**
+ * circleImageView
+ */
+inline fun ViewManager.circleImageView(init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
+    return simpleDraweeView(0, init).apply {
+        hierarchy.apply {
+            val roundingParams = RoundingParams()
+            roundingParams.roundAsCircle = true
+            hierarchy.roundingParams = roundingParams
+        }
+    }
+}
+
+/**
+ * circleImageView
+ */
+inline fun ViewManager.roundImageView(corners: Float, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
+    return simpleDraweeView(0, init).apply {
+        hierarchy.apply {
+            val roundingParams = RoundingParams()
+            roundingParams.setCornersRadius(corners)
+            hierarchy.roundingParams = roundingParams
+        }
+    }
+}
+
+/**
+ * circleImageView
+ */
+inline fun ViewManager.roundImageView(topLeft: Float, topRight: Float, bottomRight: Float, bottomLeft: Float, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
+    return simpleDraweeView(0, init).apply {
+        hierarchy.apply {
+            val roundingParams = RoundingParams()
+            roundingParams.setCornersRadii(topLeft, topRight, bottomRight, bottomLeft)
+            hierarchy.roundingParams = roundingParams
+        }
+    }
 }

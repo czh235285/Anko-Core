@@ -18,7 +18,7 @@ class DbItemUI : AnkoComponent<Context> {
                 weight = 1f
             }
 
-            tvAge = textView("性别").lparams(0, wrapContent) {
+            tvAge = textView("年龄").lparams(0, wrapContent) {
                 weight = 1f
             }
 
