@@ -33,7 +33,7 @@ class ImageActivityUI : AnkoComponent<ImageActivity> {
                 topMargin = dip(30)
             }
 
-            roundImageView(dip(10).toFloat(), dip(20).toFloat(), dip(30).toFloat(), dip(40).toFloat()) { load(url) }.lparams(400, 400) {
+            roundImageView(dip(10).toFloat(), dip(10).toFloat(), dip(10).toFloat(), dip(10).toFloat()) { load(url) }.lparams(400, 400) {
                 topMargin = dip(30)
             }
 

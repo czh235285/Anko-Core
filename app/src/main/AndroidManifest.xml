@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.ui.activity.ImageActivity" />
+        <activity android:name=".mvp.ui.activity.MultiActivity" />
 
     </application>
 

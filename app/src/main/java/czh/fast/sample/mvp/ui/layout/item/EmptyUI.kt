@@ -12,8 +12,8 @@ class EmptyUI : AnkoComponent<Context> {
         relativeLayout {
 
             lparams(matchParent, matchParent)
-            textView("空布局"){
-                gravity=Gravity.CENTER
+            textView("空布局") {
+                gravity = Gravity.CENTER
             }.lparams(matchParent, matchParent) {
                 centerInParent()
             }

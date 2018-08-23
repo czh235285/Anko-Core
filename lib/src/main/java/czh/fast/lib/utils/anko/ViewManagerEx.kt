@@ -2,6 +2,7 @@ package czh.fast.lib.utils.anko
 
 import android.content.Context
 import android.support.v4.app.Fragment
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewManager
 import com.facebook.drawee.view.SimpleDraweeView
@@ -13,6 +14,11 @@ import czh.widget.ObservableRecylerView
 import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.support.v4.ctx
 import com.facebook.drawee.generic.RoundingParams
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.zhy.view.flowlayout.TagFlowLayout
+import czh.fast.lib.R
+import czh.fast.lib.widget.viewpager.Mu5ViewPager
+import czh.library.LikeView
 import org.jetbrains.anko.*
 
 
@@ -82,6 +88,31 @@ inline fun ViewManager.itemLayout(theme: Int = 0, init: ItemLayout.() -> Unit): 
 }
 
 /**
+ * mu5ViewPager
+ */
+inline fun ViewManager.mu5ViewPager(theme: Int = 0) = mu5ViewPager(theme) {}
+
+/**
+ * mu5ViewPager
+ */
+inline fun ViewManager.mu5ViewPager(theme: Int = 0, init: Mu5ViewPager.() -> Unit): Mu5ViewPager {
+    return ankoView({ Mu5ViewPager(it) }, theme, init)
+}
+
+/**
+ * smartRefreshLayout
+ */
+inline fun ViewManager.smartRefreshLayout(theme: Int = 0) = smartRefreshLayout(theme) {
+}
+
+/**
+ * smartRefreshLayout
+ */
+inline fun ViewManager.smartRefreshLayout(theme: Int = 0, init: SmartRefreshLayout.() -> Unit): SmartRefreshLayout {
+    return ankoView({ SmartRefreshLayout(it) }, theme, init)
+}
+
+/**
  * simpleDraweeView
  */
 inline fun ViewManager.simpleDraweeView(theme: Int = 0) = simpleDraweeView(theme) {}
@@ -99,6 +130,7 @@ inline fun ViewManager.simpleDraweeView(theme: Int = 0, init: SimpleDraweeView.(
 inline fun ViewManager.circleImageView(init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
     return simpleDraweeView(0, init).apply {
         hierarchy.apply {
+            setPlaceholderImage(R.mipmap.ic_launcher)
             val roundingParams = RoundingParams()
             roundingParams.roundAsCircle = true
             hierarchy.roundingParams = roundingParams
@@ -119,8 +151,16 @@ inline fun ViewManager.roundImageView(corners: Float, init: SimpleDraweeView.() 
     }
 }
 
+
+
 /**
- * circleImageView
+ * roundImageView
+ */
+inline fun ViewManager.roundImageView(topLeft: Float, topRight: Float, bottomRight: Float, bottomLeft: Float) = roundImageView(topLeft, topRight, bottomRight, bottomLeft) {
+}
+
+/**
+ * roundImageView
  */
 inline fun ViewManager.roundImageView(topLeft: Float, topRight: Float, bottomRight: Float, bottomLeft: Float, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
     return simpleDraweeView(0, init).apply {
@@ -130,4 +170,42 @@ inline fun ViewManager.roundImageView(topLeft: Float, topRight: Float, bottomRig
             hierarchy.roundingParams = roundingParams
         }
     }
+}
+
+
+/**
+ * recyclerView
+ */
+inline fun ViewManager.recyclerView(theme: Int = 0) = recyclerView(theme) {
+}
+
+/**
+ * recyclerView
+ */
+inline fun ViewManager.recyclerView(theme: Int = 0, init: RecyclerView.() -> Unit): RecyclerView {
+    return ankoView({ RecyclerView(it) }, theme, init)
+}
+
+/**
+ * tagFlowLayout
+ */
+inline fun ViewManager.tagFlowLayout(theme: Int = 0) = tagFlowLayout(theme) {}
+
+/**
+ * tagFlowLayout
+ */
+inline fun ViewManager.tagFlowLayout(theme: Int = 0, init: TagFlowLayout.() -> Unit): TagFlowLayout {
+    return ankoView({ TagFlowLayout(it) }, theme, init)
+}
+
+/**
+ * LikeView
+ */
+inline fun ViewManager.likeView(theme: Int = 0) = likeView(theme) {}
+
+/**
+ * LikeView
+ */
+inline fun ViewManager.likeView(theme: Int = 0, init: LikeView.() -> Unit): LikeView {
+    return ankoView({ LikeView(it) }, theme, init)
 }

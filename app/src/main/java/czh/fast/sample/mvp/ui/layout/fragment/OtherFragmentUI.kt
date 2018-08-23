@@ -9,6 +9,7 @@ import czh.fast.lib.widget.ItemBean
 import czh.fast.lib.widget.ItemLayout
 import czh.fast.sample.R
 import czh.fast.sample.mvp.ui.activity.ImageActivity
+import czh.fast.sample.mvp.ui.activity.MultiActivity
 import czh.fast.sample.mvp.ui.fragment.OtherFragment
 import czh.fast.sample.utils.ankoToolBar
 import org.jetbrains.anko.*
@@ -53,9 +54,14 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
                 lineMarginLeft = 30
 //            lineMarginRight=0
                 setOnItemClickListener { view, position ->
-                    if (position == 0) {
-                        owner.warpActivity<ImageActivity>()
-                        return@setOnItemClickListener
+
+                    when(position){
+                        0->{
+                            owner.warpActivity<ImageActivity>()
+                        }
+                        1->{
+                            owner.warpActivity<MultiActivity>()
+                        }
                     }
                     ctx.toast(position.toString())
                 }.create()
