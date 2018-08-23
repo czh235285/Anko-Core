@@ -47,7 +47,9 @@ class GoodsItemUI : AnkoComponent<Context> {
                             id = 1
                         }.lparams(matchParent, wrapContent)
                         rl = relativeLayout {
+                            id=4
                             tvWantToBuy = textView("2000") {
+                                id=3
                                 rightPadding = dip(8)
                                 textSize = 15f
                                 textColorResource = R.color.white
@@ -57,20 +59,14 @@ class GoodsItemUI : AnkoComponent<Context> {
                                 centerVertically()
                             }
                             likeview = likeView {
+                                id = 2
                                 horizontalPadding = dip(40)
                                 setmDefaultColor(Color.parseColor("#ffffffff"))
                                 setmRadius(dip(5).toFloat())
-                                setmCycleTime(600)
-                                setmUnLikeType(0)
+                                setmCycleTime(350)
+                                setmUnLikeType(2)
                                 setmCheckedColor(Color.parseColor("#DE383D"))
                                 selectLike(false)
-                                setOnClickListener {
-                                    if (isChecked) {
-                                        unLike()
-                                    } else {
-                                        like()
-                                    }
-                                }
                             }.lparams {
                                 centerVertically()
 

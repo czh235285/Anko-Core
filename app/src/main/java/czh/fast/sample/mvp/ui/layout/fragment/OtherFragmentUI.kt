@@ -28,7 +28,7 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
             itemLayout {
                 val items = arrayListOf<ItemBean>()
                 items.add(ItemBean(R.mipmap.ic_launcher, "图片", hasTopLine = true))
-                items.add(ItemBean(R.mipmap.ic_launcher, "测试"))
+                items.add(ItemBean(R.mipmap.ic_launcher, "多type布局"))
                 items.add(ItemBean(R.mipmap.ic_launcher, "测试"))
                 items.add(ItemBean(R.mipmap.ic_launcher, "测试", height = 2))
 
@@ -58,9 +58,11 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
                     when(position){
                         0->{
                             owner.warpActivity<ImageActivity>()
+                            return@setOnItemClickListener
                         }
                         1->{
                             owner.warpActivity<MultiActivity>()
+                            return@setOnItemClickListener
                         }
                     }
                     ctx.toast(position.toString())

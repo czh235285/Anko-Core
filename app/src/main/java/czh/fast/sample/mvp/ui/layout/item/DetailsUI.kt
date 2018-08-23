@@ -52,7 +52,7 @@ class DetailsUI : AnkoComponent<Context> {
                     centerVertically()
                 }
                 textView("+关注") {
-                    setPadding(8, 16, 8, 16)
+                    setPadding(16, 8, 16, 8)
                     setShape("#fed500", 16f)
                 }.lparams {
                     alignParentRight()
