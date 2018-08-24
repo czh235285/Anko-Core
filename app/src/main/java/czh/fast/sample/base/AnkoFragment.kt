@@ -15,7 +15,7 @@ import czh.fast.lib.base.LoadingView
 abstract class AnkoFragment : Fragment(), LoadingView {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return UI()
+        return ankoLayout()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ abstract class AnkoFragment : Fragment(), LoadingView {
     }
 
     //获取布局文件
-    protected abstract fun UI(): View
+    protected abstract fun ankoLayout(): View
 
     //初始化view
     protected abstract fun afterInitView()
