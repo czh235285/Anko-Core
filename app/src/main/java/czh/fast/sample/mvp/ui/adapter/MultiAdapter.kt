@@ -14,6 +14,7 @@ import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import czh.adapter.AnkoAdapter
 import czh.adapter.AnkoMultiAdapter
+import czh.adapter.holer.AnkoViewHolder
 import czh.adapter.holer.BaseViewHolder
 import czh.fast.lib.utils.dateToString
 import czh.fast.lib.utils.gone
@@ -36,11 +37,21 @@ class MultiAdapter(val Height: Int, data: MutableList<MultiData>) : AnkoMultiAda
         addType(3, RcvUI())
     }
 
-    override fun convert(holder: BaseViewHolder, ui: AnkoComponent<Context>, item: MultiData?) {
+    override fun ankoLayout(viewType: Int): AnkoComponent<Context> {
+        return when (viewType) {
+            1 -> BannerUI()
+            2 -> DetailsUI()
+            else -> RcvUI()
+        }
+    }
+
+
+
+    override fun convert(holder: AnkoViewHolder, position: Int, item: MultiData?) {
 
         when (holder.itemViewType) {
             1 -> {
-                with(ui as BannerUI) {
+                with(holder.ui as BannerUI) {
                     banner.setHeight(Height)
                     item?.data?.imgs?.split(",")?.let { urls ->
                         tvIndex.text = "1/${urls.size}"
@@ -74,7 +85,7 @@ class MultiAdapter(val Height: Int, data: MutableList<MultiData>) : AnkoMultiAda
                 }
             }
             2 -> {
-                with(ui as DetailsUI) {
+                with(holder.ui as DetailsUI) {
                     item?.data?.let {
                         civ.load(it.avatar)
                         name.text = it.nickname
@@ -114,9 +125,9 @@ class MultiAdapter(val Height: Int, data: MutableList<MultiData>) : AnkoMultiAda
                 }
             }
             3 -> {
-                with(ui as RcvUI) {
+                with(holder.ui as RcvUI) {
                     item?.hot?.let {
-                        val adapter = GoodAdapter(GoodsItemUI(), it)
+                        val adapter = GoodAdapter(it)
                         rcv.adapter = adapter
                     }
 

@@ -17,7 +17,7 @@ class DbFragment : AnkoLazyFragment() {
 
     private var mList = Select().from(User::class.java).queryList()
     val mAdapter by lazy {
-        UserAdapter(DbItemUI(), mList).apply {
+        UserAdapter(mList).apply {
             addHeaderView(DbItemUI().setContentView(activity!!))
             setEmptyView(EmptyUI().setContentView(activity!!))
         }

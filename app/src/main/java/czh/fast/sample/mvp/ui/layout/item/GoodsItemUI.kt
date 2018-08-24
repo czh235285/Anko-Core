@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 import android.widget.RelativeLayout
@@ -47,9 +48,7 @@ class GoodsItemUI : AnkoComponent<Context> {
                             id = 1
                         }.lparams(matchParent, wrapContent)
                         rl = relativeLayout {
-                            id=4
                             tvWantToBuy = textView("2000") {
-                                id=3
                                 rightPadding = dip(8)
                                 textSize = 15f
                                 textColorResource = R.color.white
@@ -59,7 +58,6 @@ class GoodsItemUI : AnkoComponent<Context> {
                                 centerVertically()
                             }
                             likeview = likeView {
-                                id = 2
                                 horizontalPadding = dip(40)
                                 setmDefaultColor(Color.parseColor("#ffffffff"))
                                 setmRadius(dip(5).toFloat())
@@ -79,6 +77,9 @@ class GoodsItemUI : AnkoComponent<Context> {
                     }
 
                     tvTitle = textView {
+                        lines = 2
+                        maxLines = 2
+                        ellipsize = TextUtils.TruncateAt.END
                         horizontalPadding = dip(8)
                         topPadding = dip(20)
                         textSize = 15f
@@ -86,15 +87,16 @@ class GoodsItemUI : AnkoComponent<Context> {
                         textColor = Color.parseColor("#333333")
                     }
                     relativeLayout {
+                        lparams(matchParent, dip(40))
                         tvPrice = textView {
-                            topPadding = dip(20)
                             leftPadding = dip(8)
                             textSize = 15f
                             textColor = Color.parseColor("#333333")
-                        }
+                        }.lparams { centerVertically() }
 
                         civ = circleImageView { }.lparams(dip(24), dip(24)) {
                             alignParentRight()
+                            centerVertically()
                             rightMargin = dip(16)
                         }
                     }
