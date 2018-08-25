@@ -19,7 +19,15 @@
         </activity>
         <activity android:name=".mvp.ui.activity.ImageActivity" />
         <activity android:name=".mvp.ui.activity.MultiActivity" />
-
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="czh.fast.sample.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public"></meta-data>
+        </provider>
     </application>
 
 </manifest>

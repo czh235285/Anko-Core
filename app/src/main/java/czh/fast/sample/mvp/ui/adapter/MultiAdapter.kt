@@ -12,20 +12,16 @@ import com.bumptech.glide.request.target.ImageViewTarget
 import com.pawegio.kandroid.setHeight
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
-import czh.adapter.AnkoAdapter
 import czh.adapter.AnkoMultiAdapter
 import czh.adapter.holer.AnkoViewHolder
-import czh.adapter.holer.BaseViewHolder
 import czh.fast.lib.utils.dateToString
 import czh.fast.lib.utils.gone
 import czh.fast.lib.utils.load
 import czh.fast.lib.widget.viewpager.Mu5Interface
 import czh.fast.sample.application.MyAPP
-import czh.fast.sample.mvp.model.HotData
 import czh.fast.sample.mvp.model.MultiData
 import czh.fast.sample.mvp.ui.layout.item.BannerUI
 import czh.fast.sample.mvp.ui.layout.item.DetailsUI
-import czh.fast.sample.mvp.ui.layout.item.GoodsItemUI
 import czh.fast.sample.mvp.ui.layout.item.RcvUI
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.backgroundDrawable
@@ -52,10 +48,10 @@ class MultiAdapter(val Height: Int, data: MutableList<MultiData>) : AnkoMultiAda
         when (holder.itemViewType) {
             1 -> {
                 with(holder.ui as BannerUI) {
-                    banner.setHeight(Height)
+                    mu5ViewPager.setHeight(Height)
                     item?.data?.imgs?.split(",")?.let { urls ->
                         tvIndex.text = "1/${urls.size}"
-                        banner.setData(urls, object : Mu5Interface {
+                        mu5ViewPager.setData(urls, object : Mu5Interface {
                             override fun onIndexChange(position: Int) {
                                 tvIndex.text = "${position + 1}/${urls.size}"
                             }
@@ -63,11 +59,11 @@ class MultiAdapter(val Height: Int, data: MutableList<MultiData>) : AnkoMultiAda
                             override fun onLoadImage(iv: ImageView, url: String, position: Int) {
 
 
-                                Glide.with(MyAPP.instance).asBitmap().load(url).apply {
+                                Glide.with(MyAPP.instance).load(url).asBitmap().apply {
                                     into(object : ImageViewTarget<Bitmap>(iv) {
                                         override fun setResource(resource: Bitmap?) {
                                             resource?.let {
-                                                banner.bindSource(it, position, iv)
+                                                mu5ViewPager.bindSource(it, position, iv)
                                             }
 
                                         }

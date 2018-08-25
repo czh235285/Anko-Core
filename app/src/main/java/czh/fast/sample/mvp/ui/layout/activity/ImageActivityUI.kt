@@ -5,6 +5,7 @@ import android.view.View
 import czh.fast.lib.utils.anko.circleImageView
 import czh.fast.lib.utils.anko.roundImageView
 import czh.fast.lib.utils.load
+import czh.fast.lib.utils.wrapHeight
 import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.utils.ankoToolBar
 
@@ -23,7 +24,10 @@ class ImageActivityUI : AnkoComponent<ImageActivity> {
                 title = "图片"
 //                hideNavigation()
             }
-
+            roundImageView(dip(10).toFloat(), dip(20).toFloat(), dip(30).toFloat(), dip(40).toFloat()) {
+               wrapHeight(url) }.lparams(400, 400) {
+                topMargin = dip(30)
+            }
 
             circleImageView { load(url) }.lparams(400, 400) {
                 topMargin = dip(30)
@@ -33,7 +37,7 @@ class ImageActivityUI : AnkoComponent<ImageActivity> {
                 topMargin = dip(30)
             }
 
-            roundImageView(dip(10).toFloat(), dip(10).toFloat(), dip(10).toFloat(), dip(10).toFloat()) { load(url) }.lparams(400, 400) {
+            roundImageView(dip(10).toFloat(), dip(20).toFloat(), dip(30).toFloat(), dip(40).toFloat()) { load(url) }.lparams(400, 400) {
                 topMargin = dip(30)
             }
 

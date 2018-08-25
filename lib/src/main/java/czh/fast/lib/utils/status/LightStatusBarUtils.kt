@@ -1,5 +1,7 @@
 package czh.fast.lib.utils.status
 
+import android.annotation.SuppressLint
+
 /**
  * Created by Dell on 2017/9/15.
  */
@@ -20,6 +22,7 @@ object LightStatusBarUtils {
         }// N/A do nothing
     }
 
+    @SuppressLint("PrivateApi")
     private fun setMIUILightStatusBar(activity: android.app.Activity, darkmode: Boolean): Boolean {
         val clazz = activity.window.javaClass
         try {

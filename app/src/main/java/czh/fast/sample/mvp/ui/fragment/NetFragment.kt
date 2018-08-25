@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.ImageView
 import com.facebook.drawee.view.SimpleDraweeView
 import com.youth.banner.loader.ImageLoader
-import czh.fast.lib.utils.GlideImageLoader
 import czh.fast.sample.base.AnkoLazyFragment
 import czh.fast.sample.mvp.contract.NetContract
 import czh.fast.sample.mvp.model.Banner

@@ -1,5 +1,6 @@
 package czh.fast.lib.utils
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.view.View
@@ -24,3 +25,5 @@ fun View.setShape(solidColor: String? = null, radius: Float? = null, strokeWidth
 
     }
 }
+
+

@@ -55,13 +55,17 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
 //            lineMarginRight=0
                 setOnItemClickListener { view, position ->
 
-                    when(position){
-                        0->{
+                    when (position) {
+                        0 -> {
                             owner.warpActivity<ImageActivity>()
                             return@setOnItemClickListener
                         }
-                        1->{
+                        1 -> {
                             owner.warpActivity<MultiActivity>()
+                            return@setOnItemClickListener
+                        }
+                        2 -> {
+                            owner.imagePicker()
                             return@setOnItemClickListener
                         }
                     }

@@ -90,9 +90,9 @@ class GlideCacheUtil {
             val fileList = file.listFiles()
             for (aFileList in fileList) {
                 if (aFileList.isDirectory) {
-                    size = size + getFolderSize(aFileList)
+                    size += getFolderSize(aFileList)
                 } else {
-                    size = size + aFileList.length()
+                    size += aFileList.length()
                 }
             }
         } catch (e: Exception) {
@@ -123,7 +123,7 @@ class GlideCacheUtil {
                     if (!file.isDirectory) {
                         file.delete()
                     } else {
-                        if (file.listFiles().size == 0) {
+                        if (file.listFiles().isEmpty()) {
                             file.delete()
                         }
                     }

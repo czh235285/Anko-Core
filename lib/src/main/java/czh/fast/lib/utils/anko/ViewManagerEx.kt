@@ -14,6 +14,8 @@ import czh.widget.ObservableRecylerView
 import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.support.v4.ctx
 import com.facebook.drawee.generic.RoundingParams
+import com.flyco.tablayout.SegmentTabLayout
+import com.flyco.tablayout.SlidingTabLayout
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.zhy.view.flowlayout.TagFlowLayout
 import czh.fast.lib.R
@@ -36,6 +38,31 @@ inline fun ViewManager.commonTabLayout(theme: Int = 0) = commonTabLayout(theme) 
  */
 inline fun ViewManager.commonTabLayout(theme: Int = 0, init: CommonTabLayout.() -> Unit): CommonTabLayout {
     return ankoView({ CommonTabLayout(it) }, theme, init)
+}
+
+
+/**
+ * tabLayout
+ */
+inline fun ViewManager.slidingTabLayout(theme: Int = 0) = slidingTabLayout(theme) {}
+
+/**
+ * tabLayout
+ */
+inline fun ViewManager.slidingTabLayout(theme: Int = 0, init: SlidingTabLayout.() -> Unit): SlidingTabLayout {
+    return ankoView({ SlidingTabLayout(it) }, theme, init)
+}
+
+/**
+ * tabLayout
+ */
+inline fun ViewManager.segmentTabLayout(theme: Int = 0) = segmentTabLayout(theme) {}
+
+/**
+ * tabLayout
+ */
+inline fun ViewManager.segmentTabLayout(theme: Int = 0, init: SegmentTabLayout.() -> Unit): SegmentTabLayout {
+    return ankoView({ SegmentTabLayout(it) }, theme, init)
 }
 
 /**
@@ -130,7 +157,6 @@ inline fun ViewManager.simpleDraweeView(theme: Int = 0, init: SimpleDraweeView.(
 inline fun ViewManager.circleImageView(init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
     return simpleDraweeView(0, init).apply {
         hierarchy.apply {
-            setPlaceholderImage(R.mipmap.ic_launcher)
             val roundingParams = RoundingParams()
             roundingParams.roundAsCircle = true
             hierarchy.roundingParams = roundingParams
@@ -139,7 +165,7 @@ inline fun ViewManager.circleImageView(init: SimpleDraweeView.() -> Unit): Simpl
 }
 
 /**
- * circleImageView
+ * roundImageView
  */
 inline fun ViewManager.roundImageView(corners: Float, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
     return simpleDraweeView(0, init).apply {
@@ -150,7 +176,6 @@ inline fun ViewManager.roundImageView(corners: Float, init: SimpleDraweeView.() 
         }
     }
 }
-
 
 
 /**

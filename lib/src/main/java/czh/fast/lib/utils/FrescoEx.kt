@@ -27,6 +27,7 @@ fun SimpleDraweeView.load(url: String, width: Int, height: Int) {
 }
 
 fun SimpleDraweeView.wrapHeight(url: String) {
+
     val vp = layoutParams as ViewGroup.LayoutParams
     val controllerListener = object : BaseControllerListener<ImageInfo>() {
         override fun onFinalImageSet(id: String?, imageInfo: ImageInfo?, animatable: Animatable?) {

@@ -3,7 +3,6 @@ package czh.fast.sample.mvp.ui.activity
 import android.graphics.Bitmap
 import android.support.v7.widget.LinearLayoutManager
 import com.google.gson.Gson
-import com.vise.log.ViseLog
 import org.jetbrains.anko.setContentView
 
 
@@ -16,7 +15,7 @@ import czh.fast.sample.mvp.ui.adapter.MultiAdapter
 import czh.fast.sample.mvp.ui.layout.activity.MultiActivityUI
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.transition.Transition
+import com.bumptech.glide.request.animation.GlideAnimation
 import czh.fast.lib.utils.screenWidth
 
 
@@ -35,17 +34,18 @@ class MultiActivity : AnkoActivity() {
         mList.add(MultiData(2, data))
         mList.add(MultiData(3, hot))
         Glide.with(this)
-                .asBitmap()
                 .load(data.imgs.split(",")[0])
+                .asBitmap()
                 //强制Glide返回一个Bitmap对象
                 .into(object : SimpleTarget<Bitmap>() {
-                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    override fun onResourceReady(resource: Bitmap, glideAnimation: GlideAnimation<in Bitmap>?) {
                         mAdapter = MultiAdapter(screenWidth() * resource.height / resource.width, mList)
                         ui.rcv.apply {
                             layoutManager = LinearLayoutManager(this@MultiActivity)
                             adapter = mAdapter
                         }
                     }
+
                 })
 
 

@@ -6,12 +6,6 @@ import java.util.*
 
 /**
  * @Description:主要功能: 居民身份证工具类
- * @Prject: CommonUtilLibrary
- * @Package: com.jingewenku.abrahamcaijin.commonutil
- * @author: AbrahamCaiJin
- * @date: 2017年07月21日 15:08
- * @Copyright: 个人版权所有
- * @Company:
  * @version: 1.0.0
  */
 
