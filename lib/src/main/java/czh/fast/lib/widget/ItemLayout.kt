@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import czh.fast.lib.R
+import czh.fast.lib.bean.ItemBean
 import kotlinx.android.synthetic.main.item.view.*
 
 
@@ -25,6 +26,8 @@ class ItemLayout : LinearLayout {
     var mData: List<ItemBean>? = null
     var itemHeight = 96
     var itemBgColor = Color.parseColor("#ffffff")
+
+    var iconSize = 60
 
     var leftTextSize = 28f
     var leftTextColor = Color.parseColor("#333333")
@@ -41,7 +44,7 @@ class ItemLayout : LinearLayout {
     var lineMarginLeft = 30
     var lineMarginRight = 0
 
-    constructor(context: Context) : this(context,null,0) {
+    constructor(context: Context) : this(context, null, 0) {
         mContext = context
     }
 
@@ -59,6 +62,7 @@ class ItemLayout : LinearLayout {
                     R.styleable.ItemLayout_itemHeight -> itemHeight = it.getDimensionPixelOffset(type, 48)
                     R.styleable.ItemLayout_itemBgColor -> itemBgColor = it.getColor(type, Color.parseColor("#ffffff"))
 
+                    R.styleable.ItemLayout_iconSize -> iconSize = it.getDimensionPixelSize(type, 60)
                     R.styleable.ItemLayout_leftTextSize -> leftTextSize = it.getDimension(type, 28f)
                     R.styleable.ItemLayout_leftTextColor -> leftTextColor = it.getColor(type, Color.parseColor("#333333"))
                     R.styleable.ItemLayout_leftPadding -> leftPadding = it.getDimensionPixelOffset(type, 0)
@@ -118,7 +122,7 @@ class ItemLayout : LinearLayout {
                     it.leftIcon?.let {
                         compoundDrawablePadding = leftDrawablePadding
                         setCompoundDrawables(ContextCompat.getDrawable(mContext, it)?.apply {
-                            setBounds(0, 0, minimumWidth, minimumHeight)
+                            setBounds(0, 0, iconSize, iconSize)
                         }, null, null, null)
                     }
                 }
@@ -135,7 +139,7 @@ class ItemLayout : LinearLayout {
                 }
             }
 
-            if (it.hasTopLine){
+            if (it.hasTopLine) {
                 addView(createLineView(lineHeight))
             }
 
@@ -143,7 +147,7 @@ class ItemLayout : LinearLayout {
             mViewList.add(view)
 
 
-            createLineView(it.height,it.marginBottom).let {
+            createLineView(it.height, it.marginBottom).let {
                 addView(it)
                 mLineViewList.add(it)
             }
@@ -168,7 +172,7 @@ class ItemLayout : LinearLayout {
             setBackgroundColor(lineColor)
             val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height
                     ?: lineHeight)
-            if (height == null&&marginBottom==null) {
+            if (height == null && marginBottom == null) {
                 lp.leftMargin = lineMarginLeft
                 lp.rightMargin = lineMarginRight
             }

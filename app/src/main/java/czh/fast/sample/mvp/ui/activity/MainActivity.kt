@@ -22,8 +22,8 @@ import czh.fast.sample.mvp.ui.fragment.OtherFragment
 class MainActivity : AnkoActivity() {
 
 
-    private val mTitles = arrayOf("网络", "数据库","其他")
-    private val mIconUnSelectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal,R.mipmap.tab_other_normal)
+    private val mTitles = arrayOf("网络", "数据库", "其他")
+    private val mIconUnSelectIds = intArrayOf(R.mipmap.tab_massage_normal, R.mipmap.tab_optimization_normal, R.mipmap.tab_other_normal)
     private val mIconSelectIds = intArrayOf(R.mipmap.tab_massage_selected, R.mipmap.tab_optimization_selected, R.mipmap.tab_other_selected)
     private val mTabEntities: ArrayList<CustomTabEntity> = ArrayList()
 
@@ -33,7 +33,7 @@ class MainActivity : AnkoActivity() {
     }
 
     override fun afterInitView() = with(ui) {
-
+        showLoading()
         (0 until mTitles.size)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()

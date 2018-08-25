@@ -11,9 +11,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.czh.library.LoadingDialog
 import com.vise.xsnow.http.ViseHttp
 import czh.fast.lib.base.LoadingView
+import czh.fast.lib.widget.LoadingDialog
 
 //fragment基类
 abstract class LazyFragment : Fragment() , View.OnClickListener, LoadingView {

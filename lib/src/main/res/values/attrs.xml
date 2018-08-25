@@ -15,6 +15,7 @@
         <attr name="itemHeight" format="dimension" />
         <attr name="itemBgColor" format="color" />
 
+        <attr name="iconSize" format="dimension" />
         <attr name="leftTextSize" format="dimension" />
         <attr name="leftTextColor" format="color" />
         <attr name="leftPadding" format="dimension" />

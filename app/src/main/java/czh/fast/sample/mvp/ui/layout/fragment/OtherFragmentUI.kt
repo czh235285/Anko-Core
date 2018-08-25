@@ -1,12 +1,10 @@
 package czh.fast.sample.mvp.ui.layout.fragment
 
 import android.graphics.Color
-import android.view.Gravity
 import android.view.View
 import czh.fast.lib.utils.anko.itemLayout
 import czh.fast.lib.utils.warpActivity
-import czh.fast.lib.widget.ItemBean
-import czh.fast.lib.widget.ItemLayout
+import czh.fast.lib.bean.ItemBean
 import czh.fast.sample.R
 import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.mvp.ui.activity.MultiActivity
@@ -38,6 +36,9 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
                 //item高度
                 itemHeight = dip(48)
                 itemBgColor = Color.parseColor("#ffffff")
+
+                //左边图片宽高
+                iconSize = dip(30)
                 //左边TextView
                 leftTextColor = Color.parseColor("#333333")
                 leftTextSize = dip(14).toFloat()

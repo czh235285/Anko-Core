@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import com.czh.library.LoadingDialog
 import com.vise.xsnow.http.ViseHttp
 import czh.fast.lib.R
 import czh.fast.lib.base.LoadingView
@@ -19,6 +18,7 @@ import czh.fast.lib.utils.status.LightStatusBarUtils
 import czh.fast.lib.utils.status.RomUtils
 import czh.fast.lib.utils.status.StatusBarUtil
 import czh.fast.lib.utils.status.setStatusBarByColorRes
+import czh.fast.lib.widget.LoadingDialog
 
 //Activity基类
 abstract class BaseActivity : AppCompatActivity(), View.OnClickListener, LoadingView {
