@@ -33,7 +33,6 @@ class MainActivity : AnkoActivity() {
     }
 
     override fun afterInitView() = with(ui) {
-        showLoading()
         (0 until mTitles.size)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()

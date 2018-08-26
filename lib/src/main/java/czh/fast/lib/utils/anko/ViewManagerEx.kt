@@ -151,6 +151,13 @@ inline fun ViewManager.simpleDraweeView(theme: Int = 0, init: SimpleDraweeView.(
     return ankoView({ SimpleDraweeView(it) }, theme, init)
 }
 
+
+/**
+ * circleImageView
+ */
+inline fun ViewManager.circleImageView() = circleImageView{
+}
+
 /**
  * circleImageView
  */
@@ -162,6 +169,14 @@ inline fun ViewManager.circleImageView(init: SimpleDraweeView.() -> Unit): Simpl
             hierarchy.roundingParams = roundingParams
         }
     }
+}
+
+
+
+/**
+ * roundImageView
+ */
+inline fun ViewManager.roundImageView(corners: Float) = roundImageView(corners) {
 }
 
 /**

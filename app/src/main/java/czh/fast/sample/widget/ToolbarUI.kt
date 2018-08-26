@@ -30,7 +30,7 @@ class ToolbarUI : AnkoComponent<Context> {
                 setOnClickListener {
                     val ctx = context
                     if (ctx is Activity) {
-                        ctx.finish()
+                        ctx.onBackPressed()
                     }
                 }
             }.lparams(dip(48), matchParent) {

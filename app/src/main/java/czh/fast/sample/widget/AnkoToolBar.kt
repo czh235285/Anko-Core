@@ -48,6 +48,15 @@ class AnkoToolBar : FrameLayout {
             }
         }
     /**
+     * 返回按钮Icon
+     */
+    var rightIcon: Int? = null
+        set(value) {
+            value?.let {
+                ui.ivRight.setImageResource(it)
+            }
+        }
+    /**
      * 是否隐藏返回按钮Icon
      */
     var hideNavigation: Boolean = false
