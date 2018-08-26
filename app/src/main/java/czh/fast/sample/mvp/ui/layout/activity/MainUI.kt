@@ -34,14 +34,7 @@ class MainUI : AnkoComponent<MainActivity> {
             cardView {
                 backgroundColor = Color.parseColor("#ffffff")
                 cardElevation = 8f
-                tab = commonTabLayout {
-                    iconHeight = 23f
-                    iconWidth = 23f
-                    textSelectColor = Color.parseColor("#3F51B5")
-                    textUnselectColor = Color.parseColor("#666666")
-                    textsize = 12f
-                    indicatorHeight = 0f
-                }.lparams(matchParent, dip(54))
+                tab = commonTabLayout("#3F51B5", "#666666", 12f, 23f, 23f).lparams(matchParent, dip(54))
             }
 
 

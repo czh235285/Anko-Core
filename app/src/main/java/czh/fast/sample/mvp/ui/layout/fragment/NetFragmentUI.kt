@@ -3,12 +3,7 @@ package czh.fast.sample.mvp.ui.layout.fragment
 import android.graphics.Color
 import android.view.Gravity
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.youth.banner.Banner
-import czh.fast.lib.utils.anko.circleImageView
-import czh.fast.lib.utils.anko.roundImageView
-import czh.fast.lib.utils.load
 import czh.fast.sample.R
 import czh.fast.sample.mvp.ui.fragment.NetFragment
 import czh.fast.sample.utils.ankoToolBar

@@ -1,6 +1,7 @@
 package czh.fast.lib.utils.anko
 
 import android.content.Context
+import android.graphics.Color
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -40,6 +41,27 @@ inline fun ViewManager.commonTabLayout(theme: Int = 0, init: CommonTabLayout.() 
     return ankoView({ CommonTabLayout(it) }, theme, init)
 }
 
+
+/**
+ * tabLayout
+ */
+inline fun ViewManager.commonTabLayout(textSelectColor: String = "#3F51B5", textUnSelectColor: String = "#666666", textsize: Float = 12f, iconHeight: Float = 23f, iconWidth: Float = 23f) = commonTabLayout(textSelectColor, textUnSelectColor, textsize, iconHeight, iconWidth) { }
+
+/**
+ * tabLayout
+ */
+inline fun ViewManager.commonTabLayout(textSelectColor: String = "#3F51B5", textUnSelectColor: String = "#666666", textsize: Float = 12f, iconHeight: Float = 23f, iconWidth: Float = 23f, init: CommonTabLayout.() -> Unit): CommonTabLayout {
+
+    return ankoView({
+        CommonTabLayout(it).apply {
+            this.textSelectColor = Color.parseColor(textSelectColor)
+            this.textUnselectColor = Color.parseColor(textUnSelectColor)
+            this.textsize = textsize
+            this.iconHeight = iconHeight
+            this.iconWidth = iconWidth
+        }
+    }, 0, init)
+}
 
 /**
  * tabLayout
@@ -155,7 +177,7 @@ inline fun ViewManager.simpleDraweeView(theme: Int = 0, init: SimpleDraweeView.(
 /**
  * circleImageView
  */
-inline fun ViewManager.circleImageView() = circleImageView{
+inline fun ViewManager.circleImageView() = circleImageView {
 }
 
 /**
@@ -170,7 +192,6 @@ inline fun ViewManager.circleImageView(init: SimpleDraweeView.() -> Unit): Simpl
         }
     }
 }
-
 
 
 /**
