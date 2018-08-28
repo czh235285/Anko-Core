@@ -52,7 +52,7 @@ dependencies {
         api "org.jetbrains.anko:anko-$it:0.10.5"
     }
 
-    ['TabLayout:1.0.0','ObservableRecylerView:1.0.1','AnkoAdapter:1.1.3','LikeView:1.0.3'].each {
+    ['TabLayout:1.0.0','ObservableRecylerView:1.0.1','AnkoAdapter:1.1.4','LikeView:1.0.3'].each {
         api "com.github.czh235285:$it"
     }
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.20'
