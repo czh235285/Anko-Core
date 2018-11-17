@@ -14,49 +14,49 @@ import java.io.Serializable
  * Created by admin on 2018/5/21.
  * @author czh
  */
-inline fun <reified T : kotlin.Any> Activity.warpActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> Activity.openActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
     val intent = Intent(this, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivityForResult(intent, requestCode)
 }
 
-inline fun <reified T : kotlin.Any> android.app.Fragment.warpActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> android.app.Fragment.openActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
     val intent = Intent(activity, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivityForResult(intent, requestCode)
 }
 
-inline fun <reified T : kotlin.Any> android.support.v4.app.Fragment.warpActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> android.support.v4.app.Fragment.openActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
     val intent = Intent(activity, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivityForResult(intent, requestCode)
 }
 
-inline fun <reified T : kotlin.Any> Context.warpActivity(vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> Context.openActivity(vararg params: Pair<String, Any?>) {
     val intent = Intent(this, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivity(intent)
 }
-inline fun <reified T : kotlin.Any> Context.warpActivityAndClearTask(vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> Context.openActivityAndClearTask(vararg params: Pair<String, Any?>) {
     val intent = Intent(this, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
     startActivity(intent)
 }
 
-inline fun <reified T : kotlin.Any> Activity.warpActivity(vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> Activity.openActivity(vararg params: Pair<String, Any?>) {
     val intent = Intent(this, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivity(intent)
 }
 
-inline fun <reified T : kotlin.Any> android.support.v4.app.Fragment.warpActivity(vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> android.support.v4.app.Fragment.openActivity(vararg params: Pair<String, Any?>) {
     val intent = Intent(activity, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivity(intent)
 }
 
-inline fun <reified T : kotlin.Any> android.app.Fragment.warpActivity(vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> android.app.Fragment.openActivity(vararg params: Pair<String, Any?>) {
     val intent = Intent(activity, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivity(intent)
@@ -69,7 +69,7 @@ inline fun <reified T : kotlin.Any> android.app.Fragment.warpActivity(vararg par
  * @param string   共享元素添加相同的android:transitionName=""
  * @author czh
  */
-inline fun <reified T : kotlin.Any> Context.warpActivityByTransition(view: View? = null, string: String = "", vararg params: Pair<String,
+inline fun <reified T : kotlin.Any> Context.openActivityByTransition(view: View? = null, string: String = "", vararg params: Pair<String,
         Any?>) {
     if (Build.VERSION.SDK_INT >= 21) {
         val intent = Intent(this, T::class.java)

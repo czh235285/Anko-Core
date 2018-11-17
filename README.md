@@ -15,7 +15,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.github.czh235285:FastKotlin:1.5.7'
+  implementation 'com.github.czh235285:FastKotlin:1.5.8'
 }
 ```
 ## 介绍
@@ -49,12 +49,12 @@ imageView.load(url)
 ```
 
 不带参数
-warpActivity<OtherActivity>()  或者
-warpActivityForResult<OtherActivity>(500)
+openActivity<OtherActivity>()  或者
+openActivityForResult<OtherActivity>(500)
 
 传值
-warpActivity<OtherActivity>("id" to 1,"name" to "姓名")  或者
-warpActivityForResult<OtherActivity>(500,"id" to 1,"name" to "姓名")
+openActivity<OtherActivity>("id" to 1,"name" to "姓名")  或者
+openActivityForResult<OtherActivity>(500,"id" to 1,"name" to "姓名")
 
 OtherActivity获取参数
 
