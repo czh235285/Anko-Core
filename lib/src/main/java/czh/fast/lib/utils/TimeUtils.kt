@@ -295,7 +295,6 @@ fun Long.dateToString(format: String = "yyyy-MM-dd HH:mm:ss"): String? {
     } catch (e: Exception) {
         return null
     }
-
 }
 
 /**根据日期获取指定格式时间

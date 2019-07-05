@@ -1,8 +1,8 @@
 package czh.fast.lib.base
 
 
-interface BaseView<T> : LoadingView {
-    var presenter: T
+interface BaseView : LoadingView {
+
 }
 
 interface LoadingView {

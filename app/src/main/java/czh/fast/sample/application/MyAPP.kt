@@ -14,7 +14,7 @@ class MyAPP : BaseAPP() {
     }
 
     override fun setBaseUrl(): String {
-        return "http://api-test.lifenxiang.cn/app/"
+        return "http://api.test.meb.com/app/v7/"
     }
 
 

@@ -51,7 +51,6 @@ abstract public class BaseAPP extends Application {
                 .setCookie(true)
                 .interceptor(new HttpLogInterceptor().setLevel(HttpLogInterceptor.Level.BODY))
                 .converterFactory(GsonConverterFactory.create())
-                .callAdapterFactory(RxJava2CallAdapterFactory.create())
                 .SSLSocketFactory(SSLUtil.getSslSocketFactory(null, null, null));
     }
 

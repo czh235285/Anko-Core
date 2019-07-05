@@ -2,7 +2,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'//启用扩展支持直接使用ID
 apply plugin: 'kotlin-kapt'
+apply plugin: 'mtj-circle-plugin'
 android {
+    MtjCirclePluginConfig {
+        // 设置appkey
+        appkey = '066a589bc3'
+        // 设置debug 开关，如果需要查看日志则打开开关，为避免影响性能建议上线前关闭（设置为false）
+        debug = true
+        // 默认启动此插件，如果开发者不需要可以禁用（设置为false）
+        enabled = true
+    }
     compileSdkVersion 27
     defaultConfig {
         multiDexEnabled true
@@ -19,18 +28,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            if (variant.name.endsWith("Debug")) {
-                //debug包
-                outputFileName = "$applicationId _v${defaultConfig.versionName}_${debugTime()}_code${defaultConfig.versionCode}_debug.apk"
-            } else {
-                //release包
-                outputFileName = "$applicationId _v${defaultConfig.versionName}_code${defaultConfig.versionCode}_${releaseTime()}_release.apk"
-            }
-        }
-    }
-
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.all {
+//            if (variant.name.endsWith("Debug")) {
+//                //debug包
+//                outputFileName = "$applicationId _v${defaultConfig.versionName}_${debugTime()}_code${defaultConfig.versionCode}_debug.apk"
+//            } else {
+//                //release包
+//                outputFileName = "$applicationId _v${defaultConfig.versionName}_code${defaultConfig.versionCode}_${releaseTime()}_release.apk"
+//            }
+//        }
+//    }
 
 
 }
@@ -54,6 +62,10 @@ dependencies {
     api "com.github.Raizlabs.DBFlow:dbflow-core:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow:$dbflow_version"
     api "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
+
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+
+
 }
 repositories {
     mavenCentral()

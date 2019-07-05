@@ -15,12 +15,13 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.github.czh235285:FastKotlin:1.5.8'
+  implementation 'com.github.czh235285:FastKotlin:1.5.9'
 }
 ```
 ## 介绍
 
-* 一个简单的Demo，初学kotlin的可以看看,kotlin+rxjava2+retrofit2+mvp+anko
+* 一个简单的Demo，初学kotlin的可以看看,kotlin+协程+retrofit2+mvp+AnKo
+* 很多人尝试协程做网络封装又不知道怎么下手的可以参考下，本人公司项目已经直接用上了，不过乐固加固后会出问题，360加固没毛病。
 * 内容不多，但是网络请求，图片，数据库，RecyclerView的adapter写法都有涉及到，差不多常见项目也就这些了吧！
 * 沉浸式状态栏，浅色状态栏。
 * 大量常用工具类，扩展函数

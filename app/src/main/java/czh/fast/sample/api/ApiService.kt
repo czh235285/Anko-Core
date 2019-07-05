@@ -2,7 +2,7 @@ package czh.fast.sample.api
 
 import com.vise.xsnow.http.ViseHttp
 import czh.fast.sample.mvp.model.Banner
-import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.http.GET
 
 
@@ -12,11 +12,12 @@ import retrofit2.http.GET
 
 val apiservice by lazy { ViseHttp.RETROFIT<Any>().create<ApiService>(ApiService::class.java) }
 
+
 interface ApiService {
 
     /**
      *广告轮播
      */
-    @GET("v1/article/getAppBanner")
-    fun getBanner(): Observable<Banner>
+    @GET("home/AndroidIndex")
+    fun getBanner(): Call<Banner>
 }

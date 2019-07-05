@@ -3,8 +3,8 @@ package czh.fast.sample.mvp.ui.layout.fragment
 import android.graphics.Color
 import android.view.View
 import czh.fast.lib.utils.anko.itemLayout
-import czh.fast.lib.utils.warpActivity
 import czh.fast.lib.bean.ItemBean
+import czh.fast.lib.utils.openActivity
 import czh.fast.sample.R
 import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.mvp.ui.activity.MultiActivity
@@ -58,11 +58,11 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
 
                     when (position) {
                         0 -> {
-                            owner.warpActivity<ImageActivity>()
+                            owner.openActivity<ImageActivity>()
                             return@setOnItemClickListener
                         }
                         1 -> {
-                            owner.warpActivity<MultiActivity>()
+                            owner.openActivity<MultiActivity>()
                             return@setOnItemClickListener
                         }
                         2 -> {

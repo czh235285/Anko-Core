@@ -17,34 +17,20 @@ class NetFragmentUI : AnkoComponent<NetFragment> {
         return verticalLayout {
             ankoToolBar {
                 title = "网络"
-                titleColor=Color.parseColor("#ffffff")
-                backgroundColorResource=R.color.colorPrimaryDark
+                titleColor = Color.parseColor("#ffffff")
+                backgroundColorResource = R.color.colorPrimaryDark
                 hideNavigation()
             }
             banner = banners().lparams(width = matchParent, height = dip(175))
 
-            textView("普通请求") {
+            textView("请求数据") {
                 padding = 30
                 gravity = Gravity.CENTER
                 textColorResource = R.color.white
                 backgroundColorResource = R.color.colorPrimary
-                onClick {
+                setOnClickListener {
 
                     ui.owner.presenter.normalTask()
-                }
-            }.lparams(width = matchParent) {
-                leftMargin = 30
-                rightMargin = 30
-                topMargin = 30
-
-            }
-            textView("缓存请求(断网有效)") {
-                padding = 30
-                gravity = Gravity.CENTER
-                textColorResource = R.color.white
-                backgroundColorResource = R.color.colorPrimary
-                onClick {
-                    ui.owner.presenter.cacheTask()
                 }
             }.lparams(width = matchParent) {
                 leftMargin = 30

@@ -2,7 +2,7 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.2.41'
+        kotlin_version = '1.3.30'
         dbflow_version = "4.1.2"
         anko_version='0.10.5'
     }
@@ -14,6 +14,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.baidu.mobstat:mtj-circle-plugin:1.4.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong

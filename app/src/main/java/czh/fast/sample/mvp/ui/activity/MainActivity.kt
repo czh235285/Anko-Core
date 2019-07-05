@@ -6,7 +6,6 @@ import android.view.KeyEvent
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
 import czh.fast.lib.utils.AppManager
-import czh.fast.lib.utils.toast
 import czh.fast.sample.R
 
 import czh.fast.sample.mvp.ui.layout.activity.MainUI
@@ -18,6 +17,7 @@ import czh.fast.sample.mvp.model.TabEntity
 import czh.fast.sample.mvp.ui.fragment.DbFragment
 import czh.fast.sample.mvp.ui.fragment.NetFragment
 import czh.fast.sample.mvp.ui.fragment.OtherFragment
+import org.jetbrains.anko.toast
 
 class MainActivity : AnkoActivity() {
 

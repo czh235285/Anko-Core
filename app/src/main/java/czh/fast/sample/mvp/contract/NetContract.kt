@@ -7,10 +7,10 @@ import czh.fast.sample.mvp.model.Banner
 interface NetContract {
     interface Presenter : BasePresenter {
         fun normalTask()
-        fun cacheTask()
+        fun multipleRequestsTask()
     }
 
-    interface View : BaseView<Presenter> {
+    interface View : BaseView {
        fun showResult(banner: Banner)
     }
 }

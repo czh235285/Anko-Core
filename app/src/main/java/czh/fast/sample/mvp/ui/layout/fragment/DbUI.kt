@@ -1,5 +1,6 @@
 package czh.fast.sample.mvp.ui.layout.fragment
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -14,7 +15,6 @@ import czh.fast.lib.utils.anko.materialEditText
 import czh.fast.lib.utils.checkALL
 import czh.fast.lib.utils.textCursorDrawable
 import czh.fast.lib.utils.textString
-import czh.fast.lib.utils.toast
 import czh.fast.lib.widget.SimpleDividerDecoration
 import czh.fast.sample.R
 import czh.fast.sample.db.User
@@ -34,6 +34,7 @@ class DbUI : AnkoComponent<DbFragment> {
     lateinit var etAge: MaterialEditText
     lateinit var rcv: RecyclerView
 
+    @SuppressLint("WrongConstant")
     override fun createView(ui: AnkoContext<DbFragment>): View = with(ui) {
         return verticalLayout {
             ankoToolBar {
