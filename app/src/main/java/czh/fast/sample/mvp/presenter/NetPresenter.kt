@@ -39,6 +39,7 @@ class NetPresenter(private val netView: NetContract.View) : CoroutinesPresenter(
     override fun normalTask() {
         presenterScope.launch {
             try {
+                //这里没切换IO线程，是因为retrofit本身做了异步
                 val data = apiservice.getBanner().await()
                 netView.showResult(data)
             } catch (e: Exception) {
