@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'//启用扩展支持直接使用ID
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
+//没有group这行Jitpack编译的时候出错“cannot open git-upload-pack”
+group = 'com.github.czh235285'
 
 android {
     compileSdkVersion 27
@@ -46,17 +48,17 @@ dependencies {
         api "com.android.support:$it:27.1.1"
     }
 
-    ['commons', 'sdk25', 'appcompat-v7', 'sdk25-coroutines', 'appcompat-v7-coroutines'
+    ['commons', 'sdk27', 'appcompat-v7', 'sdk27-coroutines', 'appcompat-v7-coroutines'
      , 'cardview-v7', 'design', 'design-coroutines', 'gridlayout-v7', 'percent'
      , 'recyclerview-v7', 'recyclerview-v7-coroutines', 'support-v4-commons', 'support-v4', 'constraint-layout'].each {
-        api "org.jetbrains.anko:anko-$it:0.10.5"
+        api "org.jetbrains.anko:anko-$it:0.10.8"
     }
 
-    ['TabLayout:1.0.0','ObservableRecylerView:1.0.1','AnkoAdapter:1.1.4','LikeView:1.0.3'].each {
+    ['ObservableRecylerView:1.0.1','AnkoAdapter:1.1.7','LikeView:1.0.3'].each {
         api "com.github.czh235285:$it"
     }
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2'
     api 'com.pawegio.kandroid:kandroid:0.8.7@aar'
     api 'com.hyman:flowlayout-lib:1.1.2'
     api 'com.github.bumptech.glide:glide:3.7.0'
@@ -65,8 +67,8 @@ dependencies {
     api 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     api 'com.github.czh235285:banner:1.0.2'
     api 'com.rengwuxian.materialedittext:library:2.1.4'
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
-    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
     api 'com.mylhyl:acp:1.2.0'
     api 'com.facebook.fresco:fresco:1.3.0'
     api 'com.wx.goodview:goodview:1.0.0'

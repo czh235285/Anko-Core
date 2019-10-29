@@ -9,7 +9,6 @@ import czh.fast.sample.mvp.ui.fragment.NetFragment
 import czh.fast.sample.utils.ankoToolBar
 import czh.fast.sample.utils.banners
 import org.jetbrains.anko.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class NetFragmentUI : AnkoComponent<NetFragment> {
     lateinit var banner: Banner

@@ -1,6 +1,6 @@
 package czh.fast.sample.mvp.model
 
-import com.flyco.tablayout.listener.CustomTabEntity
+import czh.fast.lib.widget.tablayout.listener.CustomTabEntity
 
 /**
  * Created by admin on 2018/1/25.

@@ -3,9 +3,9 @@ package czh.fast.sample.mvp.ui.activity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.KeyEvent
-import com.flyco.tablayout.listener.CustomTabEntity
-import com.flyco.tablayout.listener.OnTabSelectListener
 import czh.fast.lib.utils.AppManager
+import czh.fast.lib.widget.tablayout.listener.CustomTabEntity
+import czh.fast.lib.widget.tablayout.listener.OnTabSelectListener
 import czh.fast.sample.R
 
 import czh.fast.sample.mvp.ui.layout.activity.MainUI

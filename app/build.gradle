@@ -2,16 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'//启用扩展支持直接使用ID
 apply plugin: 'kotlin-kapt'
-apply plugin: 'mtj-circle-plugin'
 android {
-    MtjCirclePluginConfig {
-        // 设置appkey
-        appkey = '066a589bc3'
-        // 设置debug 开关，如果需要查看日志则打开开关，为避免影响性能建议上线前关闭（设置为false）
-        debug = true
-        // 默认启动此插件，如果开发者不需要可以禁用（设置为false）
-        enabled = true
-    }
     compileSdkVersion 27
     defaultConfig {
         multiDexEnabled true

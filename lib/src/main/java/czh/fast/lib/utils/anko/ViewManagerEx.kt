@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewManager
 import com.facebook.drawee.view.SimpleDraweeView
-import com.flyco.tablayout.CommonTabLayout
 import com.rengwuxian.materialedittext.MaterialEditText
 import czh.fast.lib.widget.ItemLayout
 import czh.fast.lib.widget.NoScrollViewPager
@@ -15,11 +14,12 @@ import czh.widget.ObservableRecylerView
 import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.support.v4.ctx
 import com.facebook.drawee.generic.RoundingParams
-import com.flyco.tablayout.SegmentTabLayout
-import com.flyco.tablayout.SlidingTabLayout
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.zhy.view.flowlayout.TagFlowLayout
 import czh.fast.lib.R
+import czh.fast.lib.widget.tablayout.CommonTabLayout
+import czh.fast.lib.widget.tablayout.SegmentTabLayout
+import czh.fast.lib.widget.tablayout.SlidingTabLayout
 import czh.fast.lib.widget.viewpager.Mu5ViewPager
 import czh.library.LikeView
 import org.jetbrains.anko.*

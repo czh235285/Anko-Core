@@ -3,10 +3,10 @@ package czh.fast.sample.mvp.ui.layout.activity
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.View
-import com.flyco.tablayout.CommonTabLayout
 import czh.fast.lib.utils.anko.commonTabLayout
 import czh.fast.lib.utils.anko.noScrollViewPager
 import czh.fast.lib.widget.NoScrollViewPager
+import czh.fast.lib.widget.tablayout.CommonTabLayout
 
 import czh.fast.sample.mvp.ui.activity.MainActivity
 import org.jetbrains.anko.AnkoComponent
