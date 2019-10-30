@@ -46,7 +46,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.android.support:multidex:1.0.1'
-    implementation project(':lib')
+    implementation 'com.gitee.myczh:FastKotlin:2.0.2'
 
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     // gradle 3.0.0 可以使用 implementation，否则用 compile
