@@ -2,7 +2,7 @@
 
 用于自己快速开发的框架，加入了许多项目通用的东西，免去重复造轮子,待完善。。。
 
-码云链接[点击跳转](https://gitee.com/czh235285/FastKotlin)国内下载快点
+[码云链接](https://gitee.com/czh235285/FastKotlin)国内下载快点
 
 抛弃了xml，完全采用anko DSL布局。
 
