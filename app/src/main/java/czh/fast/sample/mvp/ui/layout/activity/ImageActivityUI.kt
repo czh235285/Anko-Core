@@ -10,6 +10,7 @@ import czh.fast.lib.utils.centerHorizontally
 import czh.fast.lib.utils.load
 import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.utils.ankoToolBar
+import czh.fast.sample.utils.pxf
 
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
@@ -26,8 +27,8 @@ class ImageActivityUI : AnkoComponent<ImageActivity> {
             }
             simpleDraweeView()
             circleImageView()
-            roundImageView(dip(10).toFloat())
-            roundImageView(dip(10).toFloat(), dip(20).toFloat(), dip(30).toFloat(), dip(40).toFloat())
+            roundImageView(10.pxf)
+            roundImageView(10.pxf, 20.pxf, 30.pxf, 40.pxf)
 
         }.applyRecursively {
             if (it is SimpleDraweeView) {

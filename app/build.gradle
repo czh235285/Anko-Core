@@ -3,6 +3,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'//启用扩展支持直接使用ID
 apply plugin: 'kotlin-kapt'
 android {
+    androidExtensions {
+        experimental = true
+    }
     compileSdkVersion 27
     defaultConfig {
         multiDexEnabled true
@@ -19,34 +22,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    android.applicationVariants.all { variant ->
-//        variant.outputs.all {
-//            if (variant.name.endsWith("Debug")) {
-//                //debug包
-//                outputFileName = "$applicationId _v${defaultConfig.versionName}_${debugTime()}_code${defaultConfig.versionCode}_debug.apk"
-//            } else {
-//                //release包
-//                outputFileName = "$applicationId _v${defaultConfig.versionName}_code${defaultConfig.versionCode}_${releaseTime()}_release.apk"
-//            }
-//        }
-//    }
 
-
-}
-
-static def releaseTime() {
-    return new Date().format("yyyy-MM-dd-HH-mm", TimeZone.getDefault())//包含时分秒
-}
-
-static def debugTime() {
-    return new Date().format("yyyy", TimeZone.getDefault())
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation 'com.android.support.test:testing-support-lib:0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.android.support:multidex:1.0.1'
-    implementation 'com.gitee.myczh:FastKotlin:2.0.2'
 
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     // gradle 3.0.0 可以使用 implementation，否则用 compile
@@ -55,6 +39,7 @@ dependencies {
     api "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
 
     implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation project(path: ':lib')
 
 
 }

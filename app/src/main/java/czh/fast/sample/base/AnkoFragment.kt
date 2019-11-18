@@ -6,16 +6,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.vise.xsnow.http.ViseHttp
 import czh.fast.lib.base.LoadingView
 import czh.fast.lib.widget.LoadingDialog
 
 
 //fragment基类
 abstract class AnkoFragment : Fragment(), LoadingView {
+    var isInitView: Boolean = false
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return ankoLayout()
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+        isInitView = true
+        return layout()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -25,15 +30,11 @@ abstract class AnkoFragment : Fragment(), LoadingView {
     }
 
     //获取布局文件
-    protected abstract fun ankoLayout(): View
+    protected abstract fun layout(): View
 
     //初始化view
     protected abstract fun afterInitView()
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        ViseHttp.cancelAll()
-    }
 
     private var mLoading: LoadingDialog? = null
     override fun showLoading() {

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
-import com.vise.xsnow.http.ViseHttp
 import czh.fast.lib.R
 import czh.fast.lib.base.LoadingView
 import czh.fast.lib.utils.AppManager
@@ -81,7 +80,6 @@ abstract class AnkoActivity : AppCompatActivity(), LoadingView {
 
     override fun onDestroy() {
         super.onDestroy()
-        ViseHttp.cancelAll()
         AppManager.appManager.finishActivity(this)
     }
 }

@@ -9,6 +9,7 @@ import czh.fast.lib.widget.NoScrollViewPager
 import czh.fast.lib.widget.tablayout.CommonTabLayout
 
 import czh.fast.sample.mvp.ui.activity.MainActivity
+import czh.fast.sample.utils.px
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.*
@@ -34,7 +35,7 @@ class MainUI : AnkoComponent<MainActivity> {
             cardView {
                 backgroundColor = Color.parseColor("#ffffff")
                 cardElevation = 8f
-                tab = commonTabLayout("#3F51B5", "#666666", 12f, 23f, 23f).lparams(matchParent, dip(54))
+                tab = commonTabLayout("#3F51B5", "#666666", 12f, 23f, 23f).lparams(matchParent, 98.px)
             }
 
 

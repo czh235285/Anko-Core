@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="czh.fast.sample">
 
     <application
@@ -9,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".mvp.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +22,9 @@
         </activity>
         <activity android:name=".mvp.ui.activity.ImageActivity" />
         <activity android:name=".mvp.ui.activity.MultiActivity" />
+        <activity android:name=".mvp.ui.activity.AdaptationActivity" />
+        <!--        <activity android:name=".mvp.layout.activity.TestActivity" />-->
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="czh.fast.sample.fileprovider"

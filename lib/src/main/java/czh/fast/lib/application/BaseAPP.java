@@ -13,23 +13,13 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
 import com.vise.log.ViseLog;
 import com.vise.log.inner.LogcatTree;
-import com.vise.utils.assist.SSLUtil;
-import com.vise.xsnow.http.ViseHttp;
-import com.vise.xsnow.http.interceptor.HttpLogInterceptor;
-
-import java.util.HashMap;
-
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 abstract public class BaseAPP extends Application {
-    public abstract String setBaseUrl();
 
     @Override
     public void onCreate() {
         super.onCreate();
         initLog();
-        initNet();
         initFresco();
     }
 
@@ -39,20 +29,6 @@ abstract public class BaseAPP extends Application {
         ViseLog.plant(new LogcatTree());//添加打印日志信息到Logcat的树
     }
 
-    private void initNet() {
-        ViseHttp.init(this);
-        ViseHttp.CONFIG().baseUrl(setBaseUrl())
-                .globalHeaders(new HashMap<String, String>())
-                .globalParams(new HashMap<String, String>())
-                .readTimeout(12).writeTimeout(12)
-                .connectTimeout(12)
-                .retryCount(1)
-                .retryDelayMillis(6000)
-                .setCookie(true)
-                .interceptor(new HttpLogInterceptor().setLevel(HttpLogInterceptor.Level.BODY))
-                .converterFactory(GsonConverterFactory.create())
-                .SSLSocketFactory(SSLUtil.getSslSocketFactory(null, null, null));
-    }
 
 
     private void initFresco() {

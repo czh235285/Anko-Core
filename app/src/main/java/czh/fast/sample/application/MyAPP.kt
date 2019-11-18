@@ -13,10 +13,6 @@ class MyAPP : BaseAPP() {
         instance = this
     }
 
-    override fun setBaseUrl(): String {
-        return "http://api.test.meb.com/app/v7/"
-    }
-
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)

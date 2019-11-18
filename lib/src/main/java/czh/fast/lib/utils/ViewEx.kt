@@ -3,6 +3,7 @@ package czh.fast.lib.utils
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.os.SystemClock
 import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
@@ -40,3 +41,22 @@ fun LinearLayout.centerVertically() {
     gravity = Gravity.CENTER_VERTICAL
 }
 
+
+
+fun View.noDoubleClick(seconds: Long = 1000, onNext: ((View) -> Unit)) {
+    this.setOnClickListener(NoDoubleClick(seconds, onNext))
+}
+
+private class NoDoubleClick(private val timeout: Long, private val onNext: (View) -> Unit)
+    : View.OnClickListener {
+    private var lastClickTime = 0L
+
+    override fun onClick(v: View) {
+        val diff = SystemClock.elapsedRealtime() - lastClickTime
+        if ( diff > timeout) {
+            onNext(v)
+            lastClickTime = SystemClock.elapsedRealtime()
+        }
+
+    }
+}

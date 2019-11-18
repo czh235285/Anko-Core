@@ -1,5 +1,7 @@
 package czh.fast.sample.mvp.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable
  */
 
 
+@Parcelize
 data class Advert(
         val code: Int,
         val msg: String,
@@ -15,7 +18,7 @@ data class Advert(
         val curPage: Int,
         val pageSize: Int,
         val success: Boolean
-)
+) : Parcelable
 
 data class AdvertData(
         val advertid: Int,

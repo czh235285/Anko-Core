@@ -10,25 +10,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.vise.xsnow.http.ViseHttp
 import czh.fast.lib.base.LoadingView
 import czh.fast.lib.widget.LoadingDialog
 
 //fragment基类
-abstract class AnkoLazyFragment: Fragment(), LoadingView {
+abstract class AnkoLazyFragment: AnkoFragment(), LoadingView {
 
     var isViewCreated = false
     var isLoadData = false
     var isUIVisible = false
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return UI()
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         isViewCreated = true
         lazyLoad()
-
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -54,19 +49,11 @@ abstract class AnkoLazyFragment: Fragment(), LoadingView {
     }
 
 
-    protected abstract fun UI(): View
-    //初始化view
-    protected abstract fun afterInitView()
 
 
     //重新回到当前fragment刷新Data
     open fun refreshUi() {}
 
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        ViseHttp.cancelAll()
-    }
 
     private var mLoading: LoadingDialog? = null
     override fun showLoading() {

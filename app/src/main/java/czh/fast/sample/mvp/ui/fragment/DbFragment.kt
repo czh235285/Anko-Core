@@ -25,7 +25,7 @@ class DbFragment : AnkoLazyFragment() {
 
     val ui = DbUI()
 
-    override fun UI(): View {
+    override fun layout(): View {
         return ui.setContentView(this)
     }
 
