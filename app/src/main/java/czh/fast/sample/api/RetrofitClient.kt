@@ -12,11 +12,6 @@ import okhttp3.CacheControl
 import okhttp3.OkHttpClient
 import java.io.File
 
-
-/**
- * Created by luyao
- * on 2018/3/13 15:45
- */
 object RetrofitClient : BaseRetrofitClient() {
 
 
