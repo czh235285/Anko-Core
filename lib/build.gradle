@@ -62,10 +62,11 @@ dependencies {
     api 'com.pawegio.kandroid:kandroid:0.8.7@aar'
     api 'com.hyman:flowlayout-lib:1.1.2'
     api 'com.github.bumptech.glide:glide:3.7.0'
-//    api 'com.vise.xiaoyaoyou:xsnow:2.1.9'
     api 'com.squareup.retrofit2:retrofit:2.6.2'
     api 'com.squareup.retrofit2:converter-gson:2.6.2'
-    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    api('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
     api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     api 'com.vise.xiaoyaoyou:viselog:1.1.2'
     api 'com.afollestad.material-dialogs:core:0.9.6.0'

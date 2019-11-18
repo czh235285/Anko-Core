@@ -6,8 +6,7 @@ import android.view.View
 import com.youth.banner.Banner
 import czh.fast.sample.R
 import czh.fast.sample.mvp.ui.fragment.NetFragment
-import czh.fast.sample.utils.ankoToolBar
-import czh.fast.sample.utils.banners
+import czh.fast.sample.utils.*
 import org.jetbrains.anko.*
 
 class NetFragmentUI : AnkoComponent<NetFragment> {
@@ -20,22 +19,17 @@ class NetFragmentUI : AnkoComponent<NetFragment> {
                 backgroundColorResource = R.color.colorPrimaryDark
                 hideNavigation()
             }
-            banner = banners().lparams(width = matchParent, height = dip(175))
+            banner = banners().lparams(matchParent, 360.px)
 
-            textView("请求数据") {
+            Text(26,"#ffffff","请求数据") {
                 padding = 30
                 gravity = Gravity.CENTER
-                textColorResource = R.color.white
                 backgroundColorResource = R.color.colorPrimary
                 setOnClickListener {
-
                     ui.owner.presenter.normalTask()
                 }
             }.lparams(width = matchParent) {
-                leftMargin = 30
-                rightMargin = 30
-                topMargin = 30
-
+                margin = 30.px
             }
         }
     }

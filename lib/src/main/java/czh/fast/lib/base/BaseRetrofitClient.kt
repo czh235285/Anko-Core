@@ -1,8 +1,10 @@
 package czh.fast.lib.base
 
+import com.ihsanbal.logging.Level
+import com.ihsanbal.logging.LoggingInterceptor
 import czh.fast.lib.BuildConfig
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.internal.platform.Platform
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -16,14 +18,16 @@ abstract class BaseRetrofitClient {
     private val client: OkHttpClient
         get() {
             val builder = OkHttpClient.Builder()
-            val logging = HttpLoggingInterceptor()
-            if (BuildConfig.DEBUG) {
-                logging.level = HttpLoggingInterceptor.Level.BODY
-            } else {
-                logging.level = HttpLoggingInterceptor.Level.BASIC
-            }
             handleBuilder(builder)
-            builder.addInterceptor(logging)
+            val httpLoggingInterceptor = LoggingInterceptor.Builder()
+                    .loggable(BuildConfig.DEBUG)
+                    .setLevel(Level.BASIC)
+                    .log(Platform.INFO)
+                    .request("Requests")
+                    .response("Response")
+                    .addQueryParam("query", "0")
+                    .build()
+            builder.addInterceptor(httpLoggingInterceptor)
                     .connectTimeout(TIME_OUT.toLong(), TimeUnit.SECONDS)
             return builder.build()
         }

@@ -27,33 +27,13 @@ object RetrofitClient : BaseRetrofitClient() {
         val httpCacheDirectory = File(MyAPP.instance.cacheDir, "responses")
         val cacheSize = 10 * 1024 * 1024L
         val cache = Cache(httpCacheDirectory, cacheSize)
-
-        builder.addInterceptor(HeaderInterceptor())
-                .cache(cache)
+        builder.cache(cache)
                 .cookieJar(cookieJar)
-                .addInterceptor { chain ->
-                    var request = chain.request()
-                    if (!NetworkUtil.isNetworkAvailable(MyAPP.instance)) {
-                        request = request.newBuilder()
-                                .cacheControl(CacheControl.FORCE_CACHE)
-                                .build()
-                    }
-                    val response = chain.proceed(request)
-                    if (!NetworkUtil.isNetworkAvailable(MyAPP.instance)) {
-                        val maxAge = 60 * 60
-                        response.newBuilder()
-                                .removeHeader("Pragma")
-                                .header("Cache-Control", "public, max-age=$maxAge")
-                                .build()
-                    } else {
-                        val maxStale = 60 * 60 * 24 * 28
-                        response.newBuilder()
-                                .removeHeader("Pragma")
-                                .header("Cache-Control", "public, only-if-cached, max-stale=$maxStale")
-                                .build()
-                    }
-
-                    response
+                .addInterceptor {
+                    val request = it.request().newBuilder()
+                            .addHeader("test", "testHeader")
+                            .build()
+                    it.proceed(request)
                 }
     }
 }

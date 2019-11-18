@@ -4,10 +4,6 @@ import czh.fast.sample.mvp.model.Banner
 import retrofit2.http.GET
 
 
-/**
- * Created by Administrator on 2017/3/9.
- */
-
 
 val apiservice by lazy { RetrofitClient.getService(ApiService::class.java, "http://api.test.meb.com/app/v7/") }
 
