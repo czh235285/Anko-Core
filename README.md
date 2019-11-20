@@ -12,12 +12,12 @@ use Gradle:
 
 ```
 repositories {
-  maven { url "https://jitpack.io" }
+  maven { url ["https://jitpack.io"] }
   mavenCentral()
   google()
 }
 dependencies {
-  implementation 'com.gitee.czh235285:FastKotlin:2.0.3'
+  implementation 'com.gitee.czh235285:FastKotlin:2.0.4'
 }
 ```
 ## 介绍
