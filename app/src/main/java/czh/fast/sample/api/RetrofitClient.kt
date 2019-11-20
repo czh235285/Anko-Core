@@ -5,10 +5,8 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import czh.fast.lib.base.BaseRetrofitClient
-import czh.fast.lib.utils.NetworkUtil
 import czh.fast.sample.application.MyAPP
 import okhttp3.Cache
-import okhttp3.CacheControl
 import okhttp3.OkHttpClient
 import java.io.File
 

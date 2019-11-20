@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 
 
-val apiservice by lazy { RetrofitClient.getService(ApiService::class.java, "http://api.test.meb.com/app/v7/") }
+val apiservice by lazy { RetrofitClient.getService<ApiService>("http://api.test.meb.com/app/v7/") }
 
 
 interface ApiService {

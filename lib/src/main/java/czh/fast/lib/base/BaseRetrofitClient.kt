@@ -15,7 +15,7 @@ abstract class BaseRetrofitClient {
         private const val TIME_OUT = 12
     }
 
-    private val client: OkHttpClient
+    val client: OkHttpClient
         get() {
             val builder = OkHttpClient.Builder()
             handleBuilder(builder)
@@ -34,11 +34,11 @@ abstract class BaseRetrofitClient {
 
     protected abstract fun handleBuilder(builder: OkHttpClient.Builder)
 
-    fun <S> getService(serviceClass: Class<S>, baseUrl: String): S {
+    inline fun <reified T> getService(baseUrl: String): T {
         return Retrofit.Builder()
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(baseUrl)
-                .build().create(serviceClass)
+                .build().create(T::class.java)
     }
 }
