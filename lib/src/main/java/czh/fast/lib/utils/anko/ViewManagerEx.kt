@@ -21,7 +21,6 @@ import czh.fast.lib.widget.tablayout.CommonTabLayout
 import czh.fast.lib.widget.tablayout.SegmentTabLayout
 import czh.fast.lib.widget.tablayout.SlidingTabLayout
 import czh.fast.lib.widget.viewpager.Mu5ViewPager
-import czh.library.LikeView
 import org.jetbrains.anko.*
 
 
@@ -259,14 +258,3 @@ inline fun ViewManager.tagFlowLayout(theme: Int = 0, init: TagFlowLayout.() -> U
     return ankoView({ TagFlowLayout(it) }, theme, init)
 }
 
-/**
- * LikeView
- */
-inline fun ViewManager.likeView(theme: Int = 0) = likeView(theme) {}
-
-/**
- * LikeView
- */
-inline fun ViewManager.likeView(theme: Int = 0, init: LikeView.() -> Unit): LikeView {
-    return ankoView({ LikeView(it) }, theme, init)
-}

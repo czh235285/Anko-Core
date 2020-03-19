@@ -12,8 +12,21 @@ import android.view.ViewManager
 import android.widget.TextView
 import com.youth.banner.Banner
 import czh.fast.sample.widget.AnkoToolBar
+import czh.library.LikeView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.custom.ankoView
+
+/**
+ * LikeView
+ */
+inline fun ViewManager.likeView(theme: Int = 0) = likeView(theme) {}
+
+/**
+ * LikeView
+ */
+inline fun ViewManager.likeView(theme: Int = 0, init: LikeView.() -> Unit): LikeView {
+    return ankoView({ LikeView(it) }, theme, init)
+}
 
 inline fun ViewManager.banners(theme: Int = 0) = banners(theme) {}
 

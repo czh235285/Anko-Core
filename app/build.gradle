@@ -40,6 +40,7 @@ dependencies {
 
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation project(path: ':lib')
+    implementation 'com.github.czh235285:LikeView:1.0.4'
 
 
 }
