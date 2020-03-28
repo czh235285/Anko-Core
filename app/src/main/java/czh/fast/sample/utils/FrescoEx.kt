@@ -1,4 +1,4 @@
-package czh.fast.lib.utils
+package czh.fast.sample.utils
 
 import android.graphics.drawable.Animatable
 import android.net.Uri

@@ -7,9 +7,9 @@ import czh.fast.lib.utils.anko.circleImageView
 import czh.fast.lib.utils.anko.roundImageView
 import czh.fast.lib.utils.anko.simpleDraweeView
 import czh.fast.lib.utils.centerHorizontally
-import czh.fast.lib.utils.load
 import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.utils.ankoToolBar
+import czh.fast.sample.utils.load
 import czh.fast.sample.utils.pxf
 
 import org.jetbrains.anko.AnkoComponent

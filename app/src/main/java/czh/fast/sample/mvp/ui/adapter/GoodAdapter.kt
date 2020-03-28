@@ -9,10 +9,10 @@ import org.jetbrains.anko.AnkoComponent
 
 import czh.adapter.AnkoAdapter
 import czh.adapter.holer.AnkoViewHolder
-import czh.fast.lib.utils.load
 import czh.fast.sample.mvp.model.HotData
 import czh.fast.sample.mvp.ui.layout.item.GoodsItemUI
 import czh.fast.sample.utils.SpannableStringUtils
+import czh.fast.sample.utils.load
 import io.reactivex.android.schedulers.AndroidSchedulers
 import java.util.concurrent.TimeUnit
 

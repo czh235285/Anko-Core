@@ -16,13 +16,13 @@ import czh.adapter.AnkoMultiAdapter
 import czh.adapter.holer.AnkoViewHolder
 import czh.fast.lib.utils.dateToString
 import czh.fast.lib.utils.gone
-import czh.fast.lib.utils.load
 import czh.fast.lib.widget.viewpager.Mu5Interface
 import czh.fast.sample.application.MyAPP
 import czh.fast.sample.mvp.model.MultiData
 import czh.fast.sample.mvp.ui.layout.item.BannerUI
 import czh.fast.sample.mvp.ui.layout.item.DetailsUI
 import czh.fast.sample.mvp.ui.layout.item.RcvUI
+import czh.fast.sample.utils.load
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.backgroundDrawable
 
@@ -40,7 +40,6 @@ class MultiAdapter(val Height: Int, data: MutableList<MultiData>) : AnkoMultiAda
             else -> RcvUI()
         }
     }
-
 
 
     override fun convert(holder: AnkoViewHolder, position: Int, item: MultiData?) {
@@ -97,7 +96,7 @@ class MultiAdapter(val Height: Int, data: MutableList<MultiData>) : AnkoMultiAda
                                         setTextColor(Color.parseColor("#a9a9a9"))
                                         setPadding(45, 10, 45, 10)
                                         backgroundDrawable = GradientDrawable().apply {
-                                            gradientType = GradientDrawable.RECTANGLE
+                                            gradientType = GradientDrawable.LINEAR_GRADIENT
                                             setColor(Color.parseColor("#ffffff"))
                                             cornerRadius = 45f
                                             setStroke(2, Color.parseColor("#a9a9a9"))
