@@ -17,7 +17,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.gitee.czh235285:FastKotlin:2.0.4'
+  implementation 'com.gitee.czh235285:FastKotlin:2.0.6'
 }
 ```
 ## 介绍
