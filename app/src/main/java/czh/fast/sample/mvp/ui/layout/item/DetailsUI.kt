@@ -6,13 +6,10 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
-import com.pawegio.kandroid.dp
-import com.youth.banner.Banner
 import com.zhy.view.flowlayout.TagFlowLayout
-import czh.fast.lib.utils.anko.circleImageView
 import czh.fast.lib.utils.anko.tagFlowLayout
 import czh.fast.lib.utils.setShape
-import czh.fast.sample.utils.banners
+import czh.fast.sample.utils.circleImageView
 import org.jetbrains.anko.*
 
 class DetailsUI : AnkoComponent<Context> {

@@ -10,11 +10,11 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
-import czh.fast.lib.utils.anko.circleImageView
-import czh.fast.lib.utils.anko.roundImageView
 import czh.fast.lib.utils.setShape
 import czh.fast.sample.R
+import czh.fast.sample.utils.circleImageView
 import czh.fast.sample.utils.likeView
+import czh.fast.sample.utils.roundImageView
 import czh.library.LikeView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView

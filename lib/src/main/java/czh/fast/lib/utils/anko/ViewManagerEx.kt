@@ -160,77 +160,7 @@ inline fun ViewManager.smartRefreshLayout(theme: Int = 0, init: SmartRefreshLayo
     return ankoView({ SmartRefreshLayout(it) }, theme, init)
 }
 
-/**
- * simpleDraweeView
- */
-inline fun ViewManager.simpleDraweeView(theme: Int = 0) = simpleDraweeView(theme) {}
 
-/**
- * simpleDraweeView
- */
-inline fun ViewManager.simpleDraweeView(theme: Int = 0, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
-    return ankoView({ SimpleDraweeView(it) }, theme, init)
-}
-
-
-/**
- * circleImageView
- */
-inline fun ViewManager.circleImageView() = circleImageView {
-}
-
-/**
- * circleImageView
- */
-inline fun ViewManager.circleImageView(init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
-    return simpleDraweeView(0, init).apply {
-        hierarchy.apply {
-            val roundingParams = RoundingParams()
-            roundingParams.roundAsCircle = true
-            hierarchy.roundingParams = roundingParams
-        }
-    }
-}
-
-
-/**
- * roundImageView
- */
-inline fun ViewManager.roundImageView(corners: Float) = roundImageView(corners) {
-}
-
-/**
- * roundImageView
- */
-inline fun ViewManager.roundImageView(corners: Float, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
-    return simpleDraweeView(0, init).apply {
-        hierarchy.apply {
-            val roundingParams = RoundingParams()
-            roundingParams.setCornersRadius(corners)
-            hierarchy.roundingParams = roundingParams
-        }
-    }
-}
-
-
-/**
- * roundImageView
- */
-inline fun ViewManager.roundImageView(topLeft: Float, topRight: Float, bottomRight: Float, bottomLeft: Float) = roundImageView(topLeft, topRight, bottomRight, bottomLeft) {
-}
-
-/**
- * roundImageView
- */
-inline fun ViewManager.roundImageView(topLeft: Float, topRight: Float, bottomRight: Float, bottomLeft: Float, init: SimpleDraweeView.() -> Unit): SimpleDraweeView {
-    return simpleDraweeView(0, init).apply {
-        hierarchy.apply {
-            val roundingParams = RoundingParams()
-            roundingParams.setCornersRadii(topLeft, topRight, bottomRight, bottomLeft)
-            hierarchy.roundingParams = roundingParams
-        }
-    }
-}
 
 
 /**

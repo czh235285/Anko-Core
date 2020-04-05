@@ -9,13 +9,13 @@ import android.view.Window
 import android.view.WindowManager
 import czh.fast.lib.R
 import czh.fast.lib.base.LoadingView
-import czh.fast.lib.utils.AppManager
 import czh.fast.lib.utils.DensityUtils
 import czh.fast.lib.utils.status.LightStatusBarUtils
 import czh.fast.lib.utils.status.RomUtils
 import czh.fast.lib.utils.status.StatusBarUtil
 import czh.fast.lib.utils.status.setStatusBarByColorRes
 import czh.fast.lib.widget.LoadingDialog
+import czh.fast.sample.utils.AppManager
 
 //Activity基类
 abstract class AnkoActivity : AppCompatActivity(), LoadingView {

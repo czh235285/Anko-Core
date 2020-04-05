@@ -3,14 +3,9 @@ package czh.fast.sample.mvp.ui.layout.activity
 import android.view.View
 import android.widget.LinearLayout
 import com.facebook.drawee.view.SimpleDraweeView
-import czh.fast.lib.utils.anko.circleImageView
-import czh.fast.lib.utils.anko.roundImageView
-import czh.fast.lib.utils.anko.simpleDraweeView
 import czh.fast.lib.utils.centerHorizontally
 import czh.fast.sample.mvp.ui.activity.ImageActivity
-import czh.fast.sample.utils.ankoToolBar
-import czh.fast.sample.utils.load
-import czh.fast.sample.utils.pxf
+import czh.fast.sample.utils.*
 
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext

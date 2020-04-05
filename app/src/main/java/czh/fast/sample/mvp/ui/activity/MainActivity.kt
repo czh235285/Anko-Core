@@ -3,7 +3,6 @@ package czh.fast.sample.mvp.ui.activity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.KeyEvent
-import czh.fast.lib.utils.AppManager
 import czh.fast.lib.widget.tablayout.listener.CustomTabEntity
 import czh.fast.lib.widget.tablayout.listener.OnTabSelectListener
 import czh.fast.sample.R
@@ -17,6 +16,7 @@ import czh.fast.sample.mvp.model.TabEntity
 import czh.fast.sample.mvp.ui.fragment.DbFragment
 import czh.fast.sample.mvp.ui.fragment.NetFragment
 import czh.fast.sample.mvp.ui.fragment.OtherFragment
+import czh.fast.sample.utils.AppManager
 import org.jetbrains.anko.toast
 
 class MainActivity : AnkoActivity() {
@@ -33,7 +33,7 @@ class MainActivity : AnkoActivity() {
     }
 
     override fun afterInitView() = with(ui) {
-        (0 until mTitles.size)
+        (mTitles.indices)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()
         vp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
