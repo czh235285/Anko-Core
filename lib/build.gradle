@@ -71,7 +71,7 @@ dependencies {
     api 'com.vise.xiaoyaoyou:viselog:1.1.2'
     api 'com.afollestad.material-dialogs:core:0.9.6.0'
     api 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
-    api 'com.github.czh235285:banner:1.0.2'
+    api 'com.github.czh235285:banner:1.0.3'
     api 'com.rengwuxian.materialedittext:library:2.1.4'
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
