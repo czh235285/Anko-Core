@@ -7,15 +7,17 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
-import czh.fast.lib.R
 import czh.fast.lib.base.LoadingView
 import czh.fast.lib.utils.DensityUtils
 import czh.fast.lib.utils.status.LightStatusBarUtils
 import czh.fast.lib.utils.status.RomUtils
 import czh.fast.lib.utils.status.StatusBarUtil
 import czh.fast.lib.utils.status.setStatusBarByColorRes
+import czh.fast.lib.widget.Gloading
 import czh.fast.lib.widget.LoadingDialog
+import czh.fast.sample.R
 import czh.fast.sample.utils.AppManager
+
 
 //Activity基类
 abstract class AnkoActivity : AppCompatActivity(), LoadingView {
@@ -50,7 +52,6 @@ abstract class AnkoActivity : AppCompatActivity(), LoadingView {
     }
 
 
-
     //初始化view
     protected abstract fun afterInitView()
 
@@ -81,5 +82,38 @@ abstract class AnkoActivity : AppCompatActivity(), LoadingView {
     override fun onDestroy() {
         super.onDestroy()
         AppManager.appManager.finishActivity(this)
+    }
+
+
+    protected open fun initLoadingStatusViewIfNeed() {
+        if (mHolder == null) {
+            mHolder = Gloading.getDefault().wrap(this).withRetry { onLoadRetry() }
+        }
+    }
+
+    protected open fun onLoadRetry() {
+
+    }
+
+    var mHolder: Gloading.Holder? = null
+
+    open fun showLoadingView() {
+        initLoadingStatusViewIfNeed()
+        mHolder?.showLoading()
+    }
+
+    open fun showLoadSuccess() {
+        initLoadingStatusViewIfNeed()
+        mHolder?.showLoadSuccess()
+    }
+
+    open fun showLoadFailed() {
+        initLoadingStatusViewIfNeed()
+        mHolder?.showLoadFailed()
+    }
+
+    open fun showEmpty() {
+        initLoadingStatusViewIfNeed()
+        mHolder?.showEmpty()
     }
 }

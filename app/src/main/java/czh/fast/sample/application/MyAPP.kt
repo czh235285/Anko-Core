@@ -1,15 +1,18 @@
 package czh.fast.sample.application
 
 import android.content.Context
-import com.raizlabs.android.dbflow.config.FlowManager
 import android.support.multidex.MultiDex
+import com.raizlabs.android.dbflow.config.FlowManager
 import czh.fast.lib.application.BaseAPP
+import czh.fast.lib.widget.Gloading
+import czh.fast.sample.mvp.ui.adapter.GlobalAdapter
 
 
 class MyAPP : BaseAPP() {
     override fun onCreate() {
         super.onCreate()
         FlowManager.init(this)
+        Gloading.initDefault(GlobalAdapter())
         instance = this
     }
 

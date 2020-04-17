@@ -3,6 +3,7 @@ package czh.fast.sample.mvp.ui.activity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.KeyEvent
+import czh.fast.lib.widget.Gloading
 import czh.fast.lib.widget.tablayout.listener.CustomTabEntity
 import czh.fast.lib.widget.tablayout.listener.OnTabSelectListener
 import czh.fast.sample.R
@@ -32,7 +33,24 @@ class MainActivity : AnkoActivity() {
         ui.setContentView(this)
     }
 
+    override fun initLoadingStatusViewIfNeed() {
+        if (mHolder == null) {
+            mHolder = Gloading.getDefault().wrap(ui.vp).withRetry { onLoadRetry() }
+        }
+    }
+
     override fun afterInitView() = with(ui) {
+        initLoadingStatusViewIfNeed()
+        showEmpty()
+
+        vp.postDelayed({
+            showLoadSuccess()
+        }, 5000)
+//
+//        Handler().postDelayed({
+//            showLoadSuccess()
+//        },2000)
+
         (mTitles.indices)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()
