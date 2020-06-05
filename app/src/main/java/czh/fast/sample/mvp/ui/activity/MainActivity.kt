@@ -45,7 +45,7 @@ class MainActivity : AnkoActivity() {
 
         vp.postDelayed({
             showLoadSuccess()
-        }, 5000)
+        }, 3000)
 //
 //        Handler().postDelayed({
 //            showLoadSuccess()

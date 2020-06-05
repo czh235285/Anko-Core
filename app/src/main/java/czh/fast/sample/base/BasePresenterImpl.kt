@@ -1,9 +1,7 @@
 package czh.fast.sample.base
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancel
+import com.vise.log.ViseLog
+import kotlinx.coroutines.*
 
 abstract class BasePresenterImpl  {
 
@@ -13,5 +11,27 @@ abstract class BasePresenterImpl  {
 
     fun cancel (){
         presenterScope.cancel()
+    }
+
+    fun safeLaunch(
+            action: suspend CoroutineScope.() -> Unit,
+            onStart: () -> Unit = {},
+            onError: (e: Throwable) -> Unit = {},
+            onFinally: () -> Unit = {}
+    ): Job {
+        return presenterScope.launch {
+            try {
+                coroutineScope {
+                    onStart.invoke()
+                    action()
+                }
+            } catch (e: Throwable) {
+                ViseLog.d(e)
+                onError.invoke(e)
+            } finally {
+                onFinally.invoke()
+            }
+        }
+
     }
 }
