@@ -41,15 +41,11 @@ class MainActivity : AnkoActivity() {
 
     override fun afterInitView() = with(ui) {
         initLoadingStatusViewIfNeed()
-        showEmpty()
+        showLoadingView()
 
         vp.postDelayed({
             showLoadSuccess()
-        }, 3000)
-//
-//        Handler().postDelayed({
-//            showLoadSuccess()
-//        },2000)
+        }, 2000)
 
         (mTitles.indices)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }

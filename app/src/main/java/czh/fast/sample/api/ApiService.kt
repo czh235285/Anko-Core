@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 
 
-val apiservice by lazy { RetrofitClient.getService<ApiService>("http://api.meb.com/app/v7/") }
+val apiservice by lazy { RetrofitClient.getService<ApiService>("https://www.wanandroid.com/") }
 
 
 interface ApiService {
@@ -13,6 +13,6 @@ interface ApiService {
     /**
      *广告轮播
      */
-    @GET("home/AndroidIndex")
+    @GET("banner/json")
     suspend fun getBanner(): Banner
 }

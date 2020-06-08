@@ -28,16 +28,16 @@ android {
 
 }
 
-configurations.all {
-    resolutionStrategy.eachDependency {  details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion '27.1.1'
-            }
-        }
-    }
-}
+//configurations.all {
+//    resolutionStrategy.eachDependency {  details ->
+//        def requested = details.requested
+//        if (requested.group == 'com.android.support') {
+//            if (!requested.name.startsWith("multidex")) {
+//                details.useVersion '27.1.1'
+//            }
+//        }
+//    }
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -67,6 +67,7 @@ dependencies {
     api('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
         exclude group: 'org.json', module: 'json'
     }
+    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     api 'com.vise.xiaoyaoyou:viselog:1.1.2'
     api 'com.afollestad.material-dialogs:core:0.9.6.0'

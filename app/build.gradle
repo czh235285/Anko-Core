@@ -42,7 +42,6 @@ dependencies {
     implementation project(path: ':lib')
     implementation 'com.github.czh235285:LikeView:1.0.4'
 
-
 }
 repositories {
     mavenCentral()

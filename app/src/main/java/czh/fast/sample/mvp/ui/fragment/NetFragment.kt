@@ -16,7 +16,9 @@ class NetFragment : AnkoLazyFragment(), NetContract.View {
     override fun showResult(banner: Banner) {
 
         val images = arrayListOf<String>()
-            images.add(banner.Content.Picture.KnowledgeBackground)
+        banner.data?.forEach {
+            images.add(it.imagePath ?: "")
+        }
 
         ui.banner.setIndicatorDrawable(selectedDrawable, unSelectedDrawable, 30, 30)
         ui.banner.setImages(images).setImageLoader(FrescoImageLoader()).start()
@@ -26,7 +28,7 @@ class NetFragment : AnkoLazyFragment(), NetContract.View {
     val ui = NetFragmentUI()
     var presenter = NetPresenter(this)
     override fun layout(): View {
-        return  ui.setContentView(this)
+        return ui.setContentView(this)
     }
 
     override fun afterInitView() {
