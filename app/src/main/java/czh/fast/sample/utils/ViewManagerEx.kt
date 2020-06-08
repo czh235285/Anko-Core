@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
-import android.support.annotation.Size
+import androidx.annotation.Size
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.ViewGroup

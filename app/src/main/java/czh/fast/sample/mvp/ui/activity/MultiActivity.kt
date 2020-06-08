@@ -1,7 +1,7 @@
 package czh.fast.sample.mvp.ui.activity
 
 import android.graphics.Bitmap
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import org.jetbrains.anko.setContentView
 
@@ -41,7 +41,7 @@ class MultiActivity : AnkoActivity() {
                     override fun onResourceReady(resource: Bitmap, glideAnimation: GlideAnimation<in Bitmap>?) {
                         mAdapter = MultiAdapter(screenWidth() * resource.height / resource.width, mList)
                         ui.rcv.apply {
-                            layoutManager = LinearLayoutManager(this@MultiActivity)
+                            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MultiActivity)
                             adapter = mAdapter
                         }
                     }

@@ -5,8 +5,8 @@ import android.graphics.BlurMaskFilter
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.support.annotation.ColorInt
-import android.support.annotation.DrawableRes
+import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import android.text.Layout.Alignment
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -31,7 +31,7 @@ import android.text.style.UnderlineSpan
 
 
 import android.graphics.BlurMaskFilter.Blur
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import czh.fast.lib.widget.VerticalImageSpan
 import czh.fast.sample.application.MyAPP
 

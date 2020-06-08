@@ -1,7 +1,7 @@
 package czh.fast.sample.mvp.ui.activity
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import android.view.KeyEvent
 import czh.fast.lib.widget.Gloading
 import czh.fast.lib.widget.tablayout.listener.CustomTabEntity
@@ -50,7 +50,7 @@ class MainActivity : AnkoActivity() {
         (mTitles.indices)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()
-        vp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
+        vp.adapter = object : androidx.fragment.app.FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int) = mFragments[position]
             override fun getCount() = mFragments.size
         }
@@ -69,7 +69,7 @@ class MainActivity : AnkoActivity() {
         }
     }
 
-    lateinit var mFragments: MutableList<Fragment>
+    lateinit var mFragments: MutableList<androidx.fragment.app.Fragment>
     private fun initFragments() {
         mFragments = ArrayList()
         mFragments.add(NetFragment.get())

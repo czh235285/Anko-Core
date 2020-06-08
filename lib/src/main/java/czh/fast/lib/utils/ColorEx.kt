@@ -3,7 +3,7 @@ package czh.fast.lib.utils
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.content.res.ColorStateList
-import android.support.v4.graphics.drawable.DrawableCompat
+import androidx.core.graphics.drawable.DrawableCompat
 
 
 fun Int.changeAlpha(percentage: Float): Int {

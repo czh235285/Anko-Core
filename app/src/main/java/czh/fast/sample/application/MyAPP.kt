@@ -1,7 +1,7 @@
 package czh.fast.sample.application
 
 import android.content.Context
-import android.support.multidex.MultiDex
+import androidx.multidex.MultiDex
 import com.raizlabs.android.dbflow.config.FlowManager
 import czh.fast.lib.application.BaseAPP
 import czh.fast.lib.widget.Gloading

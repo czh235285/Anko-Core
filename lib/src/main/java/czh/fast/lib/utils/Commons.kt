@@ -1,9 +1,9 @@
 package czh.fast.lib.utils
 
 import android.content.Context
-import android.support.annotation.DrawableRes
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.DrawableRes
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -44,7 +44,7 @@ fun kotlin.Any.visibles(vararg views: View) {
     }
 }
 
-fun RecyclerView.init(layout: RecyclerView.LayoutManager = LinearLayoutManager(this.context)) {
+fun androidx.recyclerview.widget.RecyclerView.init(layout: androidx.recyclerview.widget.RecyclerView.LayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this.context)) {
     this.addItemDecoration(SimpleDividerDecoration(0xffe5e5e5.toInt(), 1))
     this.layoutManager = layout
 }

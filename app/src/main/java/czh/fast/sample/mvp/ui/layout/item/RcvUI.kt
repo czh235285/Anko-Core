@@ -2,14 +2,14 @@ package czh.fast.sample.mvp.ui.layout.item
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.view.View
 import czh.fast.lib.utils.anko.recyclerView
 import org.jetbrains.anko.*
 
 class RcvUI : AnkoComponent<Context> {
-    lateinit var rcv: RecyclerView
+    lateinit var rcv: androidx.recyclerview.widget.RecyclerView
 
     override fun createView(ui: AnkoContext<Context>): View = with(ui) {
         verticalLayout {
@@ -19,7 +19,7 @@ class RcvUI : AnkoComponent<Context> {
                 setPadding(30, 30, 30, 30)
             }
             rcv = recyclerView {
-                val lm = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                val lm = androidx.recyclerview.widget.StaggeredGridLayoutManager(2, androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL)
                 lm.isAutoMeasureEnabled = true
                 layoutManager = lm
             }

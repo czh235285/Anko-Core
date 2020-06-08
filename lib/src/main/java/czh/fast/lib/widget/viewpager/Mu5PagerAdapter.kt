@@ -1,7 +1,7 @@
 package czh.fast.lib.widget.viewpager
 
 import android.content.Context
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -11,7 +11,7 @@ import android.widget.ImageView
  * Func:主要用于实现imageview的回调加载
  */
 
-class Mu5PagerAdapter : PagerAdapter {
+class Mu5PagerAdapter : androidx.viewpager.widget.PagerAdapter {
 
     private var mContext: Context? = null
     private var urls: List<String>? = null

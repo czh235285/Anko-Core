@@ -1,8 +1,8 @@
 package czh.fast.sample.mvp.ui.layout.activity
 
 import android.graphics.Color
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.Gravity
 import android.view.View
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -18,7 +18,7 @@ import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 class MultiActivityUI : AnkoComponent<MultiActivity> {
 
-    lateinit var rcv: RecyclerView
+    lateinit var rcv: androidx.recyclerview.widget.RecyclerView
 
     override fun createView(ui: AnkoContext<MultiActivity>): View = with(ui) {
         return verticalLayout {
@@ -29,7 +29,7 @@ class MultiActivityUI : AnkoComponent<MultiActivity> {
                 title = "多type布局"
             }
             rcv = recyclerView {
-                layoutManager = LinearLayoutManager(owner)
+                layoutManager = androidx.recyclerview.widget.LinearLayoutManager(owner)
             }
 
         }

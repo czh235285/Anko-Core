@@ -1,7 +1,7 @@
 package czh.fast.lib.widget
 
 import android.content.Context
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.util.AttributeSet
 import android.view.MotionEvent
 
@@ -10,7 +10,7 @@ import android.view.MotionEvent
  * @author czh
  */
 
-class NoScrollViewPager : ViewPager {
+class NoScrollViewPager : androidx.viewpager.widget.ViewPager {
     private val isPagingEnabled = false
 
     constructor(context: Context) : super(context)

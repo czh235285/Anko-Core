@@ -2,8 +2,8 @@ package czh.fast.sample.mvp.ui.layout.fragment
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.text.InputType
 import android.view.Gravity
 import android.view.View
@@ -32,7 +32,7 @@ class DbUI : AnkoComponent<DbFragment> {
 
     lateinit var etName: MaterialEditText
     lateinit var etAge: MaterialEditText
-    lateinit var rcv: RecyclerView
+    lateinit var rcv: androidx.recyclerview.widget.RecyclerView
 
     @SuppressLint("WrongConstant")
     override fun createView(ui: AnkoContext<DbFragment>): View = with(ui) {
@@ -99,7 +99,7 @@ class DbUI : AnkoComponent<DbFragment> {
                 setMargins(30, 30, 30, 30)
             }
             rcv = recyclerView {
-                layoutManager = LinearLayoutManager(ctx)
+                layoutManager = androidx.recyclerview.widget.LinearLayoutManager(ctx)
                 addItemDecoration(SimpleDividerDecoration(0xffe5e5e5.toInt(), 1))
                 adapter = owner.mAdapter
 

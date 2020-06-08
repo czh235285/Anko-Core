@@ -26,7 +26,7 @@
         <!--        <activity android:name=".mvp.layout.activity.TestActivity" />-->
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="czh.fast.sample.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

@@ -1,8 +1,8 @@
 package czh.fast.sample.mvp.ui.layout.fragment
 
 import android.graphics.Color
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import czh.fast.lib.utils.anko.itemLayout
 import czh.fast.lib.bean.ItemBean
@@ -19,7 +19,7 @@ import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 class OtherFragmentUI : AnkoComponent<OtherFragment> {
 
-    lateinit var rcv: RecyclerView
+    lateinit var rcv: androidx.recyclerview.widget.RecyclerView
 
     override fun createView(ui: AnkoContext<OtherFragment>): View = with(ui) {
         return verticalLayout {
@@ -34,7 +34,7 @@ class OtherFragmentUI : AnkoComponent<OtherFragment> {
                 backgroundColor = Color.parseColor("#eeeeee")
             }.lparams(matchParent, 1)
             rcv = recyclerView {
-                layoutManager = LinearLayoutManager(ctx)
+                layoutManager = androidx.recyclerview.widget.LinearLayoutManager(ctx)
                 addItemDecoration(SimpleDividerDecoration(Color.parseColor("#e5e5e5"), 1))
             }
 

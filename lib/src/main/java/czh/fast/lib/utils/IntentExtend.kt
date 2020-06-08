@@ -26,7 +26,7 @@ inline fun <reified T : kotlin.Any> android.app.Fragment.openActivityForResult(r
     startActivityForResult(intent, requestCode)
 }
 
-inline fun <reified T : kotlin.Any> android.support.v4.app.Fragment.openActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> androidx.fragment.app.Fragment.openActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
     val intent = Intent(activity, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivityForResult(intent, requestCode)
@@ -50,7 +50,7 @@ inline fun <reified T : kotlin.Any> Activity.openActivity(vararg params: Pair<St
     startActivity(intent)
 }
 
-inline fun <reified T : kotlin.Any> android.support.v4.app.Fragment.openActivity(vararg params: Pair<String, Any?>) {
+inline fun <reified T : kotlin.Any> androidx.fragment.app.Fragment.openActivity(vararg params: Pair<String, Any?>) {
     val intent = Intent(activity, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params)
     startActivity(intent)

@@ -2,8 +2,8 @@ package czh.fast.lib.utils.anko
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v4.app.Fragment
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewManager
 import com.facebook.drawee.view.SimpleDraweeView
@@ -24,7 +24,7 @@ import czh.fast.lib.widget.viewpager.Mu5ViewPager
 import org.jetbrains.anko.*
 
 
-fun <T : Fragment> AnkoComponent<T>.setContentView(activity: T): View = createView(AnkoContext.create(activity.ctx, activity))
+fun <T : androidx.fragment.app.Fragment> AnkoComponent<T>.setContentView(activity: T): View = createView(AnkoContext.create(activity.ctx, activity))
 
 fun AnkoComponent<Context>.setContentView(context: Context): View = createView(AnkoContext.create(context))
 
@@ -172,8 +172,8 @@ inline fun ViewManager.recyclerView(theme: Int = 0) = recyclerView(theme) {
 /**
  * recyclerView
  */
-inline fun ViewManager.recyclerView(theme: Int = 0, init: RecyclerView.() -> Unit): RecyclerView {
-    return ankoView({ RecyclerView(it) }, theme, init)
+inline fun ViewManager.recyclerView(theme: Int = 0, init: androidx.recyclerview.widget.RecyclerView.() -> Unit): androidx.recyclerview.widget.RecyclerView {
+    return ankoView({ androidx.recyclerview.widget.RecyclerView(it) }, theme, init)
 }
 
 /**
