@@ -23,6 +23,9 @@
         <activity android:name=".mvp.ui.activity.ImageActivity" />
         <activity android:name=".mvp.ui.activity.MultiActivity" />
         <activity android:name=".mvp.ui.activity.AdaptationActivity" />
+        <activity android:name=".mvp.ui.activity.UpdateActivity" />
+        <activity android:name=".mvp.ui.activity.BehaviorActivity"
+            android:exported="true"/>
         <!--        <activity android:name=".mvp.layout.activity.TestActivity" />-->
 
         <provider

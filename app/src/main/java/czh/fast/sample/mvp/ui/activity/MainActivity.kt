@@ -42,7 +42,6 @@ class MainActivity : AnkoActivity() {
     override fun afterInitView() = with(ui) {
         initLoadingStatusViewIfNeed()
         showLoadingView()
-
         vp.postDelayed({
             showLoadSuccess()
         }, 2000)

@@ -117,7 +117,7 @@ inline fun ViewManager.ankoToolBar(theme: Int = 0, init: AnkoToolBar.() -> Unit)
 }
 
 
-fun ViewManager.text(textsize: Int=24, @Size(min = 1) colorString: String = "#333333", content: String? = null, isSingleLine: Boolean = false, isBOLD: Boolean = false, maxLine: Int? = null) = Text(textsize, colorString, content, isSingleLine, isBOLD, maxLine) {
+fun ViewManager.Text(textsize: Int=24, @Size(min = 1) colorString: String = "#333333", content: String? = null, isSingleLine: Boolean = false, isBOLD: Boolean = false, maxLine: Int? = null) = Text(textsize, colorString, content, isSingleLine, isBOLD, maxLine) {
 
 }
 fun ViewManager.Text(textsize: Int, @Size(min = 1) colorString: String = "#333333", content: String? = null, isSingleLine: Boolean = false, isBOLD: Boolean = false, maxLine: Int? = null, init: TextView.() -> Unit): TextView {

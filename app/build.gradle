@@ -3,19 +3,21 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'//启用扩展支持直接使用ID
 apply plugin: 'kotlin-kapt'
 android {
+
+    def versions = rootProject.ext.versions
     androidExtensions {
         experimental = true
     }
-    compileSdkVersion 28
-    defaultConfig {
-        multiDexEnabled true
-        applicationId "czh.fast.sample"
-        minSdkVersion 21
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
+    compileSdkVersion versions.compileSdkVersion
+            defaultConfig {
+                multiDexEnabled true
+                applicationId "czh.fast.sample"
+                minSdkVersion versions.minSdkVersion
+                targetSdkVersion versions.targetSdkVersion
+                versionCode versions.versionCode
+                versionName versions.versionName
+                testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+            }
     buildTypes {
         release {
             minifyEnabled false
@@ -45,6 +47,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation project(path: ':lib')
     implementation 'com.github.czh235285:LikeView:1.0.4'
+    implementation 'com.azhon:appupdateX:3.0.0'
+    implementation 'com.gitee.czh235285:DraggableImageViewer:1.0.1'
+
 
 }
 repositories {

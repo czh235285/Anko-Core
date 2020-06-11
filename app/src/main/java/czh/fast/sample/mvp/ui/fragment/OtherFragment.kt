@@ -14,6 +14,7 @@ import czh.fast.lib.utils.openActivity
 import czh.fast.sample.mvp.ui.activity.AdaptationActivity
 import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.mvp.ui.activity.MultiActivity
+import czh.fast.sample.mvp.ui.activity.UpdateActivity
 import czh.fast.sample.mvp.ui.layout.item.ItemUI
 import org.jetbrains.anko.AnkoComponent
 
@@ -25,7 +26,7 @@ class OtherFragment : AnkoLazyFragment() {
     }
 
     val mAdapter by lazy {
-        object : AnkoAdapter<String>(arrayListOf("图片", "多Type布局", "适配")) {
+        object : AnkoAdapter<String>(arrayListOf("图片", "多Type布局", "适配","版本更新")) {
 
             override fun ankoLayout(viewType: Int): AnkoComponent<Context> {
                 return ItemUI()
@@ -43,6 +44,9 @@ class OtherFragment : AnkoLazyFragment() {
                         }
                         2 -> {
                             mContext.openActivity<AdaptationActivity>()
+                        }
+                        3 -> {
+                            mContext.openActivity<UpdateActivity>()
                         }
                     }
                 }
