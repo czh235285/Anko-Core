@@ -24,7 +24,7 @@ import czh.fast.lib.widget.viewpager.Mu5ViewPager
 import org.jetbrains.anko.*
 
 
-fun <T : androidx.fragment.app.Fragment> AnkoComponent<T>.setContentView(activity: T): View = createView(AnkoContext.create(activity.ctx, activity))
+fun <T : androidx.fragment.app.Fragment> AnkoComponent<T>.setContentView(activity: T): View = createView(AnkoContext.create(activity.context!!, activity))
 
 fun AnkoComponent<Context>.setContentView(context: Context): View = createView(AnkoContext.create(context))
 
@@ -156,8 +156,21 @@ inline fun ViewManager.smartRefreshLayout(theme: Int = 0) = smartRefreshLayout(t
 /**
  * smartRefreshLayout
  */
-inline fun ViewManager.smartRefreshLayout(theme: Int = 0, init: SmartRefreshLayout.() -> Unit): SmartRefreshLayout {
-    return ankoView({ SmartRefreshLayout(it) }, theme, init)
+inline fun ViewManager.smartRefreshLayout(theme: Int = 0, init: _SmartRefreshLayout.() -> Unit): _SmartRefreshLayout {
+    return ankoView({ _SmartRefreshLayout(it) }, theme, init)
+}
+
+/**
+ * consecutiveScrollerLayout
+ */
+inline fun ViewManager.consecutiveScrollerLayout(theme: Int = 0) = consecutiveScrollerLayout(theme) {
+}
+
+/**
+ * consecutiveScrollerLayout
+ */
+inline fun ViewManager.consecutiveScrollerLayout(theme: Int = 0, init: _ConsecutiveScrollerLayout.() -> Unit): _ConsecutiveScrollerLayout  {
+    return ankoView({_ConsecutiveScrollerLayout (it) }, theme, init)
 }
 
 

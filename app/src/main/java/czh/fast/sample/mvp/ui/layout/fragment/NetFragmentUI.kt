@@ -21,12 +21,22 @@ class NetFragmentUI : AnkoComponent<NetFragment> {
             }
             banner = banners().lparams(matchParent, 360.px)
 
-            Text(26,"#ffffff","请求数据") {
+            Text(26,"#ffffff","MVP获取数据") {
                 padding = 30
                 gravity = Gravity.CENTER
                 backgroundColorResource = R.color.colorPrimary
                 setOnClickListener {
                     ui.owner.presenter.normalTask()
+                }
+            }.lparams(width = matchParent) {
+                margin = 30.px
+            }
+            Text(26,"#ffffff","ViewModel获取数据") {
+                padding = 30
+                gravity = Gravity.CENTER
+                backgroundColorResource = R.color.colorPrimary
+                setOnClickListener {
+                    ui.owner.viewModel.getBanner()
                 }
             }.lparams(width = matchParent) {
                 margin = 30.px
