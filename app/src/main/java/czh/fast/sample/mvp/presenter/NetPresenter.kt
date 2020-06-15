@@ -1,5 +1,6 @@
 package czh.fast.sample.mvp.presenter
 
+import androidx.lifecycle.LifecycleOwner
 import czh.fast.sample.api.apiservice
 import czh.fast.sample.base.BasePresenterImpl
 import czh.fast.sample.base.safeLaunch

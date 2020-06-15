@@ -1,7 +1,6 @@
 package czh.fast.sample.mvp.ui.fragment
 
 import android.view.View
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import czh.fast.lib.utils.FrescoImageLoader
@@ -38,6 +37,7 @@ class NetFragment : AnkoLazyFragment(), NetContract.View {
     }
 
     override fun afterInitView() {
+        lifecycle.addObserver(presenter)
         viewModel.mBanner.observe(this, Observer {
             val images = arrayListOf<String>()
             it.data?.forEach {
@@ -48,11 +48,6 @@ class NetFragment : AnkoLazyFragment(), NetContract.View {
             ui.banner.setImages(images).setImageLoader(FrescoImageLoader()).start()
         })
 
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        presenter.cancel()
     }
 
 
