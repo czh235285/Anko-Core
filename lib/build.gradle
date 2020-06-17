@@ -45,7 +45,7 @@ dependencies {
         api "org.jetbrains.anko:anko-$it:0.10.8"
     }
 
-    ['ObservableRecylerView:1.0.1','AnkoAdapter:1.2.0'].each {
+    ['ObservableRecylerView:1.0.1','AnkoAdapter:1.2.1'].each {
         api "com.github.czh235285:$it"
     }
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
