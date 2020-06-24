@@ -27,6 +27,15 @@ abstract class AnkoFragment : Fragment(), LoadingView {
 
     var isLoadData = false
 
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        if (!isLazyLoad()) {
+            afterInitView()
+            isLoadData = true
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         Log.d("当前Fragment", "==》 (${javaClass.simpleName}.kt:1)")
@@ -46,6 +55,10 @@ abstract class AnkoFragment : Fragment(), LoadingView {
 
     //重新回到当前fragment刷新Data
     open fun refreshUi() {}
+
+    open fun isLazyLoad(): Boolean {
+        return true
+    }
 
 
     private var mLoading: LoadingDialog? = null
