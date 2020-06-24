@@ -56,6 +56,7 @@ abstract class AnkoFragment : Fragment(), LoadingView {
     //重新回到当前fragment刷新Data
     open fun refreshUi() {}
 
+    //是否需要懒加载
     open fun isLazyLoad(): Boolean {
         return true
     }
