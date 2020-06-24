@@ -5,7 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import czh.fast.lib.utils.FrescoImageLoader
 import czh.fast.lib.utils.anko.setContentView
-import czh.fast.sample.base.AnkoLazyFragment
+import czh.fast.sample.base.AnkoFragment
 import czh.fast.sample.mvp.contract.NetContract
 import czh.fast.sample.mvp.model.Banner
 import czh.fast.sample.mvp.presenter.NetPresenter
@@ -14,7 +14,7 @@ import czh.fast.sample.mvp.viewmodel.NetViewModel
 import czh.fast.sample.utils.selectedDrawable
 import czh.fast.sample.utils.unSelectedDrawable
 
-class NetFragment : AnkoLazyFragment(), NetContract.View {
+class NetFragment : AnkoFragment(), NetContract.View {
 
     val viewModel by viewModels<NetViewModel>()
 

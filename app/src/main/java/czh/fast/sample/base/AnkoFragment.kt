@@ -12,21 +12,30 @@ import czh.fast.lib.widget.LoadingDialog
 
 //fragment基类
 abstract class AnkoFragment : Fragment(), LoadingView {
-    var isInitView: Boolean = false
+    val act by lazy {
+        requireActivity()
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        isInitView = true
         return layout()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    var isLoadData = false
+
+    override fun onResume() {
+        super.onResume()
         Log.d("当前Fragment", "==》 (${javaClass.simpleName}.kt:1)")
-        afterInitView()
+        if (!isLoadData) {
+            afterInitView()
+            isLoadData = true
+        } else {
+            refreshUi()
+        }
     }
 
     //获取布局文件
@@ -35,11 +44,14 @@ abstract class AnkoFragment : Fragment(), LoadingView {
     //初始化view
     protected abstract fun afterInitView()
 
+    //重新回到当前fragment刷新Data
+    open fun refreshUi() {}
+
 
     private var mLoading: LoadingDialog? = null
     override fun showLoading() {
         if (mLoading == null) {
-            mLoading = LoadingDialog(activity!!)
+            mLoading = LoadingDialog(act)
         }
         mLoading?.show()
     }
@@ -47,6 +59,5 @@ abstract class AnkoFragment : Fragment(), LoadingView {
     override fun hideLoading() {
         mLoading?.dismiss()
     }
-
 
 }

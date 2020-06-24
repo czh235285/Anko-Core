@@ -1,23 +1,20 @@
 package czh.fast.sample.mvp.ui.activity
 
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
+
 import android.view.KeyEvent
+import androidx.fragment.app.FragmentPagerAdapter
 import czh.fast.lib.widget.Gloading
 import czh.fast.lib.widget.tablayout.listener.CustomTabEntity
 import czh.fast.lib.widget.tablayout.listener.OnTabSelectListener
 import czh.fast.sample.R
-
-import czh.fast.sample.mvp.ui.layout.activity.MainUI
-import org.jetbrains.anko.setContentView
-
-
 import czh.fast.sample.base.AnkoActivity
 import czh.fast.sample.mvp.model.TabEntity
 import czh.fast.sample.mvp.ui.fragment.DbFragment
 import czh.fast.sample.mvp.ui.fragment.NetFragment
 import czh.fast.sample.mvp.ui.fragment.OtherFragment
+import czh.fast.sample.mvp.ui.layout.activity.MainUI
 import czh.fast.sample.utils.AppManager
+import org.jetbrains.anko.setContentView
 import org.jetbrains.anko.toast
 
 class MainActivity : AnkoActivity() {
@@ -49,7 +46,7 @@ class MainActivity : AnkoActivity() {
         (mTitles.indices)
                 .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         initFragments()
-        vp.adapter = object : androidx.fragment.app.FragmentPagerAdapter(supportFragmentManager) {
+        vp.adapter = object : FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
             override fun getItem(position: Int) = mFragments[position]
             override fun getCount() = mFragments.size
         }

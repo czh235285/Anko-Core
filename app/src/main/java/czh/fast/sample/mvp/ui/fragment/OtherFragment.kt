@@ -2,15 +2,14 @@ package czh.fast.sample.mvp.ui.fragment
 
 import android.content.Context
 import android.view.View
-import czh.fast.sample.base.AnkoLazyFragment
 import czh.fast.sample.mvp.ui.layout.fragment.OtherFragmentUI
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.support.v4.ctx
-import android.net.Uri
 import czh.adapter.AnkoAdapter
 import czh.adapter.holer.AnkoViewHolder
 import czh.fast.lib.utils.noDoubleClick
 import czh.fast.lib.utils.openActivity
+import czh.fast.sample.base.AnkoFragment
 import czh.fast.sample.mvp.ui.activity.AdaptationActivity
 import czh.fast.sample.mvp.ui.activity.ImageActivity
 import czh.fast.sample.mvp.ui.activity.MultiActivity
@@ -19,7 +18,7 @@ import czh.fast.sample.mvp.ui.layout.item.ItemUI
 import org.jetbrains.anko.AnkoComponent
 
 
-class OtherFragment : AnkoLazyFragment() {
+class OtherFragment : AnkoFragment() {
     val ui = OtherFragmentUI()
     override fun layout(): View {
         return ui.createView(AnkoContext.create(ctx, this))

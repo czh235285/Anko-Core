@@ -5,14 +5,15 @@ import kotlinx.coroutines.*
 
 abstract class BasePresenterImpl : BaseLifecycleObserver {
 
-    lateinit var presenterScope: CoroutineScope
+    lateinit var lifecycleScope: CoroutineScope
 
     override fun onAny(owner: LifecycleOwner) {
 
     }
 
+
     override fun onCreate(owner: LifecycleOwner) {
-        presenterScope = CoroutineScope(Dispatchers.Main + Job())
+        lifecycleScope = owner.lifecycleScope
     }
 
     override fun onStart(owner: LifecycleOwner) {
@@ -28,6 +29,7 @@ abstract class BasePresenterImpl : BaseLifecycleObserver {
     }
 
     override fun onDestory(owner: LifecycleOwner) {
-        presenterScope.cancel()
+        //这里不需要取消了，lifecycleScope随生命周期结束会自己取消
+        //lifecycleScope.cancel()
     }
 }

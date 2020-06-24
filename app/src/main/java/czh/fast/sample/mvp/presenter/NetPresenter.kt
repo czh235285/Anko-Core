@@ -11,7 +11,7 @@ class NetPresenter(private val netView: NetContract.View) : BasePresenterImpl(),
 
     //并行多请求的例子
     override fun multipleRequestsTask() {
-        presenterScope.safeLaunch {
+        lifecycleScope.safeLaunch {
             block = {
                 val task1 = async {
                     apiservice.getBanner()
@@ -28,7 +28,7 @@ class NetPresenter(private val netView: NetContract.View) : BasePresenterImpl(),
     }
 
     override fun normalTask() {
-        presenterScope.safeLaunch {
+        lifecycleScope.safeLaunch {
             block = {
                 val data = apiservice.getBanner()
                 netView.showResult(data)
