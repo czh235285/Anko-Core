@@ -244,3 +244,4 @@ Temporary Items
 app.iml
 magicindicator.iml
 /.idea/
+/build/
