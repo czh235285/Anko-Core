@@ -1,6 +1,6 @@
 
 
-# Anko-Lib
+# Anko-Core
 
 用于自己快速开发的框架，加入了许多项目通用的东西，免去重复造轮子,持续完善中...
 
@@ -58,7 +58,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.gitee.czh235285:FastKotlin:2.2.0'
+  implementation 'com.gitee.czh235285:Anko-Core:3.0.3'
 }
 ```
 
