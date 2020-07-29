@@ -1,7 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.github.dcendents.android-maven'
+//group='com.github.czh235285'
 
 android {
     def versions = rootProject.ext.versions
@@ -23,8 +24,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures {
-        viewBinding true
+    viewBinding {
+        enabled = true
     }
 //    android.libraryVariants.all{ variant ->
 //        variant.outputs.all{
@@ -44,14 +45,4 @@ dependencies {
 
     api 'com.gitee.czh235285:common_lib:1.0.3'
 
-}
-
-publish {
-    userOrg = 'czh235285' //bintray注册的用户名
-    repoName = "maven"  //仓库名
-    groupId = 'c.core'  //compile引用时的第1部分groupId
-    artifactId = 'anko-core'  //compile引用时的第2部分项目名
-    publishVersion = "v1.0.0"  //compile引用时的第3部分版本号
-    desc = 'anko-lib'
-    website = 'https://github.com/czh235285/Anko-Core'
 }
