@@ -27,12 +27,12 @@ android {
     viewBinding {
         enabled = true
     }
-    android.libraryVariants.all{ variant ->
-        variant.outputs.all{
-            def fileName = "c_core_v${defaultConfig.versionName}.aar"
-            outputFileName = fileName
-        }
-    }
+//    android.libraryVariants.all{ variant ->
+//        variant.outputs.all{
+//            def fileName = "c_core_v${defaultConfig.versionName}.aar"
+//            outputFileName = fileName
+//        }
+//    }
 }
 
 dependencies {
