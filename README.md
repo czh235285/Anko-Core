@@ -58,7 +58,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.gitee.czh235285:Anko-Core:3.0.3'
+  implementation 'com.gitee.czh235285:Anko-Core:3.0.8'
 }
 ```
 
