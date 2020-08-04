@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-//apply plugin: 'com.github.dcendents.android-maven'
-//group='com.github.czh235285'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.czh235285'
 
 android {
     def versions = rootProject.ext.versions
@@ -36,12 +36,12 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
-//    android.libraryVariants.all{ variant ->
-//        variant.outputs.all{
-//            def fileName = "c_core_v${defaultConfig.versionName}.aar"
-//            outputFileName = fileName
-//        }
-//    }
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "c_core_v${defaultConfig.versionName}.aar"
+            outputFileName = fileName
+        }
+    }
 }
 
 dependencies {
