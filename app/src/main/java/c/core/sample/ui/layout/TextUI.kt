@@ -3,7 +3,6 @@ package c.core.sample.ui.layout
 import android.content.Context
 import android.widget.TextView
 import c.core.ex.*
-import c.core.ex.anko.appBarLayout
 import c.core.utils.color
 import org.jetbrains.anko.*
 
@@ -16,9 +15,6 @@ class TextUI : AnkoComponent<Context> {
             tvContent = text(25, "#262626") {
                 horizontalPadding = 30.px
                 verticalPadding = 30.px
-appBarLayout(){
-
-}
                 buildShape {
                     shapeStroke {
                         width = 2

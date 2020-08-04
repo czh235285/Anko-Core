@@ -20,7 +20,7 @@ import org.jetbrains.anko.*
  *  date : 2020-7-29
  *  description : 
  */
-class StikyActivityUI : AnkoComponent<StickyActivity> {
+class StickyActivityUI : AnkoComponent<StickyActivity> {
     lateinit var rcv: RecyclerView
     lateinit var appbar: AppBarLayout
 

@@ -1,4 +1,4 @@
-package c.core.widget
+package c.core.utils.span
 
 /**
  * Created by admin on 2018/1/22.

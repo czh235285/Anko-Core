@@ -27,6 +27,15 @@ android {
     viewBinding {
         enabled = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 //    android.libraryVariants.all{ variant ->
 //        variant.outputs.all{
 //            def fileName = "c_core_v${defaultConfig.versionName}.aar"
@@ -43,6 +52,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    api 'com.gitee.czh235285:common_lib:1.0.3'
+    api('com.gitee.czh235285:common_lib:1.0.3') {
+        exclude group: 'org.jetbrains.anko.buildSpanned'
+    }
 
 }

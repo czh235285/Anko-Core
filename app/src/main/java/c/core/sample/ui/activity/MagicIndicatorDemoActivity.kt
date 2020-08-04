@@ -5,7 +5,6 @@ import c.core.ex.px
 import c.core.ex.pxf
 import c.core.sample.base.AnkoActivity
 import c.core.sample.ui.fragment.SampleFragment
-import c.core.sample.ui.fragment.ThirdFragment
 import c.core.sample.ui.layout.MagicIndicatorDemoActivityUI
 import c.core.widget.indicator.*
 import org.jetbrains.anko.setContentView

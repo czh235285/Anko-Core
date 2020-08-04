@@ -5,12 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import c.core.adapter.AnkoAdapter
 import c.core.adapter.holer.AnkoViewHolder
 import c.core.sample.base.AnkoActivity
-import c.core.sample.ui.layout.StikyActivityUI
-import c.core.sample.R
+import c.core.sample.ui.layout.StickyActivityUI
 import c.core.sample.ui.layout.ItemUI
 import org.jetbrains.anko.AnkoComponent
-import org.jetbrains.anko.act
-import org.jetbrains.anko.ctx
 import org.jetbrains.anko.setContentView
 
 
@@ -20,7 +17,7 @@ import org.jetbrains.anko.setContentView
  *  description : 
  */
 class StickyActivity : AnkoActivity() {
-    val ui = StikyActivityUI()
+    val ui = StickyActivityUI()
     override fun ankoLayout() {
         ui.setContentView(this)
     }
