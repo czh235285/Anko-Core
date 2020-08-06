@@ -313,10 +313,10 @@ fun getAge(birthdayDetail: IntArray?): Int {
 
 @SuppressLint("SimpleDateFormat")
 fun Long.dateToString(format: String = "yyyy-MM-dd HH:mm:ss"): String? {
-    try {
-        return SimpleDateFormat(format).format(this)
+    return try {
+        SimpleDateFormat(format).format(this)
     } catch (e: Exception) {
-        return null
+        null
     }
 }
 
@@ -326,10 +326,25 @@ fun Long.dateToString(format: String = "yyyy-MM-dd HH:mm:ss"): String? {
 
 @SuppressLint("SimpleDateFormat")
 fun Date.dateToString(format: String = "yyyy-MM-dd HH:mm:ss"): String? {
-    try {
-        return SimpleDateFormat(format).format(this.time)
+    return try {
+        SimpleDateFormat(format).format(this.time)
     } catch (e: Exception) {
-        return null
+        null
     }
 
+}
+
+
+fun Long.getTimes(action: (days: String, hours: String, minutes: String, seconds: String) -> Unit) {
+    val totalSeconds = this / 1000
+    val days = totalSeconds / 86400
+    val hours = (totalSeconds - days * 86400) / 3600
+    val minutes = (totalSeconds - days * 86400 - hours * 3600) / 60
+    val seconds = (totalSeconds - days * 86400 - hours * 3600 - minutes * 60) / (1000)
+    action.invoke(
+        days.toString(),
+        "${if (hours < 10) "0" else ""}${hours}",
+        "${if (minutes < 10) "0" else ""}${minutes}",
+        "${if (seconds < 10) "0" else ""}${seconds}"
+    )
 }

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.TypedValue
+import android.view.ViewGroup
 import android.view.ViewManager
 import android.widget.TextView
 import androidx.annotation.Size
@@ -46,6 +47,10 @@ inline fun ViewManager.text(
             }
             if (isBOLD) {
                 typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+            }
+
+            if (layoutParams == null) {
+                layoutParams = ViewGroup.LayoutParams(-2, -2)
             }
         }
     }, 0, init)
