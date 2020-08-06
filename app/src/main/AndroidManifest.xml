@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.activity.EditAniTestActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.StickyActivity"
             android:exported="true" />
         <activity android:name=".ui.activity.MainActivity">

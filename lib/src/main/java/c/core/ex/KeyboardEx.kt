@@ -42,8 +42,10 @@ fun View.showSoftInput() {
     context.inputMethodManager.showSoftInput(this, InputMethodManager.SHOW_FORCED)
 }
 
-fun View.hideSoftInput(view: View) {
-    context.inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+fun View.hideSoftInput() {
+    isFocusable = false
+    isFocusableInTouchMode = false
+    context.inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
 }
 
 fun View.isSoftInputActive() {
