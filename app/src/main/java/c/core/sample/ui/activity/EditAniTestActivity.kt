@@ -36,7 +36,7 @@ class EditAniTestActivity : AnkoActivity() {
                     topMargin = ((-88).px * a) / 100
                 }
 
-                ui.bar.alpha = 1f - a / 100
+                ui.bar.tvTitle.alpha = 1f - (a / 100)
 
 
                 ui.et.layoutParams =
@@ -59,7 +59,7 @@ class EditAniTestActivity : AnkoActivity() {
                 ui.bar.layoutParams = LinearLayout.LayoutParams(-1, -2).apply {
                     topMargin = ((-88).px * a) / 100
                 }
-                ui.bar.alpha = 1f - a / 100
+                ui.bar.tvTitle.alpha = 1f - (a / 100)
                 ui.et.layoutParams =
                     LinearLayout.LayoutParams(690.px - (80.px * a / 100), -2).apply {
                         horizontalMargin = 30.px

@@ -22,16 +22,13 @@ inline fun ViewManager.line(
     }, theme, init)
 }
 
-class LineView : View {
+class LineView(context: Context?) : View(context) {
 
     var bgColor: Int = "#e5e5e5".color
         set(value) {
             field = value
             invalidate()
         }
-
-    constructor(context: Context?) : super(context)
-
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)

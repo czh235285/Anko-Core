@@ -49,6 +49,7 @@ inline fun ViewManager.text(
                 typeface = Typeface.defaultFromStyle(Typeface.BOLD)
             }
 
+
             if (layoutParams == null) {
                 layoutParams = ViewGroup.LayoutParams(-2, -2)
             }

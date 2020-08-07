@@ -1,6 +1,5 @@
 package c.core.sample.base
 
-import com.vise.log.ViseLog
 import kotlinx.coroutines.*
 
 class ScopeCallback(
@@ -18,7 +17,7 @@ fun CoroutineScope.safeLaunch(init: suspend ScopeCallback.() -> Unit): Job {
                 callback.block.invoke(this)
             }
         } catch (e: Throwable) {
-            ViseLog.d(e)
+            e.printStackTrace()
             callback.onError.invoke(e)
         } finally {
             callback.onFinally.invoke()
