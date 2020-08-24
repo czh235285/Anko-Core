@@ -10,6 +10,13 @@
             android:authorities="${applicationId}.ApplicationProvider"
             android:exported="false"
             android:multiprocess="true" />
+
+        <meta-data
+            android:name="ui_design_width"
+            android:value="${designWidth}" />
+        <meta-data
+            android:name="ui_design_height"
+            android:value="${designHeight}" />
     </application>
 
 </manifest>

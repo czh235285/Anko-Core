@@ -1,5 +1,8 @@
 package c.core.ex
 
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
+
 
 inline val Int.dp: Int get() = this.dpf.toInt()
 inline val Int.dpf: Float get() = this * appCtx.resources.displayMetrics.density
@@ -18,10 +21,23 @@ val screenHeight by lazy {
 }
 
 val wProportion: Float
-    get() = screenWidth.toFloat() / DimensionEx.designWidth
+    get() = screenWidth.toFloat() / designWidth
 
 val hProportion: Float
-    get() = screenHeight.toFloat() / DimensionEx.designHeight
+    get() = screenHeight.toFloat() / designHeight
+
+val appInfo: ApplicationInfo
+    get() {
+        return appCtx.packageManager.getApplicationInfo(
+            appCtx.packageName,
+            PackageManager.GET_META_DATA
+        )
+    }
+
+val designWidth: Int
+    get() = appInfo.metaData.getInt("ui_design_width")
+val designHeight: Int
+    get() = appInfo.metaData.getInt("ui_design_height")
 
 
 // 状态栏高度
@@ -31,14 +47,3 @@ val statusBarHeight: Int
             appCtx.resources.getIdentifier("status_bar_height", "dimen", "android")
         return appCtx.resources.getDimensionPixelSize(resourceId)
     }
-
-
-object DimensionEx {
-    var designWidth: Int = 750
-    var designHeight: Int = 1334
-
-    fun init(designWidth: Int, designHeight: Int) {
-        this.designWidth = designWidth
-        this.designHeight = designHeight
-    }
-}

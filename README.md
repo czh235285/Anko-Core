@@ -161,4 +161,15 @@ class MainActivityUI : AnkoComponent<MainActivity> {
 
 具体扩展方法看 [DimensionEx](https://gitee.com/czh235285/Anko-Core/blob/master/lib/src/main/java/c/core/ex/DimensionEx.kt )
 
-我这里设计图宽高默认是750*1334，需要修改直接application里DimensionEx.init(750, 1334)即可
+我这里设计图宽高默认是750*1334，配置方法
+
+```kotlin
+android {
+    defaultConfig {
+        manifestPlaceholders = [
+                designWidth: 750,
+                designHeight: 1334,
+        ]
+    }
+        }
+```

@@ -5,7 +5,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
-import c.core.ex.DimensionEx
 import c.core.widget.status.Gloading
 import c.core.widget.status.GlobalAdapter
 
@@ -33,7 +32,6 @@ class ApplicationProvider : ContentProvider() {
         context?.let {
             ctx = it
             Gloading.initDefault(GlobalAdapter())
-            DimensionEx.init(750, 1334)
         }
         return true
     }
