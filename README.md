@@ -58,7 +58,7 @@ repositories {
   google()
 }
 dependencies {
-  implementation 'com.gitee.czh235285:Anko-Core:3.0.9'
+  implementation 'com.gitee.czh235285:Anko-Core:3.1.0'
 }
 ```
 
@@ -171,5 +171,5 @@ android {
                 designHeight: 1334,
         ]
     }
-        }
+}
 ```
