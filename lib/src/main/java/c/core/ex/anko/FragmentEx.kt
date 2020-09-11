@@ -4,6 +4,11 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 
 
+/**
+ * 扩展fragment实例化传递数据
+ * 只扩展了几种基础数据类型，基本够用
+ * fragment和act共享数据也可以通过viewModel去实现，fragment传递数据只传position就行
+ */
 inline fun <reified F : Fragment> F.addArgs(vararg args: Pair<String, Any>): F {
     return this.apply {
         arguments = Bundle().apply {
@@ -22,4 +27,8 @@ inline fun <reified F : Fragment> F.addArgs(vararg args: Pair<String, Any>): F {
             }
         }
     }
+}
+
+inline fun <reified T> Fragment.opt(key: String): T? {
+    return arguments?.get(key) as? T
 }

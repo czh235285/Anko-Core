@@ -39,9 +39,9 @@ android {
 }
 
 dependencies {
-//    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+//    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation project(path: ':lib')
-//    implementation 'com.gitee.czh235285:common_lib:1.0.3'
+//    implementation 'com.gitee.czh235285:common_lib:1.0.5'
 }

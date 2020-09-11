@@ -10,6 +10,9 @@ import kotlin.system.exitProcess
  */
 class AppManager private constructor() {
 
+    val topActivity: Activity?
+        get() = topActivity()
+
     /**
      * 添加Activity到堆栈
      */
@@ -17,28 +20,29 @@ class AppManager private constructor() {
         if (activityStack == null) {
             activityStack = Stack()
         }
-        activityStack?.add(activity)
+        activityStack.add(activity)
     }
 
     /**
      * 获取当前Activity（堆栈中最后一个压入的）
      */
-    fun currentActivity(): Activity? {
-        return activityStack?.lastElement()
+    private fun topActivity(): Activity? {
+        return activityStack.lastElement()
     }
+
 
     /**
      * 结束当前Activity（堆栈中最后一个压入的）
      */
     fun finishActivity() {
-        activityStack?.lastElement()?.let {
+        activityStack.lastElement()?.let {
             finishActivity(it::class.java)
         }
     }
 
 
     companion object {
-        private var activityStack: Stack<Activity>? = null        // Activity栈
+        private var activityStack: Stack<Activity> = Stack()        // Activity栈
         private var instance: AppManager? = null                // 单例模式
 
         /**
@@ -46,54 +50,59 @@ class AppManager private constructor() {
          */
         val appManager: AppManager
             get() {
-                if (instance == null) {
-                    instance = AppManager()
-                }
-                return instance!!
+                return instance ?: AppManager().also { instance = it }
             }
 
         /**
          * 结束所有Activity
          */
         fun finishAllActivity() {
-            val iterator = activityStack?.iterator() ?: return
-            while (iterator.hasNext()) {
-                val act = iterator.next()
-                iterator.remove()
-                act.finish()
+            synchronized(activityStack) {
+                val iterator = activityStack.iterator()
+                while (iterator.hasNext()) {
+                    val act = iterator.next()
+                    iterator.remove()
+                    act.finish()
+                }
             }
         }
 
 
         fun finishActivity(cls: Class<*>) {
-            val iterator = activityStack?.iterator() ?: return
-            while (iterator.hasNext()) {
-                val act = iterator.next()
-                if (act.javaClass == cls) {
-                    iterator.remove()
-                    act.finish()
+            synchronized(activityStack) {
+                val iterator = activityStack.iterator()
+                while (iterator.hasNext()) {
+                    val act = iterator.next()
+                    if (act.javaClass == cls) {
+                        iterator.remove()
+                        act.finish()
+                    }
                 }
             }
         }
 
         fun finishActivity(activity: Activity) {
-            val iterator = activityStack?.iterator() ?: return
-            while (iterator.hasNext()) {
-                val act = iterator.next()
-                if (act.javaClass == activity::class.java) {
-                    iterator.remove()
-                    act.finish()
+            synchronized(activityStack) {
+                val iterator = activityStack.iterator()
+                while (iterator.hasNext()) {
+                    val act = iterator.next()
+                    if (act.javaClass == activity::class.java) {
+                        iterator.remove()
+                        act.finish()
+                    }
                 }
             }
         }
 
         fun finishActivityExclude(cls: Class<*>) {
-            val iterator = activityStack?.iterator() ?: return
-            while (iterator.hasNext()) {
-                val act = iterator.next()
-                if (act.javaClass != cls) {
-                    iterator.remove()
-                    act.finish()
+            synchronized(activityStack) {
+                val iterator = activityStack.iterator()
+                while (iterator.hasNext()) {
+                    val act = iterator.next()
+                    if (act.javaClass != cls) {
+                        iterator.remove()
+                        act.finish()
+                    }
                 }
             }
         }
@@ -112,7 +121,7 @@ class AppManager private constructor() {
          * @author kymjs
          */
         fun getActivity(cls: Class<*>): Activity? {
-            val iterator = activityStack?.iterator() ?: return null
+            val iterator = activityStack.iterator()
             while (iterator.hasNext()) {
                 val act = iterator.next()
                 if (act.javaClass == cls) {
@@ -132,8 +141,8 @@ class AppManager private constructor() {
                 android.os.Process.killProcess(android.os.Process.myPid())
                 exitProcess(0)
             } catch (e: Exception) {
-            }
 
+            }
         }
     }
 }

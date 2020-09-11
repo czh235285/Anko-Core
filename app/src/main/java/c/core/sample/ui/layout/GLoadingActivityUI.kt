@@ -24,6 +24,7 @@ class GLoadingActivityUI : AnkoComponent<GLoadingActivity> {
             linearLayout {
                 orientation = LinearLayout.HORIZONTAL
                 text(24, "#262626", "正常界面") {
+                    throttleClick(1){}
                     throttleClick {
                         owner.showLoadSuccess()
                     }

@@ -1,38 +1,35 @@
 package c.core.sample.ui.activity
 
+import androidx.activity.viewModels
 import c.core.ex.bind
 import c.core.ex.px
 import c.core.ex.pxf
 import c.core.sample.base.AnkoActivity
 import c.core.sample.ui.fragment.SampleFragment
 import c.core.sample.ui.layout.MagicIndicatorDemoActivityUI
+import c.core.sample.ui.viewmodel.MagicIndicatorViewModel
 import c.core.widget.indicator.*
 import org.jetbrains.anko.setContentView
 
 class MagicIndicatorDemoActivity : AnkoActivity() {
 
+    private val viewModel by viewModels<MagicIndicatorViewModel>()
 
     val ui = MagicIndicatorDemoActivityUI()
-    private val mList = arrayOf("测试1", "测试2", "测试3", "测试4", "测试5", "测试6", "测试7", "测试8", "测试9")
     override fun ankoLayout() {
         ui.setContentView(this)
     }
 
     override fun afterInitView() {
         ui.apply {
-            viewPager.bind(supportFragmentManager, mList.size) {
-                SampleFragment.newInstance(mList[it])
+            viewPager.bind(supportFragmentManager, viewModel.mList.size) {
+                SampleFragment.newInstance(it)
             }
 
-            magicIndicator.bind(viewPager, mList) {
+            magicIndicator.bind(viewPager, viewModel.mList) {
                 configIndicator {
                     radius = 3.pxf
                     height = 6.pxf
-
-//                    isUseShape = true
-//                    radius = 10.pxf
-//                    xOffset = 10.pxf
-//                    yOffset = 5.pxf
                 }
                 configText {
                     selectTextSize = 29.px
