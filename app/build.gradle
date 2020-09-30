@@ -10,8 +10,6 @@ android {
         versionCode Versions.versionCode
         versionName Versions.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         manifestPlaceholders = [
                 designWidth: 750,
                 designHeight: 1334,

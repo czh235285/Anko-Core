@@ -13,6 +13,8 @@ import org.jetbrains.anko.AnkoComponent
 //多type布局实体类继承MultiItem即可
 class ListSampleActivity : AnkoListActivity<ProjectData>() {
 
+
+
     override suspend fun CoroutineScope.load(pageIndex: Int) {
         val data = apiservice.getProject(pageIndex).data
         submitData(data.datas)

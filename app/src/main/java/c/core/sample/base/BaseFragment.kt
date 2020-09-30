@@ -10,8 +10,6 @@ import androidx.viewbinding.ViewBinding
 import c.core.utils.getViewBinding
 import c.core.widget.LoadingDialog
 import c.core.widget.status.Gloading
-import org.jetbrains.anko.firstChild
-import java.lang.NullPointerException
 
 
 //fragment基类
@@ -50,7 +48,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         if (!isLazyLoad) {
             initLoadingStatusView()
             afterInitView()

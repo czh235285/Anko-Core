@@ -13,7 +13,6 @@ android {
         versionCode Versions.versionCode
         versionName Versions.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -47,5 +46,6 @@ dependencies {
     implementation fileTree(dir: "libs",  include: ["*.jar"])
     implementation Kotlin.stdlib
     api Common.lib
+    api Common.eventBus
 
 }
