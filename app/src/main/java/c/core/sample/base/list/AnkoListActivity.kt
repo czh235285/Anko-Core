@@ -17,8 +17,8 @@ import org.jetbrains.anko.setContentView
  *  date : 2020-7-15
  *  description : 
  */
-abstract class AnkoListActivity<T> : AnkoActivity(),
-    ListDelegateAnko.IList<T> {
+abstract class AnkoListActivity : AnkoActivity(),
+    ListDelegateAnko.IList {
 
     protected open val listDelegate by lazy {
         ListDelegateAnko.create(this)

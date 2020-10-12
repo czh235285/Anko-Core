@@ -12,7 +12,7 @@ import c.core.utils.openActivity
 import c.core.utils.throttleClick
 import kotlinx.coroutines.CoroutineScope
 
-class FirstFragment private constructor() : AnkoListFragment<String>() {
+class FirstFragment private constructor() : AnkoListFragment() {
 
 
     private val viewModel by viewModels<FirstViewModel>()
@@ -23,8 +23,6 @@ class FirstFragment private constructor() : AnkoListFragment<String>() {
     }
 
     override suspend fun CoroutineScope.load(pageIndex: Int) {
-
-
         submitData(
             listOf(
                 "分页加载\n几行代码实现错误重试，预加载等等...",

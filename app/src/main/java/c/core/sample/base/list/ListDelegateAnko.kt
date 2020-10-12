@@ -17,7 +17,7 @@ import c.core.sample.R
 import c.core.widget.SimpleLoadMoreView
 import org.jetbrains.anko.AnkoComponent
 
-open class ListDelegateAnko<T>(private val iList: IList<T>) {
+open class ListDelegateAnko(private val iList: IList) {
 
     protected var pageIndex = 1
 
@@ -162,13 +162,13 @@ open class ListDelegateAnko<T>(private val iList: IList<T>) {
 
     companion object {
 
-        fun <T> create(iList: IList<T>): ListDelegateAnko<T> {
+        fun  create(iList: IList): ListDelegateAnko {
             return ListDelegateAnko(iList)
         }
 
     }
 
-    interface IList<T> {
+    interface IList {
 
         fun loadData(pageIndex: Int)
 

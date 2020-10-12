@@ -20,8 +20,8 @@ import org.jetbrains.anko.setContentView
  *  date : 2020-7-15
  *  description : 
  */
-abstract class AnkoListFragment<T> : AnkoFragment(),
-    ListDelegateAnko.IList<T> {
+abstract class AnkoListFragment : AnkoFragment(),
+    ListDelegateAnko.IList {
 
     protected open val listDelegate by lazy {
         ListDelegateAnko.create(this)

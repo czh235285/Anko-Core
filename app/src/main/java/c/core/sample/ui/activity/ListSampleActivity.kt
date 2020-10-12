@@ -15,8 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import org.jetbrains.anko.AnkoComponent
 
 
-//多type布局实体类继承MultiItem即可
-class ListSampleActivity : AnkoListActivity<ProjectData>() {
+class ListSampleActivity : AnkoListActivity() {
 
 
     override suspend fun CoroutineScope.load(pageIndex: Int) {
