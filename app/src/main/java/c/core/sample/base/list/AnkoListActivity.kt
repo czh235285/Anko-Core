@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import c.core.adapter.entity.DslItemView
 import c.core.sample.base.AnkoActivity
 import c.core.sample.base.safeLaunch
 import c.core.sample.utils.SimpleDividerDecoration
@@ -46,7 +47,7 @@ abstract class AnkoListActivity<T> : AnkoActivity(),
         listDelegate.refresh()
     }
 
-    override fun submitData(elements: List<T>?) {
+    override fun submitData(elements: List<DslItemView>?) {
         showLoadSuccess()
         listDelegate.submitData(elements)
     }

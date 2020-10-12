@@ -18,12 +18,15 @@ abstract class BaseRetrofitClient {
             val builder = OkHttpClient.Builder()
             handleBuilder(builder)
             val loggingInterceptor =
-                    HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message ->
+
+                HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
+                    override fun log(message: String) {
                         Log.i("okHttp", message)
-                    })
+                    }
+                })
             loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             builder.addInterceptor(loggingInterceptor)
-                    .connectTimeout(TIME_OUT.toLong(), TimeUnit.SECONDS)
+                .connectTimeout(TIME_OUT.toLong(), TimeUnit.SECONDS)
             return builder.build()
         }
 
@@ -31,9 +34,9 @@ abstract class BaseRetrofitClient {
 
     inline fun <reified T> getService(baseUrl: String): T {
         return Retrofit.Builder()
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(baseUrl)
-                .build().create(T::class.java)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(baseUrl)
+            .build().create(T::class.java)
     }
 }

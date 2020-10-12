@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import c.core.adapter.AnkoAdapter
+import c.core.adapter.entity.DslItemView
 import c.core.adapter.holer.AnkoViewHolder
 import c.core.adapter.loadmore.AnkoLoadMoreModule
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -23,7 +24,7 @@ open class ListDelegateAnko<T>(private val iList: IList<T>) {
     private val pageSize = 15
 
 
-    private lateinit var listAdapter: AnkoAdapter<T>
+    private lateinit var listAdapter: AnkoAdapter
 
     protected open val enableEmptyView
         get() = iList.enableEmptyView()
@@ -53,14 +54,7 @@ open class ListDelegateAnko<T>(private val iList: IList<T>) {
 
     private fun initRecycler(ui: RecyclerViewUI) {
         val recyclerView = ui.rcv
-        listAdapter = object : AnkoAdapter<T>(null), AnkoLoadMoreModule {
-            override fun ankoLayout(viewType: Int): AnkoComponent<Context> {
-                return iList.ui(viewType)
-            }
-
-            override fun convert(holder: AnkoViewHolder, position: Int, item: T?) {
-                iList.convert(holder, position, item)
-            }
+        listAdapter = object : AnkoAdapter(), AnkoLoadMoreModule {
 
         }
         val context = recyclerView.context
@@ -101,7 +95,7 @@ open class ListDelegateAnko<T>(private val iList: IList<T>) {
         }
     }
 
-    fun submitData(elements: List<T>?) {
+    fun submitData(elements: List<DslItemView>?) {
         listAdapter.loadMoreModule.isEnableLoadMore = true
         if (pageIndex == 1) {
             listAdapter.replaceData(elements)
@@ -175,13 +169,10 @@ open class ListDelegateAnko<T>(private val iList: IList<T>) {
     }
 
     interface IList<T> {
-        fun convert(holder: AnkoViewHolder, position: Int, item: T?)
-
-        fun ui(viewType: Int): AnkoComponent<Context>
 
         fun loadData(pageIndex: Int)
 
-        fun submitData(elements: List<T>?)
+        fun submitData(elements: List<DslItemView>?)
 
         fun getLoadNumber(): Int?
 

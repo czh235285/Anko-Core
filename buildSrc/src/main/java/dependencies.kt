@@ -8,7 +8,7 @@ object Versions {
 }
 
 object Common {
-    const val lib = "com.gitee.czh235285:common_lib:1.0.5"
+    const val lib = "com.gitee.czh235285:common_lib:1.0.6"
     const val eventBus = "org.greenrobot:eventbus:3.2.0"
 }
 

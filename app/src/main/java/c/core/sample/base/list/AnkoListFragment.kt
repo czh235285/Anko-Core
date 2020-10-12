@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import c.core.adapter.entity.DslItemView
 import c.core.ex.anko.generateView
 import c.core.ex.gone
 import c.core.sample.base.AnkoActivity
@@ -47,7 +48,7 @@ abstract class AnkoListFragment<T> : AnkoFragment(),
         listDelegate.refresh()
     }
 
-    override fun submitData(elements: List<T>?) {
+    override fun submitData(elements: List<DslItemView>?) {
         showLoadSuccess()
         listDelegate.submitData(elements)
     }

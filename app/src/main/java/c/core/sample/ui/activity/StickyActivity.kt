@@ -3,6 +3,8 @@ package c.core.sample.ui.activity
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import c.core.adapter.AnkoAdapter
+import c.core.adapter.dslAdapter
+import c.core.adapter.dslItem
 import c.core.adapter.holer.AnkoViewHolder
 import c.core.sample.base.AnkoActivity
 import c.core.sample.ui.layout.StickyActivityUI
@@ -29,17 +31,12 @@ class StickyActivity : AnkoActivity() {
             data.add(it.toString())
         }
         ui.rcv.layoutManager = LinearLayoutManager(this)
-        ui.rcv.adapter = object : AnkoAdapter<String>(data) {
-            override fun ankoLayout(viewType: Int): AnkoComponent<Context> {
-                return ItemUI()
-            }
-
-            override fun convert(holder: AnkoViewHolder, position: Int, item: String?) {
-                holder.getAnKoUi<ItemUI>()?.apply {
-                    tv.text = item
+        ui.rcv.dslAdapter {
+            replaceData(data.map {
+                dslItem<ItemUI> { holder, position ->
+                    tv.text = it
                 }
-            }
-
+            })
         }
     }
 }
