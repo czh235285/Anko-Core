@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.czh235285'
-
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion Versions.compileSdkVersion
 
@@ -40,6 +40,11 @@ android {
             outputFileName = fileName
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -48,4 +53,12 @@ dependencies {
     api Common.lib
     api Common.eventBus
 
+}
+publish {
+    userOrg = 'czh235285'
+    groupId = 'c.core'
+    artifactId = 'Anko-Core'
+    publishVersion = '1.0.0'
+    desc = 'Android基础库'
+    website = 'https://github.com/czh235285/Anko-Core'
 }

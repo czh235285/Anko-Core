@@ -13,7 +13,7 @@ object Common {
 }
 
 object Libs {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:3.6.3"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:3.6.1"
 }
 
 object Maven {

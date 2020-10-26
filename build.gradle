@@ -11,6 +11,7 @@ buildscript {
         classpath Libs.androidGradlePlugin
         classpath Kotlin.gradlePlugin
         classpath Maven.gradlePlugin
+        classpath 'com.novoda:bintray-release:0.9.1'
     }
 }
 
@@ -20,6 +21,10 @@ allprojects {
         maven { url "https://jitpack.io" }
         google()
         jcenter()
+    }
+    //此处添加代码
+    tasks.withType(Javadoc).all {
+        enabled = false
     }
 }
 
