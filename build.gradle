@@ -10,14 +10,13 @@ buildscript {
     dependencies {
         classpath Libs.androidGradlePlugin
         classpath Kotlin.gradlePlugin
-        classpath Maven.gradlePlugin
         classpath 'com.novoda:bintray-release:0.9.1'
     }
 }
 
 allprojects {
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url "https://jitpack.io" }
         google()
         jcenter()

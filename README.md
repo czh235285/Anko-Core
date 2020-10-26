@@ -53,12 +53,12 @@ use Gradle:
 
 ```
 repositories {
-  maven { url "https://jitpack.io" }
-  mavenCentral()
-  google()
+        maven { url "https://jitpack.io" }
+        google()
+        jcenter()
 }
 dependencies {
-  implementation 'com.gitee.czh235285:Anko-Core:3.1.0'
+  implementation 'c.core:Anko-Core:1.0.0'
 }
 ```
 

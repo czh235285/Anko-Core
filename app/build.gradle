@@ -45,6 +45,7 @@ dependencies {
 //    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.13'
     implementation Kotlin.stdlib
-    implementation project(path: ':lib')
+//    implementation project(path: ':lib')
 //    implementation 'com.gitee.czh235285:common_lib:1.0.5'
+    implementation 'c.core:Anko-Core:1.0.0'
 }
