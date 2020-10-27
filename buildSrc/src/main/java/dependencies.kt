@@ -12,13 +12,10 @@ object Common {
     const val eventBus = "org.greenrobot:eventbus:3.2.0"
 }
 
-object Libs {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:3.6.1"
-}
 
-object Maven {
-    private const val version = "2.1"
-    const val gradlePlugin = "com.github.dcendents:android-maven-gradle-plugin:$version"
+object GradlePlugin {
+    const val JCenter = "com.novoda:bintray-release:0.9.1"
+    const val AndroidGradle = "com.android.tools.build:gradle:3.6.1"
 }
 
 object Kotlin {

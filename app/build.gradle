@@ -11,7 +11,7 @@ android {
         versionName Versions.versionName
 
         manifestPlaceholders = [
-                designWidth: 750,
+                designWidth : 750,
                 designHeight: 1334,
         ]
     }
@@ -31,7 +31,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = "1.8"
     }
 
     lintOptions {
@@ -42,10 +42,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-//    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.13'
     implementation Kotlin.stdlib
-//    implementation project(path: ':lib')
-//    implementation 'com.gitee.czh235285:common_lib:1.0.5'
-    implementation 'c.core:Anko-Core:1.0.0'
+    implementation project(path: ':lib')
 }
