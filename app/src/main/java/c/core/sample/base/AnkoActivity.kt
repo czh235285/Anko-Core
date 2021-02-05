@@ -1,6 +1,5 @@
 package c.core.sample.base
 
-
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -15,10 +14,8 @@ import c.core.utils.color
 import c.core.widget.status.Gloading
 import c.core.widget.LoadingDialog
 
-
-//Activity基类
+// Activity基类
 abstract class AnkoActivity : AppCompatActivity() {
-
 
     override fun onStart() {
         super.onStart()
@@ -29,12 +26,11 @@ abstract class AnkoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         doBeforeSetContentView()
         ankoLayout()
-        //设置状态栏颜色
+        // 设置状态栏颜色
         setLightStatusBar()
         initLoadingStatusView()
         afterInitView()
     }
-
 
     /**
      * 设置layout前配置
@@ -50,14 +46,12 @@ abstract class AnkoActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 
-
     protected abstract fun ankoLayout()
 
-    //初始化view
+    // 初始化view
     protected abstract fun afterInitView()
 
-
-    //浅色状态栏
+    // 浅色状态栏
     fun setLightStatusBar() {
         StatusBarUtil.setColor(this, 0xffffffff.toInt(), 0)
 //        StatusBarUtil.setLightMode(this)
@@ -76,12 +70,10 @@ abstract class AnkoActivity : AppCompatActivity() {
         mLoading?.dismiss()
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
         AppManager.finishActivity(this)
     }
-
 
     /** 被状态布局包裹的View **/
     protected open val wrappedView: View? = null
@@ -97,7 +89,6 @@ abstract class AnkoActivity : AppCompatActivity() {
     }
 
     protected open fun onLoadRetry() {
-
     }
 
     private var mHolder: Gloading.Holder? = null

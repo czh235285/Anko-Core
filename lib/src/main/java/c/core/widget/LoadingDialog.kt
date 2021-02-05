@@ -16,6 +16,7 @@ import java.util.ArrayList
 class LoadingDialog(context: Context) : Dialog(context, R.style.YgDialog) {
 
     val ui = ProgressBarUI()
+
     /**
      * 存放三个小球的集合
      */
@@ -57,41 +58,96 @@ class LoadingDialog(context: Context) : Dialog(context, R.style.YgDialog) {
 
     private fun startAnimator1(): ObjectAnimator {
         /**对象的不同属性组合 */
-        val objectAnimatorTranslation = PropertyValuesHolder.ofFloat("translationX", -50f, -100f, -50f, 0f, 50f, 100f, 50f, 0f, -50f)
-        val objectAnimatorScale = PropertyValuesHolder.ofFloat("scaleX", 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f)
-        val objectAnimatorScaleY = PropertyValuesHolder.ofFloat("scaleY", 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f)
+        val objectAnimatorTranslation = PropertyValuesHolder.ofFloat(
+            "translationX",
+            -50f,
+            -100f,
+            -50f,
+            0f,
+            50f,
+            100f,
+            50f,
+            0f,
+            -50f
+        )
+        val objectAnimatorScale =
+            PropertyValuesHolder.ofFloat("scaleX", 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f)
+        val objectAnimatorScaleY =
+            PropertyValuesHolder.ofFloat("scaleY", 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f)
+
         /**同时操作对象的两个属性动画 */
-        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(views[0], objectAnimatorTranslation, objectAnimatorScale, objectAnimatorScaleY)
+        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
+            views[0],
+            objectAnimatorTranslation,
+            objectAnimatorScale,
+            objectAnimatorScaleY
+        )
         objectAnimator.repeatCount = -1
         objectAnimator.interpolator = LinearInterpolator()
         objectAnimator.duration = 2000
         objectAnimator.start()
         return objectAnimator
-
     }
 
     private fun startAnimator2(): ObjectAnimator {
         /**对象的不同属性组合 */
-        val objectAnimatorTranslation = PropertyValuesHolder.ofFloat("translationX", 0f, 50f, 100f, 50f, 0f, -50f, -100f, -50f, 0f)
-        val objectAnimatorScale = PropertyValuesHolder.ofFloat("scaleX", 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f)
-        val objectAnimatorScaleY = PropertyValuesHolder.ofFloat("scaleY", 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f)
+        val objectAnimatorTranslation = PropertyValuesHolder.ofFloat(
+            "translationX",
+            0f,
+            50f,
+            100f,
+            50f,
+            0f,
+            -50f,
+            -100f,
+            -50f,
+            0f
+        )
+        val objectAnimatorScale =
+            PropertyValuesHolder.ofFloat("scaleX", 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f)
+        val objectAnimatorScaleY =
+            PropertyValuesHolder.ofFloat("scaleY", 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f, 1f)
+
         /**同时操作对象的两个属性动画 */
-        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(views[1], objectAnimatorTranslation, objectAnimatorScale, objectAnimatorScaleY)
+        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
+            views[1],
+            objectAnimatorTranslation,
+            objectAnimatorScale,
+            objectAnimatorScaleY
+        )
         objectAnimator.repeatCount = -1
         objectAnimator.interpolator = LinearInterpolator()
         objectAnimator.duration = 2000
         objectAnimator.start()
         return objectAnimator
-
     }
 
     private fun startAnimator3(): ObjectAnimator {
         /**对象的不同属性组合 */
-        val objectAnimatorTranslation = PropertyValuesHolder.ofFloat("translationX", 50f, 0f, -50f, -100f, -50f, 0f, 50f, 100f, 50f)
-        val objectAnimatorScale = PropertyValuesHolder.ofFloat("scaleX", 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f)
-        val objectAnimatorScaleY = PropertyValuesHolder.ofFloat("scaleY", 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f)
+        val objectAnimatorTranslation = PropertyValuesHolder.ofFloat(
+            "translationX",
+            50f,
+            0f,
+            -50f,
+            -100f,
+            -50f,
+            0f,
+            50f,
+            100f,
+            50f
+        )
+        val objectAnimatorScale =
+            PropertyValuesHolder.ofFloat("scaleX", 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f)
+        val objectAnimatorScaleY =
+            PropertyValuesHolder.ofFloat("scaleY", 1.5f, 1f, 0.5f, 1f, 1.5f, 1f, 0.5f, 1f, 1.5f)
+
         /**同时操作对象的两个属性动画 */
-        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(views[2], objectAnimatorTranslation, objectAnimatorScale, objectAnimatorScaleY)
+        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
+            views[2],
+            objectAnimatorTranslation,
+            objectAnimatorScale,
+            objectAnimatorScaleY
+        )
         objectAnimator.repeatCount = -1
         objectAnimator.interpolator = LinearInterpolator()
         objectAnimator.duration = 2000

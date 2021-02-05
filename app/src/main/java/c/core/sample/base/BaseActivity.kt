@@ -1,6 +1,5 @@
 package c.core.sample.base
 
-
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -16,8 +15,7 @@ import c.core.utils.getViewBinding
 import c.core.widget.status.Gloading
 import c.core.widget.LoadingDialog
 
-
-//Activity基类
+// Activity基类
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     /** activity layout id or view **/
@@ -34,7 +32,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         doBeforeSetContentView()
         initContentView()
-        //设置状态栏颜色
+        // 设置状态栏颜色
         StatusBarUtil.setColor(this, "#ffffff".color, 0)
         initLoadingStatusView()
         afterInitView()
@@ -61,11 +59,10 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 
-
-    //初始化view
+    // 初始化view
     protected abstract fun afterInitView()
 
-    //浅色状态栏
+    // 浅色状态栏
     fun setLightStatusBar() {
         StatusBarUtil.setColor(this, 0xffffffff.toInt(), 0)
         StatusBarUtil.setLightMode(this)
@@ -82,7 +79,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     fun hideLoading() {
         mLoading?.dismiss()
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
@@ -103,7 +99,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     }
 
     protected open fun onLoadRetry() {
-
     }
 
     private var mHolder: Gloading.Holder? = null

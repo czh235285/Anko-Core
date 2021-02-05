@@ -11,8 +11,7 @@ import c.core.utils.getViewBinding
 import c.core.widget.LoadingDialog
 import c.core.widget.status.Gloading
 
-
-//fragment基类
+// fragment基类
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     val act by lazy {
         requireActivity()
@@ -37,14 +36,12 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-
     private var isLoadData = false
 
     override fun onDestroyView() {
         super.onDestroyView()
         isLoadData = false
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -67,14 +64,13 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-
-    //初始化view
+    // 初始化view
     protected abstract fun afterInitView()
 
-    //重新回到当前fragment刷新Data
+    // 重新回到当前fragment刷新Data
     open fun refreshUi() {}
 
-    //是否需要懒加载
+    // 是否需要懒加载
     open val isLazyLoad: Boolean
         get() = true
 
@@ -88,7 +84,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     protected open fun onLoadRetry() {
-
     }
 
     private var mLoading: LoadingDialog? = null

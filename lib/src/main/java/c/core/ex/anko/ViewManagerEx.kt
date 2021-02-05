@@ -8,7 +8,6 @@ import c.core.widget.NoScrollViewPager
 import c.core.widget.viewpager.Mu5ViewPager
 import org.jetbrains.anko.custom.ankoView
 
-
 /**
  * 禁止滑动的Viewpager
  */
@@ -47,7 +46,6 @@ inline fun ViewManager.viewPager(
     }, theme, init)
 }
 
-
 /**
  * mu5ViewPager
  */
@@ -64,7 +62,6 @@ inline fun ViewManager.mu5ViewPager(theme: Int = 0, init: Mu5ViewPager.() -> Uni
  * smartRefreshLayout
  */
 fun ViewManager.smartRefreshLayout(theme: Int = 0) = smartRefreshLayout(theme) {
-
 }
 
 /**
@@ -76,5 +73,3 @@ inline fun ViewManager.smartRefreshLayout(
 ): SmartRefreshLayout {
     return ankoView({ _SmartRefreshLayout(it) }, theme, init)
 }
-
-

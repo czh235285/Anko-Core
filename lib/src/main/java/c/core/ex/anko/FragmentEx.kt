@@ -3,7 +3,6 @@ package c.core.ex.anko
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 
-
 /**
  * 扩展fragment实例化传递数据
  * 只扩展了几种基础数据类型，基本够用

@@ -3,9 +3,7 @@ package c.core.ex.anko
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewManager
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -66,12 +64,10 @@ open class _SmartRefreshLayout(ctx: Context) : SmartRefreshLayout(ctx) {
     }
 }
 
-
 /**
  * cardView
  */
 fun ViewManager.cardView(theme: Int = 0) = cardView(theme) {
-
 }
 
 /**
@@ -83,7 +79,6 @@ inline fun ViewManager.cardView(
 ): CardView {
     return ankoView({ _CardView(it) }, theme, init)
 }
-
 
 open class _CardView(ctx: Context) : CardView(ctx) {
 
@@ -132,7 +127,6 @@ open class _CardView(ctx: Context) : CardView(ctx) {
  * swipeRefreshLayout
  */
 fun ViewManager.swipeRefreshLayout(theme: Int = 0) = swipeRefreshLayout(theme) {
-
 }
 
 /**
@@ -144,11 +138,10 @@ inline fun ViewManager.swipeRefreshLayout(
 ): SwipeRefreshLayout {
     return ankoView({
         _SwipeRefreshLayout(it).apply {
-            setColorSchemeColors("ff8686".color,"ff8686".color.changeAlpha(0.5f))
+            setColorSchemeColors("ff8686".color, "ff8686".color.changeAlpha(0.5f))
         }
     }, theme, init)
 }
-
 
 open class _SwipeRefreshLayout(ctx: Context) : SwipeRefreshLayout(ctx) {
 
@@ -173,12 +166,10 @@ open class _SwipeRefreshLayout(ctx: Context) : SwipeRefreshLayout(ctx) {
     }
 }
 
-
 /**
  * constraintLayout
  */
 fun ViewManager.constraintLayout(theme: Int = 0) = constraintLayout(theme) {
-
 }
 
 /**
@@ -190,7 +181,6 @@ inline fun ViewManager.constraintLayout(
 ): ConstraintLayout {
     return ankoView({ _ConstraintLayout(it) }, theme, init)
 }
-
 
 open class _ConstraintLayout(ctx: Context) : ConstraintLayout(ctx) {
 
@@ -215,12 +205,10 @@ open class _ConstraintLayout(ctx: Context) : ConstraintLayout(ctx) {
     }
 }
 
-
 /**
  * coordinatorLayout
  */
 fun ViewManager.coordinatorLayout(theme: Int = 0) = coordinatorLayout(theme) {
-
 }
 
 /**
@@ -232,7 +220,6 @@ inline fun ViewManager.coordinatorLayout(
 ): CoordinatorLayout {
     return ankoView({ _CoordinatorLayout(it) }, theme, init)
 }
-
 
 open class _CoordinatorLayout(ctx: Context) : CoordinatorLayout(ctx) {
 
@@ -257,12 +244,10 @@ open class _CoordinatorLayout(ctx: Context) : CoordinatorLayout(ctx) {
     }
 }
 
-
 /**
  * appBarLayout
  */
 fun ViewManager.appBarLayout(theme: Int = 0) = appBarLayout(theme) {
-
 }
 
 /**
@@ -275,9 +260,7 @@ inline fun ViewManager.appBarLayout(
     return ankoView({ _AppBarLayout(it) }, theme, init)
 }
 
-
 open class _AppBarLayout(ctx: Context, theme: Int = 0) : AppBarLayout(ctx) {
-
 
     inline fun <T : View> T.lparams(
         width: Int = -2,
@@ -300,12 +283,10 @@ open class _AppBarLayout(ctx: Context, theme: Int = 0) : AppBarLayout(ctx) {
     }
 }
 
-
 /**
  * collapsingToolbarLayout
  */
 fun ViewManager.collapsingToolbarLayout(theme: Int = 0) = collapsingToolbarLayout(theme) {
-
 }
 
 /**
@@ -317,7 +298,6 @@ inline fun ViewManager.collapsingToolbarLayout(
 ): CollapsingToolbarLayout {
     return ankoView({ _CollapsingToolbarLayout(it) }, theme, init)
 }
-
 
 open class _CollapsingToolbarLayout(ctx: Context) : CollapsingToolbarLayout(ctx) {
     inline fun <T : View> T.lparams(
@@ -345,7 +325,6 @@ open class _CollapsingToolbarLayout(ctx: Context) : CollapsingToolbarLayout(ctx)
  * textInputEditText
  */
 fun ViewManager.textInputEditText(theme: Int = 0) = textInputEditText(theme) {
-
 }
 
 /**
@@ -358,12 +337,10 @@ inline fun ViewManager.textInputEditText(
     return ankoView({ TextInputEditText(it) }, theme, init)
 }
 
-
 /**
  * textInputLayout
  */
 fun ViewManager.textInputLayout(theme: Int = 0) = textInputLayout(theme) {
-
 }
 
 /**
@@ -376,9 +353,7 @@ inline fun ViewManager.textInputLayout(
     return ankoView({ _TextInputLayout(it) }, theme, init)
 }
 
-
 open class _TextInputLayout(ctx: Context) : TextInputLayout(ctx) {
-
 
     inline fun <T : View> T.lparams(
         width: Int = -2,
@@ -406,4 +381,3 @@ fun ViewManager.horizontalLayout(init: (@AnkoViewDslMarker _LinearLayout).() -> 
         orientation = LinearLayout.HORIZONTAL
         init()
     }
-

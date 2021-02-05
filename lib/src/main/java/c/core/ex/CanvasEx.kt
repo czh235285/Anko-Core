@@ -29,7 +29,6 @@ fun Canvas.drawCenterMultiText(p: Paint, texts: Array<String>) {
             }
 
             else -> (ascent - descent) / 2
-
         }
         this.drawText(texts[i], -textWidth / 2, baselineY, p)
     }

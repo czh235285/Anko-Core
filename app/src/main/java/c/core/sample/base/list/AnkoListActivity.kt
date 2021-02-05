@@ -105,5 +105,4 @@ abstract class AnkoListActivity : AnkoActivity(),
             }
         }
     }
-
 }

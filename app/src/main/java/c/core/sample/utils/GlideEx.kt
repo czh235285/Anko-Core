@@ -5,7 +5,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import c.core.sample.R
 
-
 fun ImageView.load(
     url: Any?,
     placeholder: Int? = R.mipmap.ic_launcher,

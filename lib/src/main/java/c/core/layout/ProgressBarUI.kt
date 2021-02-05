@@ -35,7 +35,5 @@ class ProgressBarUI : AnkoComponent<Context> {
                 }
             }
         }
-
     }
-
 }

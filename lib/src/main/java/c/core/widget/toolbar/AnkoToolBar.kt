@@ -6,15 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewManager
 import android.widget.FrameLayout
+import androidx.core.view.isVisible
 import c.core.ex.pSize
 import c.core.ex.px
-import c.core.ex.visible
 import c.core.utils.throttleClick
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.matchParent
 import org.jetbrains.anko.textColor
-
 
 inline fun ViewManager.ankoToolBar(
     theme: Int = 0,
@@ -35,7 +34,6 @@ class AnkoToolBar : FrameLayout {
         addView(ui.createView(AnkoContext.create(context)))
     }
 
-
     /**
      * 获取title
      */
@@ -50,7 +48,6 @@ class AnkoToolBar : FrameLayout {
      * 获取ivRight
      */
     val ivRight by lazy { ui.ivRight }
-
 
     /**
      * 背景色
@@ -81,7 +78,7 @@ class AnkoToolBar : FrameLayout {
         set(value) {
             value?.let {
                 ui.ivRight.setImageResource(it)
-                ui.ivRight.visible()
+                ui.ivRight.isVisible = true
             }
             field = value
         }

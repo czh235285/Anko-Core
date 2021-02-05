@@ -8,14 +8,11 @@ import c.core.sample.ui.layout.SecondFragmentUI
 class SecondFragment private constructor() : AnkoFragment() {
     val ui = SecondFragmentUI()
 
-
     override fun ankoLayout(): View {
         return ui.generateView(this)
     }
 
-    override fun afterInitView() {
-
-    }
+    override fun afterInitView() = Unit
 
     companion object {
         val instance: SecondFragment = SecondFragment()

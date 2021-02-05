@@ -1,22 +1,12 @@
 package c.core.sample.ui.activity
 
-import android.content.Context
-import c.core.adapter.addItem
-import c.core.adapter.dslAdapter
 import c.core.adapter.dslItem
-import c.core.adapter.entity.DslItemView
-import c.core.adapter.holer.AnkoViewHolder
 import c.core.sample.api.apiservice
 import c.core.sample.base.list.AnkoListActivity
-import c.core.sample.model.ProjectData
-import c.core.sample.ui.layout.ItemUI
 import c.core.sample.ui.layout.TextUI
 import kotlinx.coroutines.CoroutineScope
-import org.jetbrains.anko.AnkoComponent
-
 
 class ListSampleActivity : AnkoListActivity() {
-
 
     override suspend fun CoroutineScope.load(pageIndex: Int) {
         val data = apiservice.getProject(pageIndex).data
@@ -26,7 +16,7 @@ class ListSampleActivity : AnkoListActivity() {
             }
         })
 
-        //大部分APP首页多type布局可以这样挨着写
+        // 大部分APP首页多type布局可以这样挨着写
 //        ui.rcv.dslAdapter {
 //            addItem<TextUI> {
 //                tvContent.text = "多type布局1"
@@ -38,7 +28,5 @@ class ListSampleActivity : AnkoListActivity() {
 //        }
     }
 
-
     override var headline: String? = "简单列表页Demo"
-
 }

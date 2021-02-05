@@ -24,19 +24,14 @@ class RecyclerViewUI : AnkoComponent<Context> {
     override fun createView(ui: AnkoContext<Context>) = with(ui) {
         verticalLayout {
             bar = ankoToolBar {
-
             }
-            flTop = frameLayout {
-
-            }.lparams(-1)
+            flTop = frameLayout {}.lparams(-1)
             srl = swipeRefreshLayout {
                 rcv = recyclerView {
                     layoutManager = LinearLayoutManager(ctx)
                 }.lparams(-1)
             }.lparams(matchParent, 0, 1f)
-            flBottom = frameLayout {
-
-            }.lparams(-1)
+            flBottom = frameLayout {}.lparams(-1)
         }
     }
 }

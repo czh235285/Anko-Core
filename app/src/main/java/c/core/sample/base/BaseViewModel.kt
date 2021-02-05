@@ -93,27 +93,19 @@ open class BaseViewModel : ViewModel(), BaseLifecycleObserver {
         }
     }
 
-    override fun onAny(owner: LifecycleOwner) {
-
-    }
+    override fun onAny(owner: LifecycleOwner) = Unit
 
     override fun onCreate(owner: LifecycleOwner) {
         this.owner = owner
     }
 
-    override fun onStart(owner: LifecycleOwner) {
+    override fun onStart(owner: LifecycleOwner) = Unit
 
-    }
+    override fun onStop(owner: LifecycleOwner) = Unit
 
-    override fun onStop(owner: LifecycleOwner) {
-    }
+    override fun onResume(owner: LifecycleOwner) = Unit
 
-    override fun onResume(owner: LifecycleOwner) {
-    }
+    override fun onPause(owner: LifecycleOwner) = Unit
 
-    override fun onPause(owner: LifecycleOwner) {
-    }
-
-    override fun onDestory(owner: LifecycleOwner) {
-    }
+    override fun onDestory(owner: LifecycleOwner) = Unit
 }

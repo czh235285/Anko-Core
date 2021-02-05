@@ -14,7 +14,6 @@ import kotlinx.coroutines.CoroutineScope
 
 class FirstFragment private constructor() : AnkoListFragment() {
 
-
     private val viewModel by viewModels<FirstViewModel>()
 
     override fun afterInitView() {
@@ -36,7 +35,6 @@ class FirstFragment private constructor() : AnkoListFragment() {
                             1 -> openActivity<GLoadingActivity>()
                             2 -> viewModel.test()
                             else -> {
-
                             }
                         }
                     }
@@ -60,5 +58,4 @@ class FirstFragment private constructor() : AnkoListFragment() {
     companion object {
         val instance: FirstFragment = FirstFragment()
     }
-
 }

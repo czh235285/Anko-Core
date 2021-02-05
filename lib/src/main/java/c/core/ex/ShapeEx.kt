@@ -24,7 +24,6 @@ inline fun View.commonShape(
     strokeColor: Int? = null,
     strokeWidth: Int? = null,
     fill: GradientDrawable.() -> Unit? = {
-
     }
 ) = buildShape {
     shapeEnum = Shape.RECTANGLE
@@ -32,7 +31,6 @@ inline fun View.commonShape(
     radius?.let { cornerRadius = it }
     if (strokeWidth != null && strokeColor != null) {
         setStroke(strokeWidth, strokeColor)
-
     }
     this.fill()
 }
@@ -85,11 +83,9 @@ var GradientDrawable.shapeEnum: Shape
     }
     @TargetApi(24) get() = fromInt(shape) ?: error("Illegal shape int $shape")
 
-
 var GradientDrawable.shapeSolidColor: Int
     set(value) = setColor(value)
     @Deprecated(message = NO_GETTER, level = DeprecationLevel.HIDDEN) get() = error(NO_GETTER)
-
 
 class Gradient {
     var startColor: Int = -1
@@ -107,7 +103,6 @@ fun GradientDrawable.shapeGradient(fill: Gradient.() -> Unit) {
         colors = intArrayOf(it.startColor, it.endColor)
     }
 }
-
 
 class Stroke {
     var width: Int = -1

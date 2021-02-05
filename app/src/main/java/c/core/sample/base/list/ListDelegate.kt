@@ -79,10 +79,9 @@ open class ListDelegate<T>(private val iList: IList<T>) {
             preLoadNumber = iList.getLoadNumber()?:1
             setOnLoadMoreListener { loadMore() }
             isAutoLoadMore = iList.enableLoadMore()
-            //当自动加载开启，同时数据不满一屏时，是否继续执行自动加载更多(默认为true)
+            // 当自动加载开启，同时数据不满一屏时，是否继续执行自动加载更多(默认为true)
             isEnableLoadMoreIfNotFullPage = true
         }
-
     }
 
     protected open fun initRecyclerView(
@@ -118,7 +117,6 @@ open class ListDelegate<T>(private val iList: IList<T>) {
         }
     }
 
-
     fun clear() {
         listAdapter.mData.clear()
         listAdapter.notifyDataSetChanged()
@@ -127,7 +125,6 @@ open class ListDelegate<T>(private val iList: IList<T>) {
     private fun initRefresh(content: LinearLayout) {
         refreshLayout = content.findViewById(R.id.smartRefreshLayout)
         initSmartRefreshLayout(refreshLayout)
-
     }
 
     protected open fun initSmartRefreshLayout(refreshLayout: SmartRefreshLayout) {
@@ -187,7 +184,6 @@ open class ListDelegate<T>(private val iList: IList<T>) {
         fun <T> create(iList: IList<T>): ListDelegate<T> {
             return ListDelegate(iList)
         }
-
     }
 
     interface IList<T> {
@@ -217,5 +213,4 @@ open class ListDelegate<T>(private val iList: IList<T>) {
 
         fun getItemDecoration(): RecyclerView.ItemDecoration?
     }
-
 }

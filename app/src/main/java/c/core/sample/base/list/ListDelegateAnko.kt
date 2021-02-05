@@ -23,7 +23,6 @@ open class ListDelegateAnko(private val iList: IList) {
 
     private val pageSize = 15
 
-
     private lateinit var listAdapter: AnkoAdapter
 
     protected open val enableEmptyView
@@ -55,7 +54,6 @@ open class ListDelegateAnko(private val iList: IList) {
     private fun initRecycler(ui: RecyclerViewUI) {
         val recyclerView = ui.rcv
         listAdapter = object : AnkoAdapter(), AnkoLoadMoreModule {
-
         }
         val context = recyclerView.context
         val layoutManager = iList.getLayoutManager() ?: LinearLayoutManager(context)
@@ -77,10 +75,9 @@ open class ListDelegateAnko(private val iList: IList) {
                 loadMoreView = SimpleLoadMoreView()
             }
             isAutoLoadMore = iList.enableLoadMore()
-            //当自动加载开启，同时数据不满一屏时，是否继续执行自动加载更多(默认为true)
+            // 当自动加载开启，同时数据不满一屏时，是否继续执行自动加载更多(默认为true)
             isEnableLoadMoreIfNotFullPage = true
         }
-
     }
 
     protected open fun initRecyclerView(
@@ -113,12 +110,10 @@ open class ListDelegateAnko(private val iList: IList) {
         pageIndex++
     }
 
-
     fun clear() {
         listAdapter.mData.clear()
         listAdapter.notifyDataSetChanged()
     }
-
 
     protected open fun initSmartRefreshLayout(refreshLayout: SwipeRefreshLayout) {
         refreshLayout.apply {
@@ -152,7 +147,6 @@ open class ListDelegateAnko(private val iList: IList) {
         }, 500)
     }
 
-
     fun loadFail() {
         listAdapter.loadMoreModule.isEnableLoadMore = true
         listAdapter.loadMoreModule.loadMoreFail()
@@ -162,10 +156,9 @@ open class ListDelegateAnko(private val iList: IList) {
 
     companion object {
 
-        fun  create(iList: IList): ListDelegateAnko {
+        fun create(iList: IList): ListDelegateAnko {
             return ListDelegateAnko(iList)
         }
-
     }
 
     interface IList {
@@ -192,5 +185,4 @@ open class ListDelegateAnko(private val iList: IList) {
 
         fun getItemDecoration(): RecyclerView.ItemDecoration?
     }
-
 }

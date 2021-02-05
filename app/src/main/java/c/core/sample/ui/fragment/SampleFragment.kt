@@ -8,7 +8,6 @@ import c.core.ex.anko.generateView
 import c.core.sample.ui.layout.SampleFragmentUI
 import c.core.sample.ui.viewmodel.MagicIndicatorViewModel
 
-
 class SampleFragment private constructor() : AnkoFragment() {
     val viewModel by activityViewModels<MagicIndicatorViewModel>()
 
@@ -18,9 +17,7 @@ class SampleFragment private constructor() : AnkoFragment() {
         return ui.generateView(this)
     }
 
-    override fun afterInitView() {
-
-    }
+    override fun afterInitView() = Unit
 
     companion object {
 

@@ -9,6 +9,5 @@ import org.jetbrains.anko.AnkoContext
 fun AnkoComponent<Context>.generateView(ctx: Context): View =
     createView(AnkoContext.Companion.create(ctx))
 
-
 fun <T : Fragment> AnkoComponent<T>.generateView(fragment: T): View =
     createView(AnkoContext.create(fragment.requireActivity(), fragment))

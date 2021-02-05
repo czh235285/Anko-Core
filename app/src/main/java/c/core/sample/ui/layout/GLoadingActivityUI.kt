@@ -23,8 +23,8 @@ class GLoadingActivityUI : AnkoComponent<GLoadingActivity> {
             }
             linearLayout {
                 orientation = LinearLayout.HORIZONTAL
-                text(24, "#262626", "正常界面") {
-                    throttleClick(1){}
+                text(textSize = 24, "#262626", "正常界面") {
+                    throttleClick(1) {}
                     throttleClick {
                         owner.showLoadSuccess()
                     }
@@ -60,8 +60,6 @@ class GLoadingActivityUI : AnkoComponent<GLoadingActivity> {
                 }.lparams(0, -1, 1f) {
                     margin = 10.px
                 }
-
-
             }.lparams(-1, 80.px)
 
             gloadView = text(30, content = "正常布局") {

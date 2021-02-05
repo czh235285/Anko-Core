@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import c.core.ex.*
 import c.core.ex.anko.horizontalLayout
 import c.core.sample.ui.activity.EditAniTestActivity
@@ -13,7 +14,6 @@ import c.core.utils.color
 import c.core.widget.toolbar.AnkoToolBar
 import c.core.widget.toolbar.ankoToolBar
 import org.jetbrains.anko.*
-
 
 /**
  *  author : czh
@@ -39,7 +39,6 @@ class EditAniTestActivityUI : AnkoComponent<EditAniTestActivity> {
                     orientation = LinearLayout.HORIZONTAL
                     et = editText {
                         this.commonShape("#fafafa".color, 40.pxf)
-
                     }.lparams(690.px, 80.px) {
                         horizontalMargin = 30.px
                         bottomMargin = 10.px
@@ -52,7 +51,7 @@ class EditAniTestActivityUI : AnkoComponent<EditAniTestActivity> {
             }.lparams(-1)
 
             llcontent = linearLayout {
-                invisible()
+                isVisible = false
                 backgroundColor = "#000000".color.changeAlpha(0.5f)
             }.lparams(-1, -1)
         }

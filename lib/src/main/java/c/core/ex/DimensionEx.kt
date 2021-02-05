@@ -3,10 +3,8 @@ package c.core.ex
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 
-
 inline val Int.dp: Int get() = this.dpf.toInt()
 inline val Int.dpf: Float get() = this * appCtx.resources.displayMetrics.density
-
 
 inline val Int.px: Int get() = (wProportion * this).toInt()
 inline val Int.pxf: Float get() = (wProportion * this)
@@ -38,7 +36,6 @@ val designWidth: Int
     get() = appInfo.metaData.getInt("ui_design_width")
 val designHeight: Int
     get() = appInfo.metaData.getInt("ui_design_height")
-
 
 // 状态栏高度
 val statusBarHeight: Int

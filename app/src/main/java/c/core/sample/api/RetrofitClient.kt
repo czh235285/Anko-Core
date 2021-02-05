@@ -1,6 +1,5 @@
 package c.core.sample.api
 
-
 import c.core.ex.appCtx
 import okhttp3.Cache
 import okhttp3.OkHttpClient

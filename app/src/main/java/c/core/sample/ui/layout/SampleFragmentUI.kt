@@ -10,7 +10,6 @@ import org.jetbrains.anko.*
 
 class SampleFragmentUI : AnkoComponent<SampleFragment> {
 
-
     override fun createView(ui: AnkoContext<SampleFragment>): View = with(ui) {
         frameLayout {
             backgroundColor = Color.WHITE
@@ -20,7 +19,6 @@ class SampleFragmentUI : AnkoComponent<SampleFragment> {
             }.lparams {
                 gravity = Gravity.CENTER
             }
-
         }
     }
 }

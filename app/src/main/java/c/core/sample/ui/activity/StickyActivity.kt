@@ -1,17 +1,12 @@
 package c.core.sample.ui.activity
 
-import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
-import c.core.adapter.AnkoAdapter
 import c.core.adapter.dslAdapter
 import c.core.adapter.dslItem
-import c.core.adapter.holer.AnkoViewHolder
 import c.core.sample.base.AnkoActivity
-import c.core.sample.ui.layout.StickyActivityUI
 import c.core.sample.ui.layout.ItemUI
-import org.jetbrains.anko.AnkoComponent
+import c.core.sample.ui.layout.StickyActivityUI
 import org.jetbrains.anko.setContentView
-
 
 /**
  *  author : czh
@@ -23,7 +18,6 @@ class StickyActivity : AnkoActivity() {
     override fun ankoLayout() {
         ui.setContentView(this)
     }
-
 
     override fun afterInitView() {
         val data = mutableListOf<String>()

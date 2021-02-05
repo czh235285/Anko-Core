@@ -38,7 +38,6 @@ class ThirdFragmentUI : AnkoComponent<ThirdFragment> {
                 leftMargin = 500.px
                 topMargin = viewpagerHeight * 2 / 3
             }
-
         }
     }
 }

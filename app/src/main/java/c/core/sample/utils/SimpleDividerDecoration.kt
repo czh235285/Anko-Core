@@ -1,16 +1,10 @@
 package c.core.sample.utils
 
-
 import android.graphics.Canvas
-
 import android.graphics.Paint
-
 import android.graphics.Rect
-
-import androidx.recyclerview.widget.RecyclerView
-
 import android.view.View
-
+import androidx.recyclerview.widget.RecyclerView
 
 /**
 
@@ -20,21 +14,28 @@ import android.view.View
 
  */
 
-
-class SimpleDividerDecoration(dividerColor: Int, private val dividerHeight: Int, val leftPadding: Int = 0, val rightPadding: Int = 0, vararg val exclude: Int) : RecyclerView.ItemDecoration() {
-
+class SimpleDividerDecoration(
+    dividerColor: Int,
+    private val dividerHeight: Int,
+    val leftPadding: Int = 0,
+    val rightPadding: Int = 0,
+    vararg val exclude: Int
+) : RecyclerView.ItemDecoration() {
 
     val p = Paint().apply {
         color = dividerColor
     }
 
-
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
 
         super.getItemOffsets(outRect, view, parent, state)
         outRect.bottom = dividerHeight
     }
-
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
 
@@ -49,10 +50,14 @@ class SimpleDividerDecoration(dividerColor: Int, private val dividerHeight: Int,
                 val view = parent.getChildAt(it)
                 val top = view.bottom.toFloat()
                 val bottom = (view.bottom + dividerHeight).toFloat()
-                c.drawRect(left.toFloat() + leftPadding, top, right.toFloat() - rightPadding, bottom, p)
+                c.drawRect(
+                    left.toFloat() + leftPadding,
+                    top,
+                    right.toFloat() - rightPadding,
+                    bottom,
+                    p
+                )
             }
         }
-
     }
-
 }

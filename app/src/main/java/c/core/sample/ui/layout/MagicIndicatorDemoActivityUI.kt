@@ -22,7 +22,6 @@ class MagicIndicatorDemoActivityUI : AnkoComponent<MagicIndicatorDemoActivity> {
                 title = "MagicIndicatorDemo"
             }
             magicIndicator = magicIndicator {
-
             }.lparams(-1, 70.px)
 
             viewPager = viewPager {

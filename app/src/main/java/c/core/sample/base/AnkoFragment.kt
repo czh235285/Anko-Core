@@ -13,13 +13,11 @@ import c.core.widget.status.Gloading
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContextImpl
 
-
-//fragment基类
+// fragment基类
 abstract class AnkoFragment : Fragment() {
     val act by lazy {
         requireActivity()
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,14 +27,12 @@ abstract class AnkoFragment : Fragment() {
         return ankoLayout()
     }
 
-
     private var isLoadData = false
 
     override fun onDestroyView() {
         super.onDestroyView()
         isLoadData = false
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -59,16 +55,16 @@ abstract class AnkoFragment : Fragment() {
         }
     }
 
-    //获取布局文件
+    // 获取布局文件
     protected abstract fun ankoLayout(): View
 
-    //初始化view
+    // 初始化view
     protected abstract fun afterInitView()
 
-    //重新回到当前fragment刷新Data
+    // 重新回到当前fragment刷新Data
     open fun refreshUi() {}
 
-    //是否需要懒加载
+    // 是否需要懒加载
     open val isLazyLoad: Boolean
         get() = true
 
@@ -82,7 +78,6 @@ abstract class AnkoFragment : Fragment() {
     }
 
     protected open fun onLoadRetry() {
-
     }
 
     private var mLoading: LoadingDialog? = null

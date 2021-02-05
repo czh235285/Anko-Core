@@ -1,6 +1,7 @@
 package c.core.sample.utils
 
 import android.app.Activity
+import android.util.Log
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -30,7 +31,6 @@ class AppManager private constructor() {
         return activityStack.lastElement()
     }
 
-
     /**
      * 结束当前Activity（堆栈中最后一个压入的）
      */
@@ -40,10 +40,9 @@ class AppManager private constructor() {
         }
     }
 
-
     companion object {
-        private var activityStack: Stack<Activity> = Stack()        // Activity栈
-        private var instance: AppManager? = null                // 单例模式
+        private var activityStack: Stack<Activity> = Stack() // Activity栈
+        private var instance: AppManager? = null // 单例模式
 
         /**
          * 单一实例
@@ -66,7 +65,6 @@ class AppManager private constructor() {
                 }
             }
         }
-
 
         fun finishActivity(cls: Class<*>) {
             synchronized(activityStack) {
@@ -115,7 +113,6 @@ class AppManager private constructor() {
             finishActivityExclude(T::class.java)
         }
 
-
         /**
          * 获取指定的Activity
          * @author kymjs
@@ -141,7 +138,7 @@ class AppManager private constructor() {
                 android.os.Process.killProcess(android.os.Process.myPid())
                 exitProcess(0)
             } catch (e: Exception) {
-
+                Log.e("TAG", "appExit")
             }
         }
     }

@@ -2,6 +2,8 @@ package c.core.sample.ui.activity
 
 import android.animation.ValueAnimator
 import android.widget.LinearLayout
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import c.core.ex.*
 import c.core.sample.base.AnkoActivity
@@ -10,7 +12,6 @@ import c.core.utils.throttleClick
 import kotlinx.coroutines.delay
 import org.jetbrains.anko.horizontalMargin
 import org.jetbrains.anko.setContentView
-
 
 /**
  *  author : czh
@@ -25,7 +26,6 @@ class EditAniTestActivity : AnkoActivity() {
         ui.setContentView(this)
     }
 
-
     fun startAni() {
         lifecycleScope.launchWhenCreated {
             var a = 1
@@ -38,14 +38,12 @@ class EditAniTestActivity : AnkoActivity() {
 
                 ui.bar.tvTitle.alpha = 1f - (a / 100)
 
-
                 ui.et.layoutParams =
                     LinearLayout.LayoutParams(690.px - (80.px * a / 100), -2).apply {
                         horizontalMargin = 30.px
                         bottomMargin = 10.px
                     }
                 delay(2)
-
             } while (a < 100)
         }
     }
@@ -66,7 +64,6 @@ class EditAniTestActivity : AnkoActivity() {
                         bottomMargin = 10.px
                     }
                 delay(2)
-
             } while (a > 0)
         }
     }
@@ -75,12 +72,11 @@ class EditAniTestActivity : AnkoActivity() {
         with(ui) {
 
             et.setOnFocusChangeListener { v, hasFocus ->
+                llcontent.isInvisible = !hasFocus
                 if (hasFocus) {
                     startAni()
-                    llcontent.visible()
                 } else {
                     stopAni()
-                    llcontent.invisible()
                 }
             }
             et.throttleClick {

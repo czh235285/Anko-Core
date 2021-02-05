@@ -8,7 +8,10 @@ import c.core.sample.base.AnkoActivity
 import c.core.sample.ui.fragment.SampleFragment
 import c.core.sample.ui.layout.MagicIndicatorDemoActivityUI
 import c.core.sample.ui.viewmodel.MagicIndicatorViewModel
-import c.core.widget.indicator.*
+import c.core.widget.indicator.bind
+import c.core.widget.indicator.configIndicator
+import c.core.widget.indicator.configPadding
+import c.core.widget.indicator.configText
 import org.jetbrains.anko.setContentView
 
 class MagicIndicatorDemoActivity : AnkoActivity() {

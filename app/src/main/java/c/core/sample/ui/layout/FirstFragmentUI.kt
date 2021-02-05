@@ -6,8 +6,8 @@ import c.core.ex.commonShape
 import c.core.ex.px
 import c.core.ex.pxf
 import c.core.ex.text
-import c.core.sample.ui.activity.ListSampleActivity
 import c.core.sample.ui.activity.GLoadingActivity
+import c.core.sample.ui.activity.ListSampleActivity
 import c.core.sample.ui.fragment.FirstFragment
 import c.core.utils.color
 import c.core.utils.openActivity

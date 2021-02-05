@@ -19,7 +19,5 @@ class GLoadingActivity : AnkoActivity() {
         toast("点击重试")
     }
 
-    override fun afterInitView() {
-
-    }
+    override fun afterInitView() = Unit
 }

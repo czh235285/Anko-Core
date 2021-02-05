@@ -30,7 +30,6 @@ abstract class BaseListActivity<T> : BaseActivity<ActivityBaseListBinding>(),
 
     override fun getLoadNumber(): Int? = 60
 
-
     override val wrappedView: View?
         get() = binding.smartRefreshLayout
 
@@ -42,7 +41,6 @@ abstract class BaseListActivity<T> : BaseActivity<ActivityBaseListBinding>(),
         listDelegate.onBindView(binding.layoutListContent)
         showLoadingView()
     }
-
 
     override fun submitData(elements: List<T>?) {
         showLoadSuccess()

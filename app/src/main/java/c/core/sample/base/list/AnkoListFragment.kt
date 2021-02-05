@@ -2,18 +2,16 @@ package c.core.sample.base.list
 
 import android.util.Log
 import android.view.View
+import androidx.core.view.isGone
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import c.core.adapter.entity.DslItemView
 import c.core.ex.anko.generateView
-import c.core.ex.gone
-import c.core.sample.base.AnkoActivity
 import c.core.sample.base.AnkoFragment
 import c.core.sample.base.safeLaunch
 import c.core.sample.utils.SimpleDividerDecoration
 import c.core.utils.color
 import kotlinx.coroutines.CoroutineScope
-import org.jetbrains.anko.setContentView
 
 /**
  *  author : czh
@@ -37,7 +35,7 @@ abstract class AnkoListFragment : AnkoFragment(),
 
     override fun afterInitView() {
         listDelegate.onBindView(ui)
-        ui.bar.gone()
+        ui.bar.isGone = true
         showLoadingView()
     }
 

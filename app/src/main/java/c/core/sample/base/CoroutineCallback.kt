@@ -8,7 +8,6 @@ class ScopeCallback(
     var onFinally: () -> Unit = {}
 )
 
-
 fun CoroutineScope.safeLaunch(init: suspend ScopeCallback.() -> Unit): Job {
     return launch {
         val callback = ScopeCallback().apply { this.init() }

@@ -18,9 +18,7 @@ fun ViewManager.text(
     isBOLD: Boolean = false,
     maxLine: Int? = null
 ) = text(textSize, colorString, content, isBOLD, maxLine) {
-
 }
-
 
 inline fun ViewManager.text(
     textSize: Int,
@@ -48,7 +46,6 @@ inline fun ViewManager.text(
             if (isBOLD) {
                 typeface = Typeface.defaultFromStyle(Typeface.BOLD)
             }
-
 
             if (layoutParams == null) {
                 layoutParams = ViewGroup.LayoutParams(-2, -2)

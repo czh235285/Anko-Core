@@ -1,6 +1,5 @@
 package c.core.ex
 
-
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.StateListDrawable
 import android.util.StateSet
@@ -23,7 +22,6 @@ object ViewStates {
 inline fun View.stateListDrawable(block: StateListDrawable.() -> Unit) {
     background = StateListDrawable().also(block)
 }
-
 
 inline fun StateListDrawable.state(state: IntArray, block: () -> Drawable): Unit =
     addState(state, block())

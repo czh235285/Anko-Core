@@ -31,8 +31,6 @@ class TextUI : AnkoComponent<Context> {
                         endColor = "#333333".color
                     }
                 }
-
-
             }.lparams(-1) {
                 margin = 20.px
             }

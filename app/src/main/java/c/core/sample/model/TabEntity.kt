@@ -2,7 +2,6 @@ package c.core.sample.model
 
 import com.flyco.tablayout.listener.CustomTabEntity
 
-
 /**
  * Created by admin on 2018/1/25.
  */

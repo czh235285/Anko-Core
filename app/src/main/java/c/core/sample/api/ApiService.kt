@@ -5,7 +5,6 @@ import c.core.sample.model.Project
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-
 val apiservice by lazy { RetrofitClient.getService<ApiService>("https://www.wanandroid.com/") }
 
 interface ApiService {

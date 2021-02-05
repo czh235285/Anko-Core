@@ -6,8 +6,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import org.jetbrains.anko.inputMethodManager
 
-
-
 fun Activity.showSoftInput() {
     val view: View? = currentFocus ?: window.decorView
     view?.showSoftInput()
@@ -21,7 +19,6 @@ fun Activity.hideSoftInput() {
 fun Activity.isSoftInputActive(): Boolean {
     return inputMethodManager.isActive
 }
-
 
 fun Fragment.showSoftInput() {
     requireActivity().showSoftInput()

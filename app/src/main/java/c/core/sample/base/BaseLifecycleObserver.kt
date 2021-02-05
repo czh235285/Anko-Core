@@ -13,7 +13,6 @@ interface BaseLifecycleObserver : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate(owner: LifecycleOwner)
 
-
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStart(owner: LifecycleOwner)
 
@@ -28,5 +27,4 @@ interface BaseLifecycleObserver : LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestory(owner: LifecycleOwner)
-
 }

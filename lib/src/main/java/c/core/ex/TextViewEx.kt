@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import c.core.utils.resDrawable
 
-
 fun TextView.pSize(size: Int) {
     setTextSize(TypedValue.COMPLEX_UNIT_PX, size.pxf)
 }
@@ -19,7 +18,6 @@ fun TextView.bold(isBold: Boolean = true) {
         Typeface.defaultFromStyle(Typeface.NORMAL)
     }
 }
-
 
 fun TextView.leftDrawable(
     @DrawableRes id: Int,
@@ -36,7 +34,6 @@ fun TextView.leftDrawable(
     }
 }
 
-
 fun TextView.topDrawable(
     @DrawableRes id: Int,
     width: Int? = null,
@@ -51,7 +48,6 @@ fun TextView.topDrawable(
         this.setCompoundDrawables(null, d, null, null)
     }
 }
-
 
 fun TextView.rightDrawable(
     @DrawableRes id: Int,
@@ -68,7 +64,6 @@ fun TextView.rightDrawable(
     }
 }
 
-
 fun TextView.bottomDrawable(
     @DrawableRes id: Int,
     width: Int? = null,
@@ -83,7 +78,6 @@ fun TextView.bottomDrawable(
         this.setCompoundDrawables(null, null, null, d)
     }
 }
-
 
 fun TextView.textDrawable(init: TextDrawable.() -> Unit) {
     TextDrawable().also {
@@ -166,5 +160,4 @@ class CreateDrawable {
     var height: Int? = null
     var padding: Int? = null
 }
-
 
