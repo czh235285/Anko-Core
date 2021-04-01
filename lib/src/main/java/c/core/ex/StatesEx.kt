@@ -5,7 +5,7 @@ import android.graphics.drawable.StateListDrawable
 import android.util.StateSet
 import android.view.View
 
-object ViewStates {
+object StatesEx {
     fun enabled() = intArrayOf(android.R.attr.state_enabled)
     fun disabled() = intArrayOf(-android.R.attr.state_enabled)
 
@@ -27,28 +27,28 @@ inline fun StateListDrawable.state(state: IntArray, block: () -> Drawable): Unit
     addState(state, block())
 
 inline fun StateListDrawable.enabledState(block: () -> Drawable): Unit =
-    state(ViewStates.enabled(), block)
+    state(StatesEx.enabled(), block)
 
 inline fun StateListDrawable.disabledState(block: () -> Drawable): Unit =
-    state(ViewStates.disabled(), block)
+    state(StatesEx.disabled(), block)
 
 inline fun StateListDrawable.selectedState(block: () -> Drawable): Unit =
-    state(ViewStates.selected(), block)
+    state(StatesEx.selected(), block)
 
 inline fun StateListDrawable.unSelectedState(block: () -> Drawable): Unit =
-    state(ViewStates.notSelected(), block)
+    state(StatesEx.notSelected(), block)
 
 inline fun StateListDrawable.pressedState(block: () -> Drawable): Unit =
-    state(ViewStates.pressed(), block)
+    state(StatesEx.pressed(), block)
 
 inline fun StateListDrawable.unPressedState(block: () -> Drawable): Unit =
-    state(ViewStates.notPressed(), block)
+    state(StatesEx.notPressed(), block)
 
 inline fun StateListDrawable.checkedState(block: () -> Drawable): Unit =
-    state(ViewStates.checked(), block)
+    state(StatesEx.checked(), block)
 
 inline fun StateListDrawable.unCheckedState(block: () -> Drawable): Unit =
-    state(ViewStates.unchecked(), block)
+    state(StatesEx.unchecked(), block)
 
 inline fun StateListDrawable.defaultState(block: () -> Drawable): Unit =
     state(StateSet.WILD_CARD, block)

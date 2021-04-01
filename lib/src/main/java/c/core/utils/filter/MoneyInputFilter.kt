@@ -3,7 +3,7 @@ package c.core.utils.filter
 import android.text.InputFilter
 import android.text.Spanned
 
-//限制小数点后面默认只能有两位小数
+// 限制小数点后面默认只能有两位小数
 class MoneyInputFilter(private var pointLength: Int = 2) : InputFilter {
     override fun filter(
         source: CharSequence,
@@ -15,10 +15,10 @@ class MoneyInputFilter(private var pointLength: Int = 2) : InputFilter {
     ): CharSequence {
         val startInput = dest.subSequence(0, dstart)
         val endInput = dest.subSequence(dend, dest.length)
-        val target = startInput.toString() + source + endInput//字符串变化后的结果
-        val backup = dest.subSequence(dstart, dend)//将要被替换的字符串
+        val target = startInput.toString() + source + endInput // 字符串变化后的结果
+        val backup = dest.subSequence(dstart, dend) // 将要被替换的字符串
 
-        if (target.indexOf(".") == 0) {//不允许第一个字符为.
+        if (target.indexOf(".") == 0) { // 不允许第一个字符为.
             return backup
         }
 

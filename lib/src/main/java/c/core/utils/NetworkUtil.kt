@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import c.core.ex.appCtx
 
-
 /**
  * 判断网络是否可用
  */
@@ -37,4 +36,3 @@ val is3gConnected: Boolean
         val networkInfo = cm.activeNetworkInfo
         return networkInfo?.type == ConnectivityManager.TYPE_MOBILE
     }
-

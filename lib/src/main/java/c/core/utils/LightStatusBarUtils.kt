@@ -1,12 +1,11 @@
 package c.core.utils
 
-
 import android.annotation.SuppressLint
+import android.view.WindowManager
 
 /**
  * Created by Dell on 2017/9/15.
  */
-
 
 object LightStatusBarUtils {
 
@@ -16,11 +15,14 @@ object LightStatusBarUtils {
 
             RomUtils.AvailableRomType.FLYME -> setFlymeLightStatusBar(activity, dark)
 
-            RomUtils.AvailableRomType.ANDROID_NATIVE -> setAndroidNativeLightStatusBar(activity, dark)
+            RomUtils.AvailableRomType.ANDROID_NATIVE -> setAndroidNativeLightStatusBar(
+                activity,
+                dark
+            )
 
             RomUtils.AvailableRomType.NA -> {
             }
-        }// N/A do nothing
+        }
     }
 
     @SuppressLint("PrivateApi")
@@ -31,7 +33,11 @@ object LightStatusBarUtils {
             val layoutParams = Class.forName("android.view.MiuiWindowManager\$LayoutParams")
             val field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE")
             darkModeFlag = field.getInt(layoutParams)
-            val extraFlagField = clazz.getMethod("setExtraFlags", Int::class.javaPrimitiveType, Int::class.javaPrimitiveType)
+            val extraFlagField = clazz.getMethod(
+                "setExtraFlags",
+                Int::class.javaPrimitiveType,
+                Int::class.javaPrimitiveType
+            )
             extraFlagField.invoke(activity.window, if (darkmode) darkModeFlag else 0, darkModeFlag)
             return true
         } catch (e: Exception) {
@@ -44,11 +50,11 @@ object LightStatusBarUtils {
     private fun setFlymeLightStatusBar(activity: android.app.Activity?, dark: Boolean): Boolean {
         var result = false
         if (activity != null) {
-            try {
+            runCatching {
                 val lp = activity.window.attributes
-                val darkFlag = android.view.WindowManager.LayoutParams::class.java
+                val darkFlag = WindowManager.LayoutParams::class.java
                     .getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON")
-                val meizuFlags = android.view.WindowManager.LayoutParams::class.java
+                val meizuFlags = WindowManager.LayoutParams::class.java
                     .getDeclaredField("meizuFlags")
                 darkFlag.isAccessible = true
                 meizuFlags.isAccessible = true
@@ -62,9 +68,7 @@ object LightStatusBarUtils {
                 meizuFlags.setInt(lp, value)
                 activity.window.attributes = lp
                 result = true
-            } catch (e: Exception) {
             }
-
         }
         return result
     }
@@ -77,5 +81,4 @@ object LightStatusBarUtils {
             decor.systemUiVisibility = 0
         }
     }
-
 }

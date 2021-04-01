@@ -1,8 +1,6 @@
 package c.core.sample.ui.activity
 
-import android.content.res.Resources
 import android.view.KeyEvent
-import c.core.ex.appCtx
 import c.core.ex.bind
 import c.core.ex.px
 import c.core.sample.R
@@ -14,7 +12,6 @@ import c.core.sample.ui.layout.MainActivityUI
 import c.core.sample.utils.AppManager
 import c.core.utils.color
 import c.core.widget.indicator.bind
-import com.vise.log.ViseLog
 import org.jetbrains.anko.setContentView
 import org.jetbrains.anko.toast
 

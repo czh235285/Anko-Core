@@ -4,7 +4,6 @@ import android.text.InputFilter
 import android.text.Spanned
 import java.util.regex.Pattern
 
-
 /**
  * 限制只能输入中英文
  */
@@ -27,7 +26,6 @@ class RealNameFilter : InputFilter {
         if (source == null) {
             return ""
         }
-        
         return if (check(source)) {
             source
         } else {

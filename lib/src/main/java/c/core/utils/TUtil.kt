@@ -34,7 +34,6 @@ object TUtil {
     }
 }
 
-
 fun <T> LayoutInflater.getViewBinding(o: Any, i: Int): T? {
     try {
 
@@ -45,7 +44,6 @@ fun <T> LayoutInflater.getViewBinding(o: Any, i: Int): T? {
                 LayoutInflater::class.java
             )
         return method.invoke(null,this) as T
-
     } catch (e: InstantiationException) {
         e.printStackTrace()
     } catch (e: IllegalAccessException) {

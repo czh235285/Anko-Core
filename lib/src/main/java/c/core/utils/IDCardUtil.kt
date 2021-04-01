@@ -565,5 +565,4 @@ object IDCardUtil {
         sProvince = cityCodes[sProvinNum]
         return sProvince
     }
-
 }

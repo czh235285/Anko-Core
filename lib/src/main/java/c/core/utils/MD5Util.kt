@@ -41,6 +41,5 @@ fun MD5(str: String): String {
         finalValue[k++] = hexDigits[encoded.toInt() shr 4 and 0xf]
         finalValue[k++] = hexDigits[encoded.toInt() and 0xf]
     }
-
     return String(finalValue)
 }

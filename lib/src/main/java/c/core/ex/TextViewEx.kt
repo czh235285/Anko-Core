@@ -160,4 +160,3 @@ class CreateDrawable {
     var height: Int? = null
     var padding: Int? = null
 }
-

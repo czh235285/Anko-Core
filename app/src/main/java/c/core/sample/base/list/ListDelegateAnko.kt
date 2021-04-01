@@ -8,14 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import c.core.adapter.AnkoAdapter
 import c.core.adapter.entity.DslItemView
-import c.core.adapter.holer.AnkoViewHolder
 import c.core.adapter.loadmore.AnkoLoadMoreModule
-import com.scwang.smartrefresh.layout.SmartRefreshLayout
-import com.scwang.smartrefresh.layout.constant.RefreshState
-import com.vise.log.ViseLog
 import c.core.sample.R
 import c.core.widget.SimpleLoadMoreView
-import org.jetbrains.anko.AnkoComponent
 
 open class ListDelegateAnko(private val iList: IList) {
 

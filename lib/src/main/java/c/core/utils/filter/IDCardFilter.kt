@@ -5,7 +5,6 @@ import android.text.Spanned
 import android.widget.EditText
 import java.util.regex.Pattern
 
-
 /**
  * 身份证输入限制。前17位只能输入数字，最后一位可以是X，x
  */
@@ -56,6 +55,5 @@ class IDCardFilter private constructor() : InputFilter {
                 ""
             }
         }
-
     }
 }

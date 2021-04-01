@@ -105,11 +105,9 @@ class RomUtils {
                 return null
             } finally {
                 if (input != null) {
-                    try {
+                    runCatching {
                         input.close()
-                    } catch (e: IOException) {
                     }
-
                 }
             }
             return line

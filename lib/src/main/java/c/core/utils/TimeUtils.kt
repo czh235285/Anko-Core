@@ -15,7 +15,6 @@ object TimeUtils {
      */
     val SYSTEM_START_DATE = intArrayOf(1970, 0, 1, 0, 0, 0)
 
-
     val LEVEL_YEAR = 0
     val LEVEL_MONTH = 1
     val LEVEL_DAY = 2
@@ -89,7 +88,6 @@ object TimeUtils {
     )
 }
 
-
 /**获取日期 年，月， 日 对应值
  * @param date
  * @return
@@ -111,7 +109,6 @@ fun getDateDetail(time: Long): IntArray {
         mCalendar.get(Calendar.DAY_OF_MONTH)
     )//2
 }
-
 
 /**
  * 根据生日计算星座
@@ -135,7 +132,6 @@ fun getStar(birthday: Date): String {
     }
     return starArr[month]
 }
-
 
 /**
  * 获取日期 年，月， 日， 时， 分， 秒 对应值
@@ -219,7 +215,6 @@ fun Long.getSmartDate(): String {
     }
     return smartDate
 }
-
 
 /**
  * 获取智能生日
@@ -306,7 +301,6 @@ fun getAge(birthdayDetail: IntArray?): Int {
     return age
 }
 
-
 /**根据日期获取指定格式时间
  * @return format yyyy-MM-dd HH:mm:ss
  */
@@ -331,9 +325,7 @@ fun Date.dateToString(format: String = "yyyy-MM-dd HH:mm:ss"): String? {
     } catch (e: Exception) {
         null
     }
-
 }
-
 
 fun Long.getTimes(action: (days: String, hours: String, minutes: String, seconds: String) -> Unit) {
     val totalSeconds = this / 1000

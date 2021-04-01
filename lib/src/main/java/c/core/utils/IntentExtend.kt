@@ -24,7 +24,6 @@ inline fun <reified T : kotlin.Any> Activity.openActivityForResult(
     startActivityForResult(intent, requestCode)
 }
 
-
 inline fun <reified T : kotlin.Any> Fragment.openActivityForResult(
     requestCode: Int,
     vararg params: Pair<String, Any?>
@@ -59,7 +58,6 @@ inline fun <reified T : kotlin.Any> Fragment.openActivity(vararg params: Pair<St
     startActivity(intent)
 }
 
-
 /**
  * 共享元素转场、分解、滑动进入、淡入淡出
  * @param view     共享元素
@@ -90,7 +88,6 @@ inline fun <reified T : kotlin.Any> Context.openActivityByTransition(
         startActivity(intent)
     }
 }
-
 
 fun fillIntentArguments(intent: Intent, params: Array<out Pair<String, Any?>>) {
     params.forEach {
@@ -127,7 +124,6 @@ fun fillIntentArguments(intent: Intent, params: Array<out Pair<String, Any?>>) {
         return@forEach
     }
 }
-
 
 fun Activity.optString(key: String, default: String = ""): String {
     return optIntentParams(key, default) ?: ""

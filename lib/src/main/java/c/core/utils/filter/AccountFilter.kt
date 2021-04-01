@@ -5,7 +5,6 @@ import android.text.Spanned
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-
 /**
  * 输入框限制输入字母和数字
  */

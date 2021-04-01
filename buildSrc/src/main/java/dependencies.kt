@@ -12,7 +12,6 @@ object Common {
     const val eventBus = "org.greenrobot:eventbus:3.2.0"
 }
 
-
 object GradlePlugin {
     const val JCenter = "com.novoda:bintray-release:0.9.1"
     const val AndroidGradle = "com.android.tools.build:gradle:3.6.1"

@@ -3,7 +3,6 @@ package c.core.utils.filter
 import android.text.InputFilter
 import android.text.Spanned
 
-
 /**
  * 输入框限制输入最大最小值
  */
@@ -17,11 +16,9 @@ class InputFilterMinMax(private var min: Int, private var max: Int) : InputFilte
         dstart: Int,
         dend: Int
     ): CharSequence? {
-        try {
+        runCatching {
             val input = (dest.toString() + source.toString()).toInt()
             if (isInRange(min, max, input)) return null
-        } catch (nfe: Exception) {
-
         }
         return ""
     }
